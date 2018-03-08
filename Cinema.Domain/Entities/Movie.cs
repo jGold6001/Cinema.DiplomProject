@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +11,7 @@ namespace Cinema.Domain.Entities
 {
     public class Movie
     {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         [JsonProperty("id")]
         public long Id { get; set; }
 
@@ -35,14 +38,17 @@ namespace Cinema.Domain.Entities
         public List<Image> Images { get; set; }
 
         [JsonProperty("countries")]
-        public List<Country> Country { get; set; }
+        public List<Country> Countries { get; set; }
 
         [JsonProperty("genres")]
-        public List<Genre> Genre { get; set; }
+        public List<Genre> Genres { get; set; }
 
         public Movie()
         {
-
+            Persons = new List<Person>();
+            Images = new List<Image>();
+            Countries = new List<Country>();
+            Genres = new List<Genre>();
         }
 
     }
