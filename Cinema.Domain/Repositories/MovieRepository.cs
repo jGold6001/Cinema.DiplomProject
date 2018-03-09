@@ -12,6 +12,9 @@ namespace Cinema.Domain.Repositories
     {
         public MovieRepository(DbContext context) : base(context)
         {
+            
         }
+
+        
     }
 }

@@ -31,8 +31,8 @@ namespace Cinema.Domain.Entities
         public int Duration { get; set; }
 
         [JsonProperty("age_limit")]
-        public string AgeLimit { get; set; }
-        public Poster Poster { get; set; }
+        public string AgeLimit { get; set; }       
+        public Poster Poster { get; set; }      
         public Trailer Trailer { get; set; }       
         public List<Person> Persons { get; set; }
         public List<Image> Images { get; set; }

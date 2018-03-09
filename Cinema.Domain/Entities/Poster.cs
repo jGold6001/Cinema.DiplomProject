@@ -23,5 +23,10 @@ namespace Cinema.Domain.Entities
             this.Id = id;
             this.Url = url;
         }
+
+        public Poster()
+        {
+
+        }
     }
 }

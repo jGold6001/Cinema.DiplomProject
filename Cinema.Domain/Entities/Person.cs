@@ -30,6 +30,6 @@ namespace Cinema.Domain.Entities
         {
             Movies = new List<Movie>();
         }
-     
+
     }
 }

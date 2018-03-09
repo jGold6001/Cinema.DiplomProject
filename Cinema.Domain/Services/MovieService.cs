@@ -26,14 +26,25 @@ namespace Cinema.Domain.Services
             unitOfWork.Posters.AddOrUpdate(movie.Poster);
             unitOfWork.Trailers.AddOrUpdate(movie.Trailer);
 
-            foreach (var item in unitOfWork.Persons.GetAll())
+            foreach (var item in movie.Persons)
             {
-                if (unitOfWork.Persons.FindBy(c => c.Id == item.Id).Count() != 0)
+                if (unitOfWork.Persons.Get(item.Id) == null)
                     unitOfWork.Persons.AddOrUpdate(item);
-            }                
+                else
+                    unitOfWork.Persons.Attach(item);
+            }
 
-            foreach (var item in unitOfWork.Images.GetAll())
+            foreach (var item in movie.Countries)
+                unitOfWork.Countries.Attach(item);
+
+
+            foreach (var item in movie.Genres)
+                 unitOfWork.Genres.Attach(item);
+
+            foreach (var item in movie.Images)
                 unitOfWork.Images.AddOrUpdate(item);
+
+            unitOfWork.Movies.AddOrUpdate(movie);
 
             unitOfWork.Save();
         }
@@ -42,13 +53,16 @@ namespace Cinema.Domain.Services
         public void DeleteMovie(long id)
         {
             var movie = unitOfWork.Movies.Get(id);
+            var poster = unitOfWork.Posters.Get(id);
+            var trailer = unitOfWork.Trailers.Get(id);
 
-            unitOfWork.Posters.Delete(movie.Poster);
-            unitOfWork.Trailers.Delete(movie.Trailer);
+            unitOfWork.Posters.Delete(poster);
+            unitOfWork.Trailers.Delete(trailer);
 
-            foreach (var item in unitOfWork.Images.GetAll())
+            foreach (var item in unitOfWork.Images.FindBy(i => i.MovieId == id))
                 unitOfWork.Images.Delete(item);
 
+            unitOfWork.Movies.Delete(movie);
             unitOfWork.Save();
         }
 

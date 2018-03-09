@@ -59,6 +59,7 @@
     <Compile Include="MovieServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestServiceTest.cs" />
+    <Compile Include="TheaterServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -98,7 +98,8 @@
     <Compile Include="Repositories\TestRepository.cs" />
     <Compile Include="Repositories\TheaterRepository.cs" />
     <Compile Include="Repositories\TrailerRepository.cs" />
-    <Compile Include="Services\CinemaService.cs" />
+    <Compile Include="Services\SeanceService.cs" />
+    <Compile Include="Services\TheaterService.cs" />
     <Compile Include="Services\MovieService.cs" />
     <Compile Include="Services\TestService.cs" />
   </ItemGroup>

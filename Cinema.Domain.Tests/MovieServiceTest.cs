@@ -15,9 +15,9 @@ namespace Cinema.Domain.Tests
         MovieService movieService = new MovieService();
         EFUnitOfWork unitOfWork = new EFUnitOfWork("CotsContext");
 
-        List<Country> countries;
-        List<Genre> genres;
-        List<Profession> professions;
+        //List<Country> countries;
+        //List<Genre> genres;
+        //List<Profession> professions;
 
         [TestInitialize]
         public void Init()
@@ -38,9 +38,9 @@ namespace Cinema.Domain.Tests
         [TestMethod]
         public void GetFomAPI_AddToDB_And_DeleteFromDb_MovieTest()
         {
-
             var movie = movieService.GetFromAPI(47287);
-
+            movieService.AddOrUpdateMovie(movie);
+            movieService.DeleteMovie(47287);
         }
 
         [TestMethod]

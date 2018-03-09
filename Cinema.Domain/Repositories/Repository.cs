@@ -21,7 +21,12 @@ namespace Cinema.Domain.Repositories
         }
         public void AddOrUpdate(T entity)
         {
-            dbSet.AddOrUpdate(entity);           
+            dbSet.AddOrUpdate(entity); 
+        }
+
+        public void Attach(T entity)
+        {
+            dbSet.Attach(entity);
         }
 
         public void Delete(T entity)
@@ -43,5 +48,7 @@ namespace Cinema.Domain.Repositories
         {
             return dbSet;
         }
+
+       
     }
 }

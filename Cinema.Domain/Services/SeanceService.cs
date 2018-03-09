@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Cinema.Domain.Services
 {
-    public class CinemaService
+    public class SeanceService
     {
+
     }
 }
