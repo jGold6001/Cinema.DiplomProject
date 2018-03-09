@@ -13,9 +13,10 @@ namespace Cinema.Domain.Entities
     {
         [Key]
         [ForeignKey("Movie")]
+        [JsonProperty("film_id")]
         public long Id { get; set; }
+        [JsonProperty("url")]
         public string Url { get; set; }
-  
         public Movie Movie { get; set; }
 
     }

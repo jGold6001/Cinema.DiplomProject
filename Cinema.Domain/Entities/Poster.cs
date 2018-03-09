@@ -17,5 +17,11 @@ namespace Cinema.Domain.Entities
 
         public string Url { get; set; }
         public Movie Movie { get; set; }
+
+        public Poster(long id, string url)
+        {
+            this.Id = id;
+            this.Url = url;
+        }
     }
 }

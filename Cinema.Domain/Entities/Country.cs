@@ -18,7 +18,11 @@ namespace Cinema.Domain.Entities
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        public long MovieId { get; set; }
-        public Movie Movie { get; set; }
+        public List<Movie> Movies { get; set; }
+
+        public Country()
+        {
+            Movies = new List<Movie>();
+        }
     }
 }

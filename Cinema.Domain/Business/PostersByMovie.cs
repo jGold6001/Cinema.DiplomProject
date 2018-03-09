@@ -7,16 +7,15 @@ using System.Threading.Tasks;
 
 namespace Cinema.Domain.Business
 {
-    public class ImageData
+    public class PostersByMovie
     {
         [JsonProperty("content")]
-        public List<ImageId> Ids { get; set; }
+        public List<PosterId> Ids { get; set; }
     }
 
-    public class ImageId
+    public class PosterId
     {
         [JsonProperty("id")]
         public long Value { get; set; }
     }
-        
 }

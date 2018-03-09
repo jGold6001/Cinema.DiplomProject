@@ -12,5 +12,16 @@ namespace Cinema.Domain.Entities
         public string Url { get; set; }
         public long MovieId { get; set; }
         public Movie Movie { get; set;}
+
+        public Image()
+        {
+
+        }
+
+        public Image(string url, long movieId)
+        {
+            this.Url = url;
+            this.MovieId = movieId;
+        }
     }
 }

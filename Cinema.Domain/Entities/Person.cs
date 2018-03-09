@@ -24,9 +24,12 @@ namespace Cinema.Domain.Entities
         public long ProfessionId { get; set; }
         public Profession Profession { get; set; }
 
-        public long MovieId { get; set; }
-        public Movie Movie { get; set; }
+        public List<Movie> Movies { get; set; }
 
+        public Person()
+        {
+            Movies = new List<Movie>();
+        }
      
     }
 }

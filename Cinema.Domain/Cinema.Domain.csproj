@@ -70,7 +70,10 @@
     <Compile Include="Business\ImageData.cs" />
     <Compile Include="Business\JsonFromURL.cs" />
     <Compile Include="Business\PersonesByMovie.cs" />
+    <Compile Include="Business\PostersByMovie.cs" />
+    <Compile Include="Business\ProfessionsData.cs" />
     <Compile Include="Business\TestJsonModels.cs" />
+    <Compile Include="Business\TrailersData.cs" />
     <Compile Include="EF\CotsContext.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\Theater.cs" />

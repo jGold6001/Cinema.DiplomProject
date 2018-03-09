@@ -11,7 +11,7 @@ namespace Cinema.Domain.Services
 {
     public class MovieService
     {
-        EFUnitOfWork unitOfWork = new EFUnitOfWork("CotsCinema");
+        EFUnitOfWork unitOfWork = new EFUnitOfWork("CotsContext");
         string keyAPI = "?apiKey=pol1kh111";
         string host = "http://kino-teatr.ua:8081/services/api";
 
@@ -58,63 +58,84 @@ namespace Cinema.Domain.Services
             var movie = JsonFromURL<Movie>.ConvertToObject($"{host}/film/{id}{keyAPI}");
 
             //get and add poster
-            var poster = JsonFromURL<Poster>.ConvertToObject($"{host}");
+            var postrsIds = JsonFromURL<PostersByMovie>.ConvertToObject($"{host}/film/{id}/posters{keyAPI}");
+            var posterUrl = $"{host}/film/poster/{postrsIds.Ids[0].Value}{keyAPI}&width=300&height=400&ratio=1";
+            var poster = new Poster(id, posterUrl);
             movie.Poster = poster;
 
             //get and add trailer
-            var trailer = JsonFromURL<Trailer>.ConvertToObject("");
+            var trailers = JsonFromURL<TrailersData>.ConvertToObject($"{host}/film/{id}/trailers{keyAPI}&size=1");
+            var trailer = trailers.trailers.FirstOrDefault();
             movie.Trailer = trailer;
 
             //get and add images
-            var imagesData = JsonFromURL<ImageData>.ConvertToObject("");
+            var imagesData = JsonFromURL<ImageData>.ConvertToObject($"{host}/film/{id}/images{keyAPI}");
             var images = new List<Image>();
-            for (int i = 0; i < imagesData.Ids.Count; i++)
-            {
-                var image = JsonFromURL<Image>.ConvertToObject("");
-                images.Add(image);
-            }
-            movie.Images = images;
+            movie.Images = GetImages(id, imagesData, images);
 
             //get and add persons
-            var personsByMovie = JsonFromURL<PersonesByMovie>.ConvertToObject("");
-            var persons = new List<Person>();
-            foreach (var item in personsByMovie.PersonModels)
-            {
-                var person = ConvertToPerson(item, id);
-                persons.Add(person);
-            }
-            movie.Persons = persons;           
+            var personsByMovie = JsonFromURL<PersonesByMovie>.ConvertToObject($"{host}/film/{id}/persons{keyAPI}&size=max&detalization=FULL");
+            var persons = new List<Person>();          
+            movie.Persons = GetPersons(id, personsByMovie, persons);
 
             return movie;
         }
 
+        private List<Person> GetPersons(long id, PersonesByMovie personsByMovie, List<Person> persons)
+        {
+            foreach (var item in personsByMovie.PersonModels)
+            {
+                var person = ConvertToPerson(item, id);
+                if(person != null)
+                    persons.Add(person);
+            }
+            return persons;
+        }
+
+        private List<Image> GetImages(long id, ImageData imagesData, List<Image> images)
+        {
+            foreach (var imageId in imagesData.Ids)
+            {
+                var imgPath = $"{host}/film/image/{imageId.Value}{keyAPI}&width=300&height=400&ratio=1";
+                var image = new Image(imgPath, id);
+                images.Add(image);
+            }
+            return images;
+        }
 
         public void GetAllCountriesFromAPIAndAddToDb()
         {
-            var countries = JsonFromURL<CountriesData>.ConvertToObject("");
+            var countries = JsonFromURL<CountriesData>.ConvertToObject($"{host}/countries{keyAPI}&size=150");
             foreach (var item in countries.Countries)
                 unitOfWork.Countries.AddOrUpdate(item);
+
+            unitOfWork.Save();
         }
 
 
         public void GetAllGenresFromAPIAndAddToDb()
         {
-            var genres = JsonFromURL<GenresData>.ConvertToObject("");
+            var genres = JsonFromURL<GenresData>.ConvertToObject($"{host}/genres{keyAPI}&size=90");
             foreach (var item in genres.Genres)
                 unitOfWork.Genres.AddOrUpdate(item);
+
+            unitOfWork.Save();
         }
 
-        public void GetProffesionByIdAndAddToDb(long id)
+        public void GetProffesionByIdAndAddToDb()
         {
-            var profession = JsonFromURL<Profession>.ConvertToObject("");
-            unitOfWork.Professions.AddOrUpdate(profession);
+            var professions = JsonFromURL<ProfessionsData>.ConvertToObject($"{host}/professions{keyAPI}&size=20");
+            foreach (var item in professions.Professions)
+                unitOfWork.Professions.AddOrUpdate(item);
+
+            unitOfWork.Save();
         }
 
         public Person ConvertToPerson(PersonModel personModel, long filmId)
         {
-            if (filmId == personModel.Id)
+            if (filmId == personModel.FilmId && (personModel.ProfessionId == 1 || personModel.ProfessionId == 2))
             {
-                Person person = JsonFromURL<Person>.ConvertToObject("");
+                Person person = JsonFromURL<Person>.ConvertToObject($"{host}/person/{personModel.PersonId}{keyAPI}");
                 person.ProfessionId = personModel.ProfessionId;
                 return person;
             }
