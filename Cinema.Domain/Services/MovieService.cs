@@ -12,7 +12,14 @@ namespace Cinema.Domain.Services
     public class MovieService
     {
         EFUnitOfWork unitOfWork = new EFUnitOfWork("CotsCinema");
-        string keyAPI = "pol1kh111";
+        string keyAPI = "?apiKey=pol1kh111";
+        string host = "http://kino-teatr.ua:8081/services/api";
+
+
+        public MovieService()
+        {
+
+        }
 
         public void AddOrUpdateMovie(Movie movie)
         {
@@ -48,20 +55,35 @@ namespace Cinema.Domain.Services
 
         public Movie GetFromAPI(long id)
         {
-            var movie = JsonFromURL<Movie>.ConvertToObject("");
-            var poster = JsonFromURL<Poster>.ConvertToObject("");
-            var trailer = JsonFromURL<Trailer>.ConvertToObject("");
+            var movie = JsonFromURL<Movie>.ConvertToObject($"{host}/film/{id}{keyAPI}");
 
+            //get and add poster
+            var poster = JsonFromURL<Poster>.ConvertToObject($"{host}");
+            movie.Poster = poster;
+
+            //get and add trailer
+            var trailer = JsonFromURL<Trailer>.ConvertToObject("");
+            movie.Trailer = trailer;
+
+            //get and add images
             var imagesData = JsonFromURL<ImageData>.ConvertToObject("");
             var images = new List<Image>();
-            
             for (int i = 0; i < imagesData.Ids.Count; i++)
             {
                 var image = JsonFromURL<Image>.ConvertToObject("");
                 images.Add(image);
             }
+            movie.Images = images;
 
-
+            //get and add persons
+            var personsByMovie = JsonFromURL<PersonesByMovie>.ConvertToObject("");
+            var persons = new List<Person>();
+            foreach (var item in personsByMovie.PersonModels)
+            {
+                var person = ConvertToPerson(item, id);
+                persons.Add(person);
+            }
+            movie.Persons = persons;           
 
             return movie;
         }
@@ -80,6 +102,23 @@ namespace Cinema.Domain.Services
             var genres = JsonFromURL<GenresData>.ConvertToObject("");
             foreach (var item in genres.Genres)
                 unitOfWork.Genres.AddOrUpdate(item);
+        }
+
+        public void GetProffesionByIdAndAddToDb(long id)
+        {
+            var profession = JsonFromURL<Profession>.ConvertToObject("");
+            unitOfWork.Professions.AddOrUpdate(profession);
+        }
+
+        public Person ConvertToPerson(PersonModel personModel, long filmId)
+        {
+            if (filmId == personModel.Id)
+            {
+                Person person = JsonFromURL<Person>.ConvertToObject("");
+                person.ProfessionId = personModel.ProfessionId;
+                return person;
+            }
+            return null;
         }
 
     }

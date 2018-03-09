@@ -90,6 +90,7 @@
     <Compile Include="Repositories\MovieRepository.cs" />
     <Compile Include="Repositories\PersonRepository.cs" />
     <Compile Include="Repositories\PosterRepository.cs" />
+    <Compile Include="Repositories\ProfessionRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\TestRepository.cs" />
     <Compile Include="Repositories\TheaterRepository.cs" />

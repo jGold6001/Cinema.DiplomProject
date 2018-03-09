@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JsonFromURLTest.cs" />
+    <Compile Include="MovieServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestServiceTest.cs" />
   </ItemGroup>

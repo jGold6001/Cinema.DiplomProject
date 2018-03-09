@@ -23,7 +23,7 @@ namespace Cinema.Domain.Repositories
         private PosterRepository posterRepository;
         private TheaterRepository theaterRepository;
         private TrailerRepository trailerRepository;
-
+        private ProfessionRepository professionRepository;
 
         
         public EFUnitOfWork(string connectionString)
@@ -120,7 +120,15 @@ namespace Cinema.Domain.Repositories
             }
         }
     
-
+        public Repository<Profession> Professions
+        {
+            get
+            {
+                if (professionRepository == null)
+                    professionRepository = new ProfessionRepository(db);
+                return professionRepository;
+            }
+        }
 
         private bool disposed = false;
         public virtual void Dispose(bool disposing)
