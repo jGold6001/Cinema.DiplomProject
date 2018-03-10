@@ -43,12 +43,46 @@ namespace Cinema.Domain.Tests
             movieService.DeleteMovie(47287);
         }
 
+
+        [TestMethod]
+        public void GetFromAPI_ByTheaters()
+        {
+            //florence
+            Trace.WriteLine("--------------------------------Florence-------------------------------------");
+            var moviesFl = movieService.GetAllFromAPIByTheater(8);
+            foreach (var item in moviesFl)
+                Trace.WriteLine(item.Title);
+
+            Trace.WriteLine("\n");
+
+            //boomer
+            Trace.WriteLine("----------------------------------Boomer---------------------------------------");
+            var moviesBoomer = movieService.GetAllFromAPIByTheater(281);
+            foreach (var item in moviesBoomer)
+                Trace.WriteLine(item.Title);
+
+        }
+
         [TestMethod]
         public void Add_Countries_Genres_Professions()
         {          
             movieService.GetAllCountriesFromAPIAndAddToDb();
             movieService.GetAllGenresFromAPIAndAddToDb();
             movieService.GetProffesionByIdAndAddToDb();       
+        }
+
+        [TestMethod]
+        public void GetAllBestFromApi_Test()
+        {
+            var movies = movieService.GetAllBestFromApi();
+
+            foreach (var item in movies)
+            {
+                Trace.WriteLine($"{item.Id} - {item.Title} - IMDB: {item.Rating}");
+            }
+
+            Trace.WriteLine($"last item: {movies.Last().Title}");
+            Trace.WriteLine($"last genre item of last movie: {movies.Last().Genres.Last().Name}");
         }
 
         [TestMethod]
@@ -69,19 +103,24 @@ namespace Cinema.Domain.Tests
         public void TraceMovie(Movie movie)
         {
             Trace.WriteLine($"Name: {movie.Title}");
-            Trace.WriteLine("\n");
+            Trace.WriteLine("");
             Trace.WriteLine($"premiere: {movie.Premiere}");
-            Trace.WriteLine("\n");
+            Trace.WriteLine("");
             Trace.WriteLine($"description: {movie.Description}");
-            Trace.WriteLine("\n");
+            Trace.WriteLine("");
             Trace.WriteLine($"year: {movie.Year}");
-            Trace.WriteLine("\n");
+            Trace.WriteLine("");
             Trace.WriteLine($"duration: {movie.Duration}");
-            Trace.WriteLine("\n");
+            Trace.WriteLine("");
             Trace.WriteLine($"age_limit: {movie.AgeLimit}");
-            Trace.WriteLine("\n");
-            Trace.WriteLine($"poster_url: {movie.Poster.Url}");
-            Trace.WriteLine("\n");
+            Trace.WriteLine("");
+
+            Trace.WriteLine($"posters:");
+            Trace.WriteLine($"{movie.Poster.Size380X600}");
+            Trace.WriteLine($"{movie.Poster.Size424X424}");
+            Trace.WriteLine($"{movie.Poster.Size1920X617}");
+
+            Trace.WriteLine("");
             Trace.WriteLine($"trailer_url: {movie.Trailer.Url}");
 
             //images
@@ -89,6 +128,12 @@ namespace Cinema.Domain.Tests
             Trace.WriteLine("\n");
             foreach (var item in movie.Images)
                 Trace.WriteLine($"img_{item.Id}: {item.Url}");
+            
+            //rating
+            Trace.WriteLine($"rating: {movie.Rating}");
+
+            //votes
+            Trace.WriteLine($"votes: {movie.Votes}");
 
             //directors
             Trace.WriteLine("\n");
@@ -110,14 +155,16 @@ namespace Cinema.Domain.Tests
             foreach (var item in movie.Countries)
                 Trace.Write($"{item.Name} | ");
 
-            Trace.WriteLine("\n");
             //genres
+            Trace.WriteLine("\n");
             Trace.WriteLine("\n");
             Trace.WriteLine("genres: ");
             foreach (var item in movie.Genres)
                 Trace.Write($"{item.Name} | ");
-        }
-        
 
+
+        }
+
+      
     }
 }

@@ -15,13 +15,18 @@ namespace Cinema.Domain.Entities
         [ForeignKey("Movie")]
         public long Id { get; set; }
 
-        public string Url { get; set; }
+        public string Size380X600 { get; set; }
+        public string Size424X424 { get; set; }
+        public string Size1920X617 { get; set; }
+
         public Movie Movie { get; set; }
 
-        public Poster(long id, string url)
+        public Poster(long id, string size_1, string size_2, string size_3)
         {
             this.Id = id;
-            this.Url = url;
+            this.Size380X600 = size_1;
+            this.Size424X424 = size_2;
+            this.Size1920X617 = size_3;
         }
 
         public Poster()

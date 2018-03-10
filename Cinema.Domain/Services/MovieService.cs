@@ -73,8 +73,10 @@ namespace Cinema.Domain.Services
 
             //get and add poster
             var postrsIds = JsonFromURL<PostersByMovie>.ConvertToObject($"{host}/film/{id}/posters{keyAPI}");
-            var posterUrl = $"{host}/film/poster/{postrsIds.Ids[0].Value}{keyAPI}&width=300&height=400&ratio=1";
-            var poster = new Poster(id, posterUrl);
+            var posterSize_1 = $"{host}/film/poster/{postrsIds.Ids[0].Value}{keyAPI}&width=380&height=600&ratio=1";
+            var posterSize_2 = $"{host}/film/poster/{postrsIds.Ids[0].Value}{keyAPI}&width=424&height=424&ratio=1";
+            var posterSize_3 = $"{host}/film/poster/{postrsIds.Ids[0].Value}{keyAPI}&width=300&height=400&ratio=1";
+            var poster = new Poster(id, posterSize_1, posterSize_2, posterSize_3);
             movie.Poster = poster;
 
             //get and add trailer
@@ -93,6 +95,35 @@ namespace Cinema.Domain.Services
             movie.Persons = GetPersons(id, personsByMovie, persons);
 
             return movie;
+        }
+
+
+        public List<Movie> GetAllFromAPIByTheater(long id)
+        {
+            var moviesIds = JsonFromURL<MoviesByTheater>.ConvertToObject($"{host}/cinema/{id}/shows{keyAPI}&size=1000&detalization=FULL");
+
+            var movies = new List<Movie>();
+            foreach (var item in moviesIds.Movies)
+            {
+                var movie = GetFromAPI(item.Id);
+                movies.Add(movie);
+            }
+
+            return movies;
+        }
+
+        public List<Movie> GetAllBestFromApi()
+        {
+            var florenceMovies = GetAllFromAPIByTheater(8);
+            var boomerMovies = GetAllFromAPIByTheater(281);
+
+            var merged = new List<Movie>(florenceMovies);
+            merged.AddRange(boomerMovies.Where(m2 =>
+                            florenceMovies.All(m1 => m1.Id != m2.Id)));
+
+            var movies = new List<Movie>(merged.OrderBy(m => m.Rating).Reverse().Take(6));
+
+            return movies;
         }
 
         private List<Person> GetPersons(long id, PersonesByMovie personsByMovie, List<Person> persons)

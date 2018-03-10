@@ -10,3 +10,6 @@ F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\obj\Debug\Cinema.Do
 F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\obj\Debug\Cinema.Domain.pdb
 F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\Newtonsoft.Json.dll
 F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\Newtonsoft.Json.xml
+F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\Ninject.dll
+F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\Ninject.xml
+F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\obj\Debug\Cinema.Domain.csprojResolveAssemblyReference.cache

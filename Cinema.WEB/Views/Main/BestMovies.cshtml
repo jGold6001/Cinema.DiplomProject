@@ -1,0 +1,51 @@
+﻿@model List<Cinema.WEB.Models.MovieModelMainPage>
+
+@{
+    ViewBag.Title = "BestMovies";
+}
+
+ <!--Best-->
+<div class="movie-best">
+    <div class="col-sm-10 col-sm-offset-1 movie-best__rating">По рейтингу IMDB</div>
+
+    <div class="col-sm-12 change--col">
+        @foreach (var item in Model)
+        {
+
+            <div class="movie-beta__item ">
+                <img alt='' src="@item.PosterURL">
+                <span class="best-rate">@item.Rating</span>
+                <ul class="movie-beta__info">
+                    <li><span class="best-voted">@item.Title</span></li>
+                    <li>
+                        <p class="movie__time">@item.Duration мин</p>
+                        <p>
+
+                            @foreach (var genre in item.Genres)
+                            {
+
+                                if (genre == item.Genres.Last() || item.Genres.Count == 1)
+                                {
+                                    <span>@genre</span>
+                                }
+                                else
+                                {
+                                    <span>@genre,</span>
+                                }
+                                
+                            }
+                        </p>
+                    </li>
+                    <li class="last-block">
+                        <a href="movie-page-left.html" class="slide__link">перейти</a>
+                    </li>
+                </ul>
+            </div>
+        }
+    </div>
+
+    
+    <div class="col-sm-10 col-sm-offset-1 movie-best__check">проверить все фильмы, которые сейчас показывают</div>
+</div>
+
+

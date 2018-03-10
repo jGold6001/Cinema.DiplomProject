@@ -25,13 +25,20 @@ namespace Cinema.Domain.Entities
         public string Description { get; set; }
 
         [JsonProperty("year")]
-        public int Year { get; set; }
+        public int? Year { get; set; }
 
         [JsonProperty("duration")]
-        public int Duration { get; set; }
+        public int? Duration { get; set; }
 
         [JsonProperty("age_limit")]
-        public string AgeLimit { get; set; }       
+        public string AgeLimit { get; set; }   
+        
+        [JsonProperty("tmdb_rating")]
+        public double? Rating { get; set; }
+        
+        [JsonProperty("tmdb_votes")]
+        public long? Votes { get; set; }
+
         public Poster Poster { get; set; }      
         public Trailer Trailer { get; set; }       
         public List<Person> Persons { get; set; }

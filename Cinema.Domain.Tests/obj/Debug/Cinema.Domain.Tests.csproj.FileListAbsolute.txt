@@ -21,3 +21,5 @@ F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain.Tests\obj\Debug\Cin
 F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain.Tests\obj\Debug\Cinema.Domain.Tests.pdb
 F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain.Tests\bin\Debug\Newtonsoft.Json.dll
 F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain.Tests\bin\Debug\Newtonsoft.Json.xml
+F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain.Tests\bin\Debug\Ninject.dll
+F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain.Tests\bin\Debug\Ninject.xml

@@ -3,615 +3,25 @@
     ViewBag.Title = "Index";
 }
 
-    <!-- Slider -->
-<div class="bannercontainer rev_slider_wrapper">
+<!--Banners-->
+@{Html.RenderPartial("Banner");}
 
-    <!-- the ID here will be used in the JavaScript below to initialize the slider -->
-    <div id="rev_slider_1" class="banner rev_slider" style="display:none">
-
-        <!-- BEGIN SLIDES LIST -->
-        <ul>
-
-            <!-- SLIDE 1 -->
-            <li data-transition="fade" class="slide" data-title='Rush.'>
-
-                <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
-                <img class="rev-slidebg" alt='' src="images/slides/first-slide.jpg">
-                <div class="tp-caption slide__name margin-slider"
-                     data-x="right"
-                     data-y="80"
-                     data-frames='[{
-                               "delay":300,
-                               "split":"chars",
-                               "splitdelay":0.1,
-                               "speed":700,
-                               "frame":"0",
-                               "from":"x:[-100%];opacity:0;",
-                               "mask":"x:0px;y:0px;s:inherit;e:inherit;",
-                               "to":"o:1;",
-                               "ease":"Power4.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                    RUSH
-                </div>
-                <div class="tp-caption n slide__time margin-slider"
-                     data-x="right"
-                     data-hoffset='250'
-                     data-y="186"
-                     data-frames='[{
-                               "delay":1200,
-                               "speed":300,
-                               "frame":"0",
-                               "from":"x:[50%];opacity:0;",
-                               "to":"o:1;",
-                               "ease":"Power3.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                    From
-                </div>
-                <div class="tp-caption  slide__date margin-slider"
-                     data-x="right"
-                     data-hoffset='149'
-                     data-y="186"
-                     data-frames='[{
-                               "delay":1700,
-                               "speed":500,
-                               "frame":"0",
-                               "from":"y:100px;opacity:0;",
-                               "to":"o:1;",
-                               "ease":"Power3.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                    October 18
-                </div>
-                <div class="tp-caption slide__time margin-slider"
-                     data-x="right"
-                     data-hoffset='120'
-                     data-y="186"
-                     data-frames='[{
-                               "delay":1200,
-                               "speed":300,
-                               "frame":"0",
-                               "from":"x:[50%];opacity:0;",
-                               "to":"o:1;",
-                               "ease":"Power3.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                    till
-                </div>
-                <div class="tp-caption slide__date margin-slider"
-                     data-x="right"
-                     data-y="186"
-                     data-frames='[{
-                               "delay":1700,
-                               "speed":500,
-                               "frame":"0",
-                               "from":"y:100px;opacity:0;",
-                               "to":"o:1;",
-                               "ease":"Power3.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                    November 01
-                </div>
-                <div class="tp-caption slide__text margin-slider text-right"
-                     data-x="right"
-                     data-y="250"
-                     data-frames='[{
-                               "delay":2300,
-                               "speed":400,
-                               "frame":"0",
-                               "from":"y:100px;skX:50px;opacity:0;",
-                               "to":"o:1;",
-                               "ease":"Power3.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                    Two-time Academy Award winner Ron Howard, teams once again with fellow two-time Academy<br> Award nominee, writer Peter Morgan , on Rush, a spectacular big-screen re-creation of the merciless<br> 1970s rivalry between James Hunt and Niki Lauda
-                </div>
-                <div class="tp-caption margin-slider"
-                     data-x="right"
-                     data-y="324"
-                     data-frames='[{
-                               "delay":2600,
-                               "speed":400,
-                               "frame":"0",
-                               "from":"y:100px;opacity:0;",
-                               "to":"o:1;",
-                               "ease":"Power3.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                    <a href="#" class="slide__link">check out cinemas &amp; time</a>
-                </div>
-
-            </li>
-            
-            <!-- SLIDE 1 -->
-            <li data-transition="fade" class="slide" data-title='Красный воробей'>
-
-                <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
-                <img class="rev-slidebg" alt='' src="~/Images/slides/banner-1519824616.jpg">
-                <div class="tp-caption slide__name margin-slider"
-                     data-x="right"
-                     data-y="80"
-                     data-frames='[{
-                               "delay":300,
-                               "split":"chars",
-                               "splitdelay":0.1,
-                               "speed":700,
-                               "frame":"0",
-                               "from":"x:[-100%];opacity:0;",
-                               "mask":"x:0px;y:0px;s:inherit;e:inherit;",
-                               "to":"o:1;",
-                               "ease":"Power4.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                    Красный воробей
-                </div>
-               
-                <div class="tp-caption slide__date margin-slider"
-                     data-x="right"
-                     data-y="196"
-                     data-frames='[{
-                               "delay":1700,
-                               "speed":500,
-                               "frame":"0",
-                               "from":"y:100px;opacity:0;",
-                               "to":"o:1;",
-                               "ease":"Power3.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                    США, 01 Мар 2018, 120 мин, 16+, Триллер
-                </div>
-                <div class="tp-caption slide__text margin-slider text-right"
-                     data-x="right"
-                     data-y="250"
-                     data-frames='[{
-                               "delay":2300,
-                               "speed":400,
-                               "frame":"0",
-                               "from":"y:100px;skX:50px;opacity:0;",
-                               "to":"o:1;",
-                               "ease":"Power3.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                                Доминика Егорова против своей воли завербована в российскую секретную службу.<br> Теперь она «воробей» — профессиональный агент, который использует свое тело и ум для достижения цели. 
-                </div>
-                <div class="tp-caption margin-slider"
-                     data-x="right"
-                     data-y="324"
-                     data-frames='[{
-                               "delay":2600,
-                               "speed":400,
-                               "frame":"0",
-                               "from":"y:100px;opacity:0;",
-                               "to":"o:1;",
-                               "ease":"Power3.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                    <a href="#" class="btn btn-md btn--danger btn--wide slider--btn">Купить билет</a>
-                </div>
-
-            </li>
-
-
-            <!-- SLIDE 2 -->
-            <li data-transition="fade" class="slide" data-title='Игра Молли'>
-
-                <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
-                <img class="rev-slidebg" alt='' src="~/Images/slides/banner-1518607607.jpg">
-                <div class="tp-caption slide__name margin-slider"
-                     data-x="right"
-                     data-y="80"
-                     data-frames='[{
-                               "delay":300,
-                               "split":"chars",
-                               "splitdelay":0.1,
-                               "speed":700,
-                               "frame":"0",
-                               "from":"x:[-100%];opacity:0;",
-                               "mask":"x:0px;y:0px;s:inherit;e:inherit;",
-                               "to":"o:1;",
-                               "ease":"Power4.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                    Игра Молли
-                </div>                
-                <div class="tp-caption slide__date margin-slider"
-                     data-x="right"
-                     data-y="186"
-                     data-frames='[{
-                               "delay":1700,
-                               "speed":500,
-                               "frame":"0",
-                               "from":"y:100px;opacity:0;",
-                               "to":"o:1;",
-                               "ease":"Power3.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                    США, 01 Фев 2018 , 141 мин , 16+, Драма
-                </div>
-                <div class="tp-caption slide__text margin-slider text-right"
-                     data-x="right"
-                     data-y="250"
-                     data-frames='[{
-                               "delay":2300,
-                               "speed":400,
-                               "frame":"0",
-                               "from":"y:100px;skX:50px;opacity:0;",
-                               "to":"o:1;",
-                               "ease":"Power3.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                    Драма «Игра Молли» является экранизацией автобиографической книги о владелице подпольного клуба для игроков в покер Молли Блум.<br> Девушка терпит неудачу в спортивной карьере, не попав в олимпийскую сборную.<br> Она идет работать в небольшое кафе.
-                </div>
-                <div class="tp-caption margin-slider"
-                     data-x="right"
-                     data-y="324"
-                     data-frames='[{
-                               "delay":2600,
-                               "speed":400,
-                               "frame":"0",
-                               "from":"y:100px;opacity:0;",
-                               "to":"o:1;",
-                               "ease":"Power3.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                    <a href="#" class="btn btn-md btn--danger btn--wide slider--btn">Купить билет</a>
-                </div>
-
-            </li>
-
-
-            <!-- SLIDE 3 -->
-            <li data-transition="fade" class="slide" data-title='Секретное досье'>
-
-                <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
-                <img class="rev-slidebg" alt='' src="~/Images/slides/banner-1519203774.jpg">
-                <div class="tp-caption slide__name margin-slider"
-                     data-x="right"
-                     data-y="80"
-                     data-frames='[{
-                               "delay":300,
-                               "split":"chars",
-                               "splitdelay":0.1,
-                               "speed":700,
-                               "frame":"0",
-                               "from":"x:[-100%];opacity:0;",
-                               "mask":"x:0px;y:0px;s:inherit;e:inherit;",
-                               "to":"o:1;",
-                               "ease":"Power4.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                    Секретное досье
-                </div>           
-                <div class="tp-caption slide__date margin-slider"
-                     data-x="right"
-                     data-y="196"
-                     data-frames='[{
-                               "delay":1700,
-                               "speed":500,
-                               "frame":"0",
-                               "from":"y:100px;opacity:0;",
-                               "to":"o:1;",
-                               "ease":"Power3.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                    США,  22 Фев 2018 ,100 мин, 16+, биографический       
-                </div>
-                <div class="tp-caption slide__text margin-slider text-right"
-                     data-x="right"
-                     data-y="250"
-                     data-frames='[{
-                               "delay":2300,
-                               "speed":400,
-                               "frame":"0",
-                               "from":"y:100px;skX:50px;opacity:0;",
-                               "to":"o:1;",
-                               "ease":"Power3.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                    Фильм «Секретное досье» описывает реальные события, которые происходили в начале 70-х годов прошлого века в Соединенных Штатах.<br> Владелец газеты Кей Грэм и редактор издания Беном Брэдли получают в свое распоряжение секретные документы Пентагона,<br> содержащие правдивую информацию о войне во Вьетнаме. 
-                </div>
-                <div class="tp-caption margin-slider"
-                     data-x="right"
-                     data-y="324"
-                     data-frames='[{
-                               "delay":2600,
-                               "speed":400,
-                               "frame":"0",
-                               "from":"y:100px;opacity:0;",
-                               "to":"o:1;",
-                               "ease":"Power3.easeInOut"
-                               },{
-                               "delay":"wait",
-                               "speed":300,
-                               "frame":"999",
-                               "to":"opacity:0;",
-                               "ease":"Power3.easeInOut"
-                             }]'>
-                    <a href="#" class="btn btn-md btn--danger btn--wide slider--btn">Купить билет</a>
-                </div>
-
-            </li>
-
-        </ul><!-- END SLIDES LIST -->
-
-    </div><!-- END SLIDER CONTAINER -->
-
-</div><!-- END SLIDER CONTAINER WRAPPER -->
-<!--end slider -->
 <!-- Main content -->
 <section class="container">
-    <div class="movie-best">
-        <div class="col-sm-10 col-sm-offset-1 movie-best__rating">ЛУЧШЕЕ НА СЕГОДНЯ</div>
 
-        <div class="col-sm-12 change--col">
-            <div class="movie-beta__item ">
-                <img alt='' src="~/Images/movie/movie-sample1.jpg">
-                <span class="best-rate">5.0</span>
-                <ul class="movie-beta__info">
-                    <li><span class="best-voted">71 людей проголосовало сегодня</span></li>
-                    <li>
-                        <p class="movie__time">169 мин</p>
-                        <p>Adventure | Drama | Fantasy </p>
-                        <p>38 комментариев</p>
-                    </li>
-                    <li class="last-block">
-                        <a href="movie-page-left.html" class="slide__link">перейти</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="movie-beta__item second--item">
-                <img alt='' src="~/Images/movie/movie-sample2.jpg">
-                <span class="best-rate">5.0</span>
-                <ul class="movie-beta__info">
-                    <li><span class="best-voted">71 людей проголосовало сегодня</span></li>
-                    <li>
-                        <p class="movie__time">169 мин</p>
-                        <p>Adventure | Drama | Fantasy </p>
-                        <p>38 комментариев</p>
-                    </li>
-                    <li class="last-block">
-                        <a href="movie-page-left.html" class="slide__link">перейти</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="movie-beta__item third--item">
-                <img alt='' src="~/Images/movie/movie-sample3.jpg">
-                <span class="best-rate">5.0</span>
-                <ul class="movie-beta__info">
-                    <li><span class="best-voted">71 людей проголосовало сегодня</span></li>
-                    <li>
-                        <p class="movie__time">169 мин</p>
-                        <p>Adventure | Drama | Fantasy </p>
-                        <p>38 комментариев</p>
-                    </li>
-                    <li class="last-block">
-                        <a href="movie-page-left.html" class="slide__link">перейти</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="movie-beta__item hidden-xs">
-                <img alt='' src="~/Images/movie/movie-sample4.jpg">
-                <span class="best-rate">5.0</span>
-                <ul class="movie-beta__info">
-                    <li><span class="best-voted">71 людей проголосовало сегодня</span></li>
-                    <li>
-                        <p class="movie__time">169 мин</p>
-                        <p>Adventure | Drama | Fantasy </p>
-                        <p>38 комментариев</p>
-                    </li>
-                    <li class="last-block">
-                        <a href="movie-page-left.html" class="slide__link">перейти</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="movie-beta__item hidden-xs hidden-sm">
-                <img alt='' src="~/Images/movie/movie-sample5.jpg">
-                <span class="best-rate">5.0</span>
-                <ul class="movie-beta__info">
-                    <li><span class="best-voted">71 людей проголосовало сегодня</span></li>
-                    <li>
-                        <p class="movie__time">169 мин</p>
-                        <p>Adventure | Drama | Fantasy </p>
-                        <p>38 комментариев</p>
-                    </li>
-                    <li class="last-block">
-                        <a href="movie-page-left.html" class="slide__link">перейти</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="movie-beta__item hidden-xs hidden-sm">
-                <img alt='' src="~/Images/movie/movie-sample6.jpg">
-                <span class="best-rate">5.0</span>
-                <ul class="movie-beta__info">
-                    <li><span class="best-voted">71 людей проголосовало сегодня</span></li>
-                    <li>
-                        <p class="movie__time">169 мин</p>
-                        <p>Adventure | Drama | Fantasy </p>
-                        <p>38 комментариев</p>
-                    </li>
-                    <li class="last-block">
-                        <a href="movie-page-left.html" class="slide__link">перейти</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <!--Best-->
 
-        <div class="col-sm-10 col-sm-offset-1 movie-best__check">проверить все фильмы, которые сейчас показывают</div>
-    </div>
-    <div class="col-sm-12">
-        <div class="mega-select-present mega-select-top mega-select--full">
-            <div class="mega-select-marker">              
-                <div class="marker-indecator cinema">
-                    <p class="select-marker"><span>выберете</span> <br>кинотеатр</p>
-                </div>
-                <div class="marker-indecator film-category">
-                    <p class="select-marker"><span>найти за </span> <br> жанром</p>
-                </div>
-                <div class="marker-indecator actors">
-                    <p class="select-marker"><span>предпочитаемый </span> <br>актер</p>
-                </div>
-                <div class="marker-indecator director">
-                    <p class="select-marker"><span>предпочитаемый </span> <br>режиссер</p>
-                </div>               
-            </div>
-            <div class="mega-select pull-right">
-                <span class="mega-select__point">Искать за</span>
-                <ul class="mega-select__sort">
-                    <li class="filter-wrap"><a href="#" class="mega-select__filter filter--active" data-filter='cinema'>Кинотеатром</a></li>
-                    <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='film-category'>Жанром</a></li>
-                    <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='actors'>Актерам</a></li>
-                    <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='director'>Режисером</a></li>
-                </ul>
-                <input name="search-input" type='text' class="select__field">
+    @Html.Action("BestMovies");
 
-                <div class="select__btn">
-                    <a href="#" class="btn btn-md btn--danger cinema">найти <span class="hidden-exrtasm">за кинотетром</span></a>
-                    <a href="#" class="btn btn-md btn--danger film-category">найти <span class="hidden-exrtasm">за жанром</span></a>
-                    <a href="#" class="btn btn-md btn--danger actors">найти <span class="hidden-exrtasm">по актеру</span></a>
-                    <a href="#" class="btn btn-md btn--danger director">найти <span class="hidden-exrtasm">по режиссеру</span></a>              
-                </div>
-                <div class="select__dropdowns">                 
-                    <ul class="select__group cinema">
-                        @*<li class="select__variant" data-value='Cineworld'>Cineworld</li>
-                        <li class="select__variant" data-value='Empire'>Empire</li>
-                        <li class="select__variant" data-value='Everyman'>Everyman</li>
-                        <li class="select__variant" data-value='Odeon'>Odeon</li>
-                        <li class="select__variant" data-value='Picturehouse'>Picturehouse</li>*@
-                    </ul>
-                    <ul class="select__group film-category">
-                        @*<li class="select__variant" data-value="Children's">Children's</li>
-                        <li class="select__variant" data-value='Comedy'>Comedy</li>
-                        <li class="select__variant" data-value='Drama'>Drama</li>
-                        <li class="select__variant" data-value='Fantasy'>Fantasy</li>
-                        <li class="select__variant" data-value='Horror'>Horror</li>
-                        <li class="select__variant" data-value='Thriller'>Thriller</li>*@
-                    </ul>
-                    <ul class="select__group actors">
-                        @*<li class="select__variant" data-value='Leonardo DiCaprio'>Leonardo DiCaprio</li>
-                        <li class="select__variant" data-value='Johnny Depp'>Johnny Depp</li>
-                        <li class="select__variant" data-value='Jack Nicholson'>Jack Nicholson</li>
-                        <li class="select__variant" data-value='Robert De Niro'>Robert De Niro</li>
-                        <li class="select__variant" data-value='Morgan Freeman'>Morgan Freeman</li>
-                        <li class="select__variant" data-value='Jim Carrey'>Jim Carrey</li>
-                        <li class="select__variant" data-value='Adam Sandler'>Adam Sandler</li>
-                        <li class="select__variant" data-value='Ben Stiller'>Ben Stiller</li>*@
-                    </ul>
-                    <ul class="select__group director">
-                        @*<li class="select__variant" data-value='Steven Spielberg'>Steven Spielberg</li>
-                        <li class="select__variant" data-value='Martin Scorsese'>Martin Scorsese</li>
-                        <li class="select__variant" data-value='Guy Ritchie'>Guy Ritchie</li>
-                        <li class="select__variant" data-value='Christopher Nolan'>Christopher Nolan</li>
-                        <li class="select__variant" data-value='Tim Burton'>Tim Burton</li>*@
-                    </ul>
-                    <ul class="select__group country">
-                        @*<li class="select__variant" data-value='USA'>USA</li>
-                        <li class="select__variant" data-value='Germany'>Germany</li>
-                        <li class="select__variant" data-value='Australia'>Australia</li>
-                        <li class="select__variant" data-value='UK'>UK</li>
-                        <li class="select__variant" data-value='Japan'>Japan</li>
-                        <li class="select__variant" data-value='Serbia'>Serbia</li>*@
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="clearfix"></div>
-    <h2 id='target' class="page-heading heading--outcontainer">Сейчас в кинотеатре</h2>
+    <h2 id='target' class="page-heading heading--outcontainer">Сейчас в кинотеатрах</h2>
     <div class="col-sm-12">
         <div class="row">
-            <div class="col-sm-12 col-md-12">
+
+            <!--Movies now on cinema-->
+            <div class="col-sm-12 col-md-12 col-xs-12 col-12" >
+
                 <!-- Movie variant with time -->
                 <div class="movie movie--test movie--test--dark movie--test--left">
                     <div class="movie__images">
@@ -623,12 +33,17 @@
                         <a href='movie-page-left.html' class="movie__title">Gravity (2013)  </a>
                         <p class="movie__time">91 min</p>
                         <p class="movie__option"><a href="#">Sci-Fi</a> | <a href="#">Thriller</a> | <a href="#">Drama</a></p>
-
-                        <div class="movie__rate">
-                            <div class="score"></div>
-                            <span class="movie__rating">4.1</span>
+                        <div class="box">
+                            <div>
+                                <p style="text-align: justify;">&nbsp;Доминика Егорова была примой балета до серьёзной травмы, которая поставила крест на её карьере. Теперь перед ней и её мамой стоит мрачное будущее. Доминике пообещали найти для мамы лучшего врача, если девушка вступит в секретную школу Воробьёв. Там тренируются особенные молодые люди, которых в дальнейшем можно использовать для манипуляций, соблазнения противников. Но методы обучения там зверские, садистские, унизительные и очень жестокие. Доминика не только прошла курс, но и стала лучшим Воробьем, которого только выпускала программа. Её заданием стал агент ЦРУ Натаниэль Нэш, которого надо соблазнить и раскрыть как крота американцев в России. Но между ними завязываются особенные отношения, а сама Доминика желает во что бы то не стало отомстить тем, кто сделал из неё свою марионетку.</p>
+                            </div>
                         </div>
-                    </div>
+                        
+                        
+                        <div class="movie_go_to_link">
+                            <a href="movie-page-left.html" class="go_to_link">перейти</a>
+                        </div>  
+                    </div>                
                 </div>
                 <!-- Movie variant with time -->
                 <!-- Movie variant with time -->
@@ -643,12 +58,12 @@
                         <p class="movie__time">169 min</p>
                         <p class="movie__option"><a href="#">Adventure</a> | <a href="#">Fantasy</a> | <a href="#">Drama</a></p>
 
-                        <div class="movie__rate">
-                            <div class="score"></div>
-                            <span class="movie__rating">5.0</span>
-                        </div>
+                        
                     </div>
                 </div>
+              
+
+
                 <!-- Movie variant with time -->
                 <!-- Movie variant with time -->
                 <div class="movie movie--test movie--test--light movie--test--right">
@@ -661,12 +76,17 @@
                         <a href='movie-page-left.html' class="movie__title">The Hunger Games: Catching Fire (2013)   </a>
                         <p class="movie__time">146 min</p>
                         <p class="movie__option"><a href="#">Action</a> | <a href="#">Adventure</a> | <a href="#">Sci-Fi</a></p>
-
-                        <div class="movie__rate">
-                            <div class="score"></div>
-                            <span class="movie__rating">4.9</span>
+                        <div class="box">
+                            <div>
+                                <p style="text-align: justify;">&nbsp;Доминика Егорова была примой балета до серьёзной травмы, которая поставила крест на её карьере. Теперь перед ней и её мамой стоит мрачное будущее. Доминике пообещали найти для мамы лучшего врача, если девушка вступит в секретную школу Воробьёв. Там тренируются особенные молодые люди, которых в дальнейшем можно использовать для манипуляций, соблазнения противников. Но методы обучения там зверские, садистские, унизительные и очень жестокие. Доминика не только прошла курс, но и стала лучшим Воробьем, которого только выпускала программа. Её заданием стал агент ЦРУ Натаниэль Нэш, которого надо соблазнить и раскрыть как крота американцев в России. Но между ними завязываются особенные отношения, а сама Доминика желает во что бы то не стало отомстить тем, кто сделал из неё свою марионетку.</p>
+                            </div>
                         </div>
-                    </div>
+
+
+                        <div class="movie_go_to_link">
+                            <a href="movie-page-left.html" class="go_to_link">перейти</a>
+                        </div>  
+                    </div>                   
                 </div>
                 <!-- Movie variant with time -->
                 <!-- Movie variant with time -->
@@ -681,12 +101,13 @@
                         <p class="movie__time">112 min</p>
                         <p class="movie__option"><a href="#">Action</a> | <a href="#">Adventure</a> | <a href="#">Fantasy</a></p>
 
-                        <div class="movie__rate">
-                            <div class="score"></div>
-                            <span class="movie__rating">5.0</span>
-                        </div>
+                        
                     </div>
                 </div>
+
+
+
+
                 <!-- Movie variant with time -->
                 <!-- Movie variant with time -->
                 <div class="movie movie--test movie--test--dark movie--test--left">
@@ -700,10 +121,7 @@
                         <p class="movie__time">116 min</p>
                         <p class="movie__option"><a href="#">Action</a> | <a href="#">Adventure</a> | <a href="#">Horror</a></p>
 
-                        <div class="movie__rate">
-                            <div class="score"></div>
-                            <span class="movie__rating">4.1</span>
-                        </div>
+                        
                     </div>
                 </div>
                 <!-- Movie variant with time -->
@@ -719,10 +137,7 @@
                         <p class="movie__time">153 min</p>
                         <p class="movie__option"><a href="#">Crime</a> | <a href="#">Thriller</a> | <a href="#">Drama</a></p>
 
-                        <div class="movie__rate">
-                            <div class="score"></div>
-                            <span class="movie__rating">5.0</span>
-                        </div>
+                       
                     </div>
                 </div>
                 <!-- Movie variant with time -->
@@ -738,10 +153,7 @@
                         <p class="movie__time">107 min</p>
                         <p class="movie__option"><a href="#">Comedy</a> | <a href="#">Fantasy</a></p>
 
-                        <div class="movie__rate">
-                            <div class="score"></div>
-                            <span class="movie__rating">4.9</span>
-                        </div>
+                       
                     </div>
                 </div>
                 <!-- Movie variant with time -->
@@ -757,10 +169,7 @@
                         <p class="movie__time">112 min</p>
                         <p class="movie__option"><a href="#">Comedy</a></p>
 
-                        <div class="movie__rate">
-                            <div class="score"></div>
-                            <span class="movie__rating">5.0</span>
-                        </div>
+                        
                     </div>
                 </div>
 
