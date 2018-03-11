@@ -38,6 +38,7 @@ namespace Cinema.Domain.Entities
         
         [JsonProperty("tmdb_votes")]
         public long? Votes { get; set; }
+        public string BannerUrl { get; set; }
 
         public Poster Poster { get; set; }      
         public Trailer Trailer { get; set; }       

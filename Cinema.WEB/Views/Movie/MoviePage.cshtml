@@ -1,0 +1,164 @@
+﻿@model Cinema.WEB.Models.MovieModelFull
+
+@{
+    ViewBag.Title = "MoviePage";
+}
+
+<div id="main_page">
+    
+    <!-- Main content -->
+    <section class="container">
+        <div class="col-sm-12">
+            <div class="movie">
+                <h2 class="page-heading">@Model.Title</h2>
+
+                <div class="movie__info">
+                    <div class="col-sm-4 col-md-3 movie-mobile">
+                        <div class="movie__images">
+                            <span class="movie__rating">@Model.Rating</span>
+                            <img alt='' src="@Model.PosterURL">
+                        </div>
+                        
+                    </div>
+                    <div class="col-sm-8 col-md-9">
+                        <p class="movie__time">169 min</p>
+                        <p class="movie__option">
+                            <strong>Страна: </strong>
+                            @foreach (var country in Model.Countries)
+                            {
+                                if (country == Model.Countries.Last() || Model.Countries.Count == 1)
+                                {
+                                    <span>@country</span>
+                                }
+                                else
+                                {
+                                    <span>@country,</span>
+                                }
+                            }
+                        </p>
+                        <p class="movie__option"><strong>Год: </strong><span>@Model.Year</span></p>
+                        <p class="movie__option">
+                            <strong>Жанр: </strong>
+                            @foreach (var genre in Model.Genres)
+                            {
+                                if (genre == Model.Genres.Last() || Model.Genres.Count == 1)
+                                {
+                                    <span>@genre</span>
+                                }
+                                else
+                                {
+                                    <span>@genre,</span>
+                                }
+                            }
+                        </p>
+                        <p class="movie__option"><strong>Премьера: </strong>@Model.Premiere</p>
+                        <p class="movie__option"><strong>Режисер: </strong>@Model.Director</p>
+                        <p class="movie__option">
+                            <strong>Актеры: </strong>
+                            @foreach (var actor in Model.Actors)
+                            {
+                                if (actor == Model.Actors.Last() || Model.Actors.Count == 1)
+                                {
+                                    <span>@actor</span>
+                                }
+                                else
+                                {
+                                    <span>@actor,</span>
+                                }
+                            }
+                        </p>
+                        <p class="movie__option"><strong>Возрастная категория: </strong>@Model.AgeLimit</p>
+
+                        <div class="trailer_btn">
+                            <a href="#" class="btn btn-md btn--default btn--wide slider--btn" >
+                                Смотреть Трейлер
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <h2 class="page-heading">Описание</h2>
+                <p class="movie__describe">@Html.Raw(HttpUtility.HtmlDecode(Model.Description))</p>
+                <h2 class="page-heading">Кадры из фильма</h2>
+
+                <div class="movie__media">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+
+                            @foreach (var item in Model.ImagesUrls)
+                            {
+                               
+                                <div class="swiper-slide media-photo">
+                                    <a href='@item' class="movie__media-item">
+                                        <img alt='' src="@item">
+                                    </a>
+                                </div>
+
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <h2 class="page-heading">Сеансы</h2>
+                <div class="choose-container">
+                    
+                    <div class="datepicker">
+                        <span class="datepicker__marker"><i class="fa fa-calendar"></i>Дата</span>
+                        <input type="text" id="datepicker" value='03/10/2014' class="datepicker__input">
+                    </div>                  
+
+                    <div class="clearfix"></div>
+                    <div class="time-select">
+                        <div class="time-select__group group--first">
+                            <div class="col-sm-4">
+                                <p class="time-select__place">Флоренция</p>
+                            </div>
+                            <ul class="col-sm-8 items-wrap">
+                                <li class="time-select__item" data-time='09:40'>09:40</li>
+                                <li class="time-select__item" data-time='13:45'>13:45</li>
+                                <li class="time-select__item active" data-time='15:45'>15:45</li>
+                                <li class="time-select__item" data-time='19:50'>19:50</li>
+                                <li class="time-select__item" data-time='21:50'>21:50</li>
+                            </ul>
+                        </div>
+                        <div class="time-select__group">
+                            <div class="col-sm-4">
+                                <p class="time-select__place">Бумер</p>
+                            </div>
+                            <ul class="col-sm-8 items-wrap">
+                                <li class="time-select__item" data-time='10:45'>10:45</li>
+                                <li class="time-select__item" data-time='16:00'>16:00</li>
+                                <li class="time-select__item" data-time='19:00'>19:00</li>
+                                <li class="time-select__item" data-time='21:15'>21:15</li>
+                                <li class="time-select__item" data-time='23:00'>23:00</li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+    
+<script src="~/Scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".header-wrapper").css("position", "relative");
+    });
+    
+    $(document).ready(function() {
+        init_MoviePage();
+                init_MoviePageFull();
+        });
+
+
+</script>
+

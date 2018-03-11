@@ -6,42 +6,203 @@
 
  <!--Best-->
 <div class="movie-best">
-    <div class="col-sm-10 col-sm-offset-1 movie-best__rating">По рейтингу IMDB</div>
+    <div class="col-sm-10 col-sm-offset-1 movie-best__rating">Премьеры</div>
 
     <div class="col-sm-12 change--col">
-        @foreach (var item in Model)
-        {
+       
+        <!--item-->
+        <div class="movie-beta__item ">
+            <img class="img_size_for_best" alt='' src="@Model[0].PosterURL">
+            @*<span class="best-rate">@Model[0].Rating</span>*@
+            <ul class="movie-beta__info">
+                <li><span class="best-voted">@Model[0].Title</span></li>
+                <li>
+                    <p class="movie__time">@Model[0].Duration мин</p>
+                    <p>
 
-            <div class="movie-beta__item ">
-                <img alt='' src="@item.PosterURL">
-                <span class="best-rate">@item.Rating</span>
-                <ul class="movie-beta__info">
-                    <li><span class="best-voted">@item.Title</span></li>
-                    <li>
-                        <p class="movie__time">@item.Duration мин</p>
-                        <p>
+                        @foreach (var genre in Model[0].Genres)
+                        {
 
-                            @foreach (var genre in item.Genres)
+                            if (genre == Model[0].Genres.Last() || Model[0].Genres.Count == 1)
                             {
-
-                                if (genre == item.Genres.Last() || item.Genres.Count == 1)
-                                {
-                                    <span>@genre</span>
-                                }
-                                else
-                                {
-                                    <span>@genre,</span>
-                                }
-                                
+                                <span>@genre</span>
                             }
-                        </p>
-                    </li>
-                    <li class="last-block">
-                        <a href="movie-page-left.html" class="slide__link">перейти</a>
-                    </li>
-                </ul>
-            </div>
-        }
+                            else
+                            {
+                                <span>@genre,</span>
+                            }
+                                
+                        }
+                    </p>
+                </li>
+                <li class="last-block">
+                    <a href="movie-page-left.html" class="slide__link">перейти</a>
+                </li>
+            </ul>
+        </div>
+
+        <!--item second--->
+        <div class="movie-beta__item  second--item">
+            <img class="img_size_for_best" alt='' src="@Model[1].PosterURL">
+            @*<span class="best-rate">@Model[1].Rating</span>*@
+            <ul class="movie-beta__info">
+                <li><span class="best-voted">@Model[1].Title</span></li>
+                <li>
+                    <p class="movie__time">@Model[1].Duration мин</p>
+                    <p>
+
+                        @foreach (var genre in Model[1].Genres)
+                        {
+
+                            if (genre == Model[1].Genres.Last() || Model[1].Genres.Count == 1)
+                            {
+                                <span>@genre</span>
+                            }
+                            else
+                            {
+                                <span>@genre,</span>
+                            }
+
+                        }
+                    </p>
+                </li>
+                <li class="last-block">
+                    <a href="movie-page-left.html" class="slide__link">перейти</a>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <!--item third--->
+        <div class="movie-beta__item third--item">
+            <img class="img_size_for_best" alt='' src="@Model[2].PosterURL">
+            @*<span class="best-rate">@Model[2].Rating</span>*@
+            <ul class="movie-beta__info">
+                <li><span class="best-voted">@Model[2].Title</span></li>
+                <li>
+                    <p class="movie__time">@Model[2].Duration мин</p>
+                    <p>
+
+                        @foreach (var genre in Model[2].Genres)
+                        {
+
+                            if (genre == Model[2].Genres.Last() || Model[2].Genres.Count == 1)
+                            {
+                                <span>@genre</span>
+                            }
+                            else
+                            {
+                                <span>@genre,</span>
+                            }
+
+                        }
+                    </p>
+                </li>
+                <li class="last-block">
+                    <a href="movie-page-left.html" class="slide__link">перейти</a>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <!--item forth--->
+        <div class="movie-beta__item hidden-xs">
+            <img class="img_size_for_best" alt='' src="@Model[3].PosterURL">
+            @*<span class="best-rate">@Model[3].Rating</span>*@
+            <ul class="movie-beta__info">
+                <li><span class="best-voted">@Model[3].Title</span></li>
+                <li>
+                    <p class="movie__time">@Model[3].Duration мин</p>
+                    <p>
+
+                        @foreach (var genre in Model[3].Genres)
+                        {
+
+                            if (genre == Model[3].Genres.Last() || Model[3].Genres.Count == 1)
+                            {
+                                <span>@genre</span>
+                            }
+                            else
+                            {
+                                <span>@genre,</span>
+                            }
+
+                        }
+                    </p>
+                </li>
+                <li class="last-block">
+                    <a href="movie-page-left.html" class="slide__link">перейти</a>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <!--item fifth--->
+        <div class="movie-beta__item hidden-xs hidden-sm">
+            <img class="img_size_for_best" alt='' src="@Model[4].PosterURL">
+            @*<span class="best-rate">@Model[4].Rating</span>*@
+            <ul class="movie-beta__info">
+                <li><span class="best-voted">@Model[4].Title</span></li>
+                <li>
+                    <p class="movie__time">@Model[4].Duration мин</p>
+                    <p>
+
+                        @foreach (var genre in Model[4].Genres)
+                        {
+
+                            if (genre == Model[4].Genres.Last() || Model[4].Genres.Count == 1)
+                            {
+                                <span>@genre</span>
+                            }
+                            else
+                            {
+                                <span>@genre,</span>
+                            }
+
+                        }
+                    </p>
+                </li>
+                <li class="last-block">
+                    <a href="movie-page-left.html" class="slide__link">перейти</a>
+                </li>
+            </ul>
+        </div>
+
+        <!--item sex--->
+        <div class="movie-beta__item hidden-xs hidden-sm">
+            <img class="img_size_for_best" alt='' src="@Model[5].PosterURL">
+            @*<span class="best-rate">@Model[5].Rating</span>*@
+            <ul class="movie-beta__info">
+                <li><span class="best-voted">@Model[5].Title</span></li>
+                <li>
+                    <p class="movie__time">@Model[5].Duration мин</p>
+                    <p>
+
+                        @foreach (var genre in Model[5].Genres)
+                        {
+
+                            if (genre == Model[5].Genres.Last() || Model[5].Genres.Count == 1)
+                            {
+                                <span>@genre</span>
+                            }
+                            else
+                            {
+                                <span>@genre,</span>
+                            }
+
+                        }
+                    </p>
+                </li>
+                <li class="last-block">
+                    <a href="movie-page-left.html" class="slide__link">перейти</a>
+                </li>
+            </ul>
+        </div>
+
+
     </div>
 
     

@@ -13,17 +13,24 @@ namespace Cinema.WEB.Controllers
     public class MainController : Controller
     {
         MovieService movieService;
-        IMapper mapperOnMovieModelMainPage;
+        IMapper mapperOnBestMovies, mapperForBanners;
 
         public MainController(MovieService movieService)
         {
             this.movieService = movieService;
-            mapperOnMovieModelMainPage = new Mapper(new MapperConfiguration(cfg => cfg.CreateMap<Movie, MovieModelMainPage>()
-                .ForMember(d => d.PosterURL, otp => otp.MapFrom(src => src.Poster.Size380X600))
+            mapperOnBestMovies = new Mapper(new MapperConfiguration(cfg => cfg.CreateMap<Movie, MovieModelMainPage>()
+                .ForMember(d => d.PosterURL, otp => otp.MapFrom(src => src.Poster.Url))
+                .ForMember(d => d.Genres, otp => otp.MapFrom(src => src.Genres.Select(g => g.Name)))
+                .ForMember(d => d.Countries, otp => otp.MapFrom(src => src.Countries.Select(g => g.Name)))           
+            ));
+
+            mapperForBanners = new Mapper(new MapperConfiguration(cfg => cfg.CreateMap<Movie, MovieModelMainPage>()
+                .ForMember(d => d.PosterURL, otp => otp.MapFrom(src => src.BannerUrl))
                 .ForMember(d => d.Genres, otp => otp.MapFrom(src => src.Genres.Select(g => g.Name)))
                 .ForMember(d => d.Countries, otp => otp.MapFrom(src => src.Countries.Select(g => g.Name)))
-            //.ForMember(d => d.DateIssue, opt => opt.MapFrom(src => src.DateIssue.ToShortDateString()))
             ));
+
+
         }
         
         // GET: Main
@@ -32,21 +39,26 @@ namespace Cinema.WEB.Controllers
             return View();
         }
 
-        public ActionResult Banner()
+        public ActionResult Banners()
         {
-            return PartialView();
+            var movies = movieService.GetAllWithBanners();
+            var listMoviesModel = mapperForBanners.Map<List<Movie>, List<MovieModelMainPage>>(movies);
+            return PartialView(listMoviesModel);
         }
 
         public ActionResult BestMovies()
         {
             var movies = movieService.GetAllBestFromApi();
-            var listMoviesModel = mapperOnMovieModelMainPage.Map<List<Movie>, List<MovieModelMainPage>>(movies);
+            var listMoviesModel = mapperOnBestMovies.Map<List<Movie>, List<MovieModelMainPage>>(movies);
             return PartialView(listMoviesModel);
         }
 
-        public ActionResult ListMovies()
+        public ActionResult TodayMovies()
         {
-            return View();
+            var movies = movieService.GetAllTodayFromApi();
+            var listMoviesModel = mapperOnBestMovies.Map<List<Movie>, List<MovieModelMainPage>>(movies);
+            return PartialView(listMoviesModel);
         }
+
     }
 }

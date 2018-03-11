@@ -1,9 +1,11 @@
-﻿
+﻿@model List<Cinema.WEB.Models.MovieModelMainPage>
+
 @{
-    ViewBag.Title = "Banner";
+    ViewBag.Title = "Banners";
 }
 
-    <!-- Slider -->
+
+  <!-- Slider -->
 <div class="bannercontainer rev_slider_wrapper">
 
     <!-- the ID here will be used in the JavaScript below to initialize the slider -->
@@ -12,16 +14,18 @@
         <!-- BEGIN SLIDES LIST -->
         <ul>
 
-            <!-- SLIDE 1 -->
-            <li data-transition="fade" class="slide" data-title='Красный воробей'>
-                
-                <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
-               
-                <img class="rev-slidebg" alt='' src="../Images/slides/banner-1519824616.jpg">              
-                <div class="tp-caption slide__name margin-slider"
-                        data-x="20"
-                        data-y="80"
-                        data-frames='[{
+            @foreach (var item in Model)
+            {
+                <li data-transition="fade" class="slide" data-title='Красный воробей'>
+
+                    <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
+                    @*<img class="rev-slidebg" alt='' src="~/Images/slides/banner-1518607607.jpg">*@
+                   
+                    <img class="rev-slidebg" alt='' src="@item.PosterURL">
+                    <div class="tp-caption slide__name margin-slider"
+                         data-x="20"
+                         data-y="80"
+                         data-frames='[{
                             "delay":300,
                             "split":"chars",
                             "splitdelay":0.1,
@@ -38,13 +42,32 @@
                             "to":"opacity:0;",
                             "ease":"Power3.easeInOut"
                             }]'>
-                    Красный воробей
-                </div>
+                        @item.Title
+                    </div>
 
-                <div class="tp-caption slide__date margin-slider"
-                        data-x="20"
-                        data-y="220"
-                        data-frames='[{
+                    <div class="tp-caption slide__date margin-slider"
+                         data-x="20"
+                         data-y="220"
+                         data-frames='[{
+                            "delay":1700,
+                            "speed":500,
+                            "frame":"0",
+                            "from":"y:100px;opacity:0;",
+                            "to":"o:1;",
+                            "ease":"Power3.easeInOut"
+                            },{
+                            "delay":"wait",
+                            "speed":300,
+                            "frame":"999",
+                            "to":"opacity:0;",
+                            "ease":"Power3.easeInOut"
+                            }]'>                      
+                        @item.Countries[0], IMDB: @item.Rating  ,  @item.Duration мин, @item.AgeLimit+
+                    </div>
+                    <div class="tp-caption slide__date margin-slider"
+                         data-x="20"
+                         data-y="250"
+                         data-frames='[{
                             "delay":1700,
                             "speed":500,
                             "frame":"0",
@@ -58,32 +81,23 @@
                             "to":"opacity:0;",
                             "ease":"Power3.easeInOut"
                             }]'>
-                    США, 01 Мар 2018, 120 мин, 16+
-                </div>
-                <div class="tp-caption slide__date margin-slider"
-                        data-x="20"
-                        data-y="250"
-                        data-frames='[{
-                            "delay":1700,
-                            "speed":500,
-                            "frame":"0",
-                            "from":"y:100px;opacity:0;",
-                            "to":"o:1;",
-                            "ease":"Power3.easeInOut"
-                            },{
-                            "delay":"wait",
-                            "speed":300,
-                            "frame":"999",
-                            "to":"opacity:0;",
-                            "ease":"Power3.easeInOut"
-                            }]'>
-                    Триллер
-                </div>
-                
-                <div class="tp-caption margin-slider"
-                        data-x="20"
-                        data-y="324"
-                        data-frames='[{
+                        @foreach (var genre in item.Genres)
+                        {
+                            if (genre == Model[0].Genres.Last() || Model[0].Genres.Count == 1)
+                            {
+                                <span>@genre</span>
+                            }
+                            else
+                            {
+                                <span>@genre,</span>
+                            }
+                        }
+                    </div>
+
+                    <div class="tp-caption margin-slider"
+                         data-x="20"
+                         data-y="324"
+                         data-frames='[{
                             "delay":2600,
                             "speed":400,
                             "frame":"0",
@@ -97,16 +111,16 @@
                             "to":"opacity:0;",
                             "ease":"Power3.easeInOut"
                             }]'>
-                    <a href="#" class="btn btn-md btn--danger btn--wide slider--btn">Перейти</a>
-                    <a href="#" class="btn btn-md btn--default btn--wide slider--btn" style="margin-left:10px;">
-                        Смотреть Трейлер
-                    </a>
-                </div>
+                        <a href="#" class="btn btn-md btn--danger btn--wide slider--btn">Перейти</a>
+                        <a href="#" class="btn btn-md btn--default btn--wide slider--btn" style="margin-left:10px;">
+                            Смотреть Трейлер
+                        </a>
+                    </div>
 
-            </li>
+                </li>
 
+            }
 
-           
         </ul><!-- END SLIDES LIST -->
 
     </div><!-- END SLIDER CONTAINER -->

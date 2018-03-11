@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,23 +8,22 @@ using System.Threading.Tasks;
 
 namespace Cinema.Domain.Entities
 {
-    public class Poster
+    public class Banner
     {
-        [Key]
-        [ForeignKey("Movie")]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long Id { get; set; }
-        public string Url { get; set; }
-        public Movie Movie { get; set; }
 
-        public Poster(long id, string url)
+        public string Url { get; set; }
+
+        public Banner()
         {
-            this.Url = url;
-          
+
         }
 
-        public Poster()
+        public Banner(long id, string url)
         {
-
+            this.Id = id;
+            this.Url = url;
         }
     }
 }

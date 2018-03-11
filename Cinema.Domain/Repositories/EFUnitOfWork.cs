@@ -24,12 +24,23 @@ namespace Cinema.Domain.Repositories
         private TheaterRepository theaterRepository;
         private TrailerRepository trailerRepository;
         private ProfessionRepository professionRepository;
-
+        private BannerRepository bannerRepository;
         
         public EFUnitOfWork(string connectionString)
         {
             db = new CotsContext(connectionString);
         }
+
+        public Repository<Banner> Banners
+        {
+            get
+            {
+                if (bannerRepository == null)
+                    bannerRepository = new BannerRepository(db);
+                return bannerRepository;
+            }
+        }
+
         public Repository<Test> Testes
         {
             get

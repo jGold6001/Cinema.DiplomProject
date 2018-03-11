@@ -3,13 +3,12 @@ F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\Cinema.Do
 F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\Cinema.Domain.pdb
 F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\EntityFramework.dll
 F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\EntityFramework.SqlServer.dll
+F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\Newtonsoft.Json.dll
+F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\Ninject.dll
 F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\EntityFramework.xml
 F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\EntityFramework.SqlServer.xml
+F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\Newtonsoft.Json.xml
+F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\Ninject.xml
 F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\obj\Debug\Cinema.Domain.csproj.CoreCompileInputs.cache
 F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\obj\Debug\Cinema.Domain.dll
 F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\obj\Debug\Cinema.Domain.pdb
-F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\Newtonsoft.Json.dll
-F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\Newtonsoft.Json.xml
-F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\Ninject.dll
-F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\Ninject.xml
-F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\obj\Debug\Cinema.Domain.csprojResolveAssemblyReference.cache

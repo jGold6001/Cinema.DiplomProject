@@ -238,6 +238,8 @@
     <Content Include="fonts\MuseoSans_500-webfont.woff" />
     <Content Include="Content\.DS_Store" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\slides\banner-1518607607.jpg" />
+    <Content Include="Images\slides\banner-1519824616.jpg" />
     <Content Include="Scripts\.DS_Store" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Images\ajax-loader.GIF" />
@@ -522,15 +524,17 @@
     <Content Include="Scripts\source\jquery.themepunch.tools.min.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Main\Index.cshtml" />
-    <Content Include="Views\Main\ListMovies.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\MovieController.cs" />
+    <Compile Include="Controllers\MovieListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\MovieModelFull.cs" />
     <Compile Include="Models\MovieModelMainPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\NinjectDependencyResolver.cs" />
@@ -546,6 +550,9 @@
     <Content Include="Scripts\jquery-3.2.1.min.map" />
     <Content Include="Views\Main\Banner.cshtml" />
     <Content Include="Views\Main\BestMovies.cshtml" />
+    <Content Include="Views\Main\TodayMovies.cshtml" />
+    <Content Include="Views\Main\Banners.cshtml" />
+    <Content Include="Views\Movie\MoviePage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -555,6 +562,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\MovieList\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cinema.Domain\Cinema.Domain.csproj">

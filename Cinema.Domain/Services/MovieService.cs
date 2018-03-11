@@ -71,13 +71,17 @@ namespace Cinema.Domain.Services
         {
             var movie = JsonFromURL<Movie>.ConvertToObject($"{host}/film/{id}{keyAPI}");
 
+           
+
             //get and add poster
             var postrsIds = JsonFromURL<PostersByMovie>.ConvertToObject($"{host}/film/{id}/posters{keyAPI}");
-            var posterSize_1 = $"{host}/film/poster/{postrsIds.Ids[0].Value}{keyAPI}&width=380&height=600&ratio=1";
-            var posterSize_2 = $"{host}/film/poster/{postrsIds.Ids[0].Value}{keyAPI}&width=424&height=424&ratio=1";
-            var posterSize_3 = $"{host}/film/poster/{postrsIds.Ids[0].Value}{keyAPI}&width=300&height=400&ratio=1";
-            var poster = new Poster(id, posterSize_1, posterSize_2, posterSize_3);
+            var posterUrl = $"{host}/film/poster/{postrsIds.Ids[0].Value}{keyAPI}&width=380&height=600&ratio=1";          
+            var poster = new Poster(id, posterUrl);
             movie.Poster = poster;
+
+            //banner
+            if(unitOfWork.Banners.Get(id) != null)
+                movie.BannerUrl = unitOfWork.Banners.Get(id).Url;
 
             //get and add trailer
             var trailers = JsonFromURL<TrailersData>.ConvertToObject($"{host}/film/{id}/trailers{keyAPI}&size=1");
@@ -93,6 +97,9 @@ namespace Cinema.Domain.Services
             var personsByMovie = JsonFromURL<PersonesByMovie>.ConvertToObject($"{host}/film/{id}/persons{keyAPI}&size=max&detalization=FULL");
             var persons = new List<Person>();          
             movie.Persons = GetPersons(id, personsByMovie, persons);
+
+            var editDescription = movie.Description;
+
 
             return movie;
         }
@@ -121,8 +128,50 @@ namespace Cinema.Domain.Services
             merged.AddRange(boomerMovies.Where(m2 =>
                             florenceMovies.All(m1 => m1.Id != m2.Id)));
 
-            var movies = new List<Movie>(merged.OrderBy(m => m.Rating).Reverse().Take(6));
+            var movies = new List<Movie>(merged.OrderBy(m => m.Premiere).Reverse().Take(6));
 
+            return movies;
+        }
+
+
+        public List<Movie> GetAllTodayFromApi()
+        {
+            var florenceMovies = GetAllFromAPIByTheater(8);
+            var boomerMovies = GetAllFromAPIByTheater(281);
+
+            var merged = new List<Movie>(florenceMovies);
+            merged.AddRange(boomerMovies.Where(m2 =>
+                            florenceMovies.All(m1 => m1.Id != m2.Id)));
+
+            var movies = new List<Movie>(merged.OrderBy(m => m.Rating).Reverse().Take(8));
+
+            return movies;
+        }
+
+        public List<Movie> GetAllOfCinemasFromApi()
+        {
+            var florenceMovies = GetAllFromAPIByTheater(8);
+            var boomerMovies = GetAllFromAPIByTheater(281);
+
+            var merged = new List<Movie>(florenceMovies);
+            merged.AddRange(boomerMovies.Where(m2 =>
+                            florenceMovies.All(m1 => m1.Id != m2.Id)));
+
+            var movies = merged;
+
+            return movies;
+        }
+
+        public List<Movie> GetAllWithBanners()
+        {
+            var florenceMovies = GetAllFromAPIByTheater(8);
+            var boomerMovies = GetAllFromAPIByTheater(281);
+
+            var merged = new List<Movie>(florenceMovies);
+            merged.AddRange(boomerMovies.Where(m2 =>
+                            florenceMovies.All(m1 => m1.Id != m2.Id)));
+
+            var movies = merged.FindAll(m => m.BannerUrl !=null);
             return movies;
         }
 
@@ -185,6 +234,18 @@ namespace Cinema.Domain.Services
                 return person;
             }
             return null;
+        }
+
+        public void AddBannerToDb(Banner banner)
+        {
+            unitOfWork.Banners.AddOrUpdate(banner);
+            unitOfWork.Save();
+        }
+
+
+        public Banner GetBannerFromDb(long id)
+        {
+            return unitOfWork.Banners.Get(id);           
         }
 
     }

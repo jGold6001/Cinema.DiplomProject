@@ -1,0 +1,326 @@
+﻿@model List<Cinema.WEB.Models.MovieModelMainPage>
+
+@{
+    ViewBag.Title = "TodayMovies";
+}
+
+<div class="col-sm-12 col-md-12 col-xs-12 col-12">
+
+    <!-- Movie variant with time -->
+
+    <!--left-Dark-->
+    <div class="movie movie--test movie--test--dark movie--test--left">
+        <div class="movie__images">
+            <a href="movie-page-left.html" class="movie-beta__link">
+                <img class="img_size" alt='' src="@Model[0].PosterURL">
+            </a>
+        </div>
+        <div class="movie__info">
+            <a href='movie-page-left.html' class="movie__title">@Model[0].Title (@Model[0].Year)  </a>
+            <p class="movie__time">@Model[0].Duration мин</p>
+            <p class="movie__option">
+                @foreach (var genre in Model[0].Genres)
+                {
+
+                    if (genre == Model[0].Genres.Last() || Model[0].Genres.Count == 1)
+                    {
+                        <span>@genre</span>
+                    }
+                    else
+                    {
+                        <span>@genre,</span> 
+                    }
+
+                }
+               
+            </p>
+            <div class="box">
+                <div>
+                    @Html.Raw(HttpUtility.HtmlDecode(Model[0].Description))
+                </div>
+            </div>
+
+
+            <div class="movie_go_to_link">
+                <a href="movie-page-left.html" class="go_to_link">перейти</a>
+            </div>
+        </div>
+    </div>
+
+    <!--left-Light-->
+    <div class="movie movie--test movie--test--light movie--test--left">
+         <div class="movie__images">
+            <a href="movie-page-left.html" class="movie-beta__link">
+                <img class="img_size" alt='' src="@Model[1].PosterURL">
+            </a>
+        </div>
+        <div class="movie__info">
+            <a href='movie-page-left.html' class="movie__title">@Model[1].Title (@Model[1].Year)  </a>
+            <p class="movie__time">@Model[1].Duration мин</p>
+            <p class="movie__option">
+                @foreach (var genre in Model[1].Genres)
+                {
+
+                    if (genre == Model[1].Genres.Last() || Model[1].Genres.Count == 1)
+                    {
+                        <span>@genre</span>
+                    }
+                    else
+                    {
+                        <span>@genre,</span>
+                    }
+
+                }
+               
+            </p>
+            <div class="box">
+                <div>
+                    @Html.Raw(HttpUtility.HtmlDecode(Model[1].Description))
+                </div>
+            </div>
+
+
+            <div class="movie_go_to_link">
+                <a href="movie-page-left.html" class="go_to_link">перейти</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--right-Dark-->
+    <div class="movie movie--test movie--test--light movie--test--right">
+        <div class="movie__images">
+            <a href="movie-page-left.html" class="movie-beta__link">
+                <img class="img_size" alt='' src="@Model[2].PosterURL">
+            </a>
+        </div>
+        <div class="movie__info">
+            <a href='movie-page-left.html' class="movie__title">@Model[2].Title (@Model[2].Year)  </a>
+            <p class="movie__time">@Model[2].Duration мин</p>
+            <p class="movie__option">
+                @foreach (var genre in Model[2].Genres)
+                {
+
+                    if (genre == Model[2].Genres.Last() || Model[2].Genres.Count == 1)
+                    {
+                        <span>@genre</span>
+                    }
+                    else
+                    {
+                        <span>@genre,</span>
+                    }
+
+                }
+
+            </p>
+            <div class="box">
+                <div>
+                    @Html.Raw(HttpUtility.HtmlDecode(Model[2].Description))
+                </div>
+            </div>
+
+
+            <div class="movie_go_to_link">
+                <a href="movie-page-left.html" class="go_to_link">перейти</a>
+            </div>
+        </div>
+    </div>
+  
+    <!--right-Light-->
+    <div class="movie movie--test movie--test--dark movie--test--right">
+        <div class="movie__images">
+            <a href="movie-page-left.html" class="movie-beta__link">
+                <img  class="img_size" alt='' src="@Model[3].PosterURL">
+            </a>
+        </div>
+        <div class="movie__info">
+            <a href='movie-page-left.html' class="movie__title">@Model[3].Title (@Model[3].Year)  </a>
+            <p class="movie__time">@Model[3].Duration мин</p>
+            <p class="movie__option">
+                @foreach (var genre in Model[3].Genres)
+                {
+
+                    if (genre == Model[3].Genres.Last() || Model[3].Genres.Count == 1)
+                    {
+                        <span>@genre</span>
+                    }
+                    else
+                    {
+                        <span>@genre,</span>
+                    }
+
+                }
+
+            </p>
+            <div class="box">
+                <div>
+                    @Html.Raw(HttpUtility.HtmlDecode(Model[3].Description))
+                </div>
+            </div>
+
+
+            <div class="movie_go_to_link">
+                <a href="movie-page-left.html" class="go_to_link">перейти</a>
+            </div>
+        </div>
+    </div>
+
+    <!--left-Dark-->
+    <div class="movie movie--test movie--test--dark movie--test--left">
+        <div class="movie__images">
+            <a href="movie-page-left.html" class="movie-beta__link">
+                <img class="img_size" alt='' src="@Model[4].PosterURL">
+            </a>
+        </div>
+        <div class="movie__info">
+            <a href='movie-page-left.html' class="movie__title">@Model[4].Title (@Model[4].Year)  </a>
+            <p class="movie__time">@Model[4].Duration мин</p>
+            <p class="movie__option">
+                @foreach (var genre in Model[4].Genres)
+                {
+
+                    if (genre == Model[4].Genres.Last() || Model[4].Genres.Count == 1)
+                    {
+                        <span>@genre</span>
+                    }
+                    else
+                    {
+                        <span>@genre,</span>
+                    }
+
+                }
+
+            </p>
+            <div class="box">
+                <div>
+                    @Html.Raw(HttpUtility.HtmlDecode(Model[4].Description))
+                </div>
+            </div>
+
+
+            <div class="movie_go_to_link">
+                <a href="movie-page-left.html" class="go_to_link">перейти</a>
+            </div>
+        </div>
+    </div>
+
+    <!--left-Light-->
+    <div class="movie movie--test movie--test--light movie--test--left">
+        <div class="movie__images">
+            <a href="movie-page-left.html" class="movie-beta__link">
+                <img class="img_size" alt='' src="@Model[5].PosterURL">
+            </a>
+        </div>
+        <div class="movie__info">
+            <a href='movie-page-left.html' class="movie__title">@Model[5].Title (@Model[5].Year)  </a>
+            <p class="movie__time">@Model[5].Duration мин</p>
+            <p class="movie__option">
+                @foreach (var genre in Model[5].Genres)
+                {
+
+                    if (genre == Model[5].Genres.Last() || Model[5].Genres.Count == 1)
+                    {
+                        <span>@genre</span>
+                    }
+                    else
+                    {
+                        <span>@genre,</span>
+                    }
+
+                }
+
+            </p>
+            <div class="box">
+                <div>
+                    @Html.Raw(HttpUtility.HtmlDecode(Model[5].Description))
+                </div>
+            </div>
+
+
+            <div class="movie_go_to_link">
+                <a href="movie-page-left.html" class="go_to_link">перейти</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--right-Dark-->
+    <div class="movie movie--test movie--test--light movie--test--right">
+        <div class="movie__images">
+            <a href="movie-page-left.html" class="movie-beta__link">
+                <img class="img_size" alt='' src="@Model[6].PosterURL">
+            </a>
+        </div>
+        <div class="movie__info">
+            <a href='movie-page-left.html' class="movie__title">@Model[6].Title (@Model[6].Year)  </a>
+            <p class="movie__time">@Model[6].Duration мин</p>
+            <p class="movie__option">
+                @foreach (var genre in Model[6].Genres)
+                {
+
+                    if (genre == Model[6].Genres.Last() || Model[6].Genres.Count == 1)
+                    {
+                        <span>@genre</span>
+                    }
+                    else
+                    {
+                        <span>@genre,</span>
+                    }
+
+                }
+
+            </p>
+            <div class="box">
+                <div>
+                    @Html.Raw(HttpUtility.HtmlDecode(Model[6].Description))
+                </div>
+            </div>
+
+
+            <div class="movie_go_to_link">
+                <a href="movie-page-left.html" class="go_to_link">перейти</a>
+            </div>
+        </div>
+    </div>
+
+    <!--right-Light-->
+    <div class="movie movie--test movie--test--dark movie--test--right">
+        <div class="movie__images">
+            <a href="movie-page-left.html" class="movie-beta__link">
+                <img class="img_size" alt='' src="@Model[7].PosterURL">
+            </a>
+        </div>
+        <div class="movie__info">
+            <a href='movie-page-left.html' class="movie__title">@Model[7].Title (@Model[7].Year)  </a>
+            <p class="movie__time">@Model[7].Duration мин</p>
+            <p class="movie__option">
+                @foreach (var genre in Model[7].Genres)
+                {
+
+                    if (genre == Model[7].Genres.Last() || Model[7].Genres.Count == 1)
+                    {
+                        <span>@genre</span>
+                    }
+                    else
+                    {
+                        <span>@genre,</span>
+                    }
+
+                }
+
+            </p>
+            <div class="box">
+                <div>
+                    @Html.Raw(HttpUtility.HtmlDecode(Model[7].Description))
+                </div>
+            </div>
+
+
+            <div class="movie_go_to_link">
+                <a href="movie-page-left.html" class="go_to_link">перейти</a>
+            </div>
+        </div>
+    </div>
+</div>

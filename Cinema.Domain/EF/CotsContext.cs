@@ -27,6 +27,7 @@ namespace Cinema.Domain.EF
         public virtual DbSet<Poster> Posters { get; set; }
         public virtual DbSet<Profession> Professions { get; set; }
         public virtual DbSet<Trailer> Trailers { get; set; }
+        public virtual DbSet<Banner> Banners { get; set; }
       
     }
 }
