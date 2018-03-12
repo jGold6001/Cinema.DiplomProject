@@ -190,7 +190,7 @@ namespace Cinema.Domain.Services
         {
             foreach (var imageId in imagesData.Ids)
             {
-                var imgPath = $"{host}/film/image/{imageId.Value}{keyAPI}&width=300&height=400&ratio=1";
+                var imgPath = $"{host}/film/image/{imageId.Value}{keyAPI}&width=1000&height=600&ratio=1";
                 var image = new Image(imgPath, id);
                 images.Add(image);
             }

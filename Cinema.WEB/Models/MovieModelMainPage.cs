@@ -9,12 +9,13 @@ namespace Cinema.WEB.Models
     {     
         public long Id { get; set; }     
         public string Title { get; set; }
-        public string Premiere { get; set; }       
+        public DateTime Premiere { get; set; }       
         public string Description { get; set; }
         public int? Year { get; set; }       
         public int? Duration { get; set; }    
         public string AgeLimit { get; set; }
         public double? Rating { get; set; }
+        public string TrailerUrl { get; set; }
         public long? Votes { get; set; }
         public string PosterURL { get; set; }      
         public List<string> Countries { get; set; }

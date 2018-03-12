@@ -51,7 +51,7 @@
                                 }
                             }
                         </p>
-                        <p class="movie__option"><strong>Премьера: </strong>@Model.Premiere</p>
+                        <p class="movie__option"><strong>Премьера: </strong>@Model.Premiere.ToLongDateString()</p>
                         <p class="movie__option"><strong>Режисер: </strong>@Model.Director</p>
                         <p class="movie__option">
                             <strong>Актеры: </strong>
@@ -70,7 +70,7 @@
                         <p class="movie__option"><strong>Возрастная категория: </strong>@Model.AgeLimit</p>
 
                         <div class="trailer_btn">
-                            <a href="#" class="btn btn-md btn--default btn--wide slider--btn" >
+                            <a href="@Model.TrailerUrl" target="_blank" class="btn btn-md btn--default btn--wide slider--btn" >
                                 Смотреть Трейлер
                             </a>
                         </div>
@@ -82,26 +82,31 @@
 
                 <h2 class="page-heading">Описание</h2>
                 <p class="movie__describe">@Html.Raw(HttpUtility.HtmlDecode(Model.Description))</p>
-                <h2 class="page-heading">Кадры из фильма</h2>
 
-                <div class="movie__media">
-                    <div class="swiper-container">
-                        <div class="swiper-wrapper">
+                @if (Model.ImagesUrls.Count > 0)
+                {
+                    <h2 class="page-heading">Кадры из фильма</h2>
 
-                            @foreach (var item in Model.ImagesUrls)
-                            {
-                               
-                                <div class="swiper-slide media-photo">
-                                    <a href='@item' class="movie__media-item">
-                                        <img alt='' src="@item">
-                                    </a>
-                                </div>
+                    <div class="movie__media">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
 
-                            }
+                                @foreach (var item in Model.ImagesUrls)
+                                {
 
+                                    <div class="swiper-slide media-photo">
+                                        <a href='@item' class="movie__media-item">
+                                            <img alt='' src="@item">
+                                        </a>
+                                    </div>
+
+                                }
+
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
+              
 
 
 
@@ -110,37 +115,12 @@
                     
                     <div class="datepicker">
                         <span class="datepicker__marker"><i class="fa fa-calendar"></i>Дата</span>
-                        <input type="text" id="datepicker" value='03/10/2014' class="datepicker__input">
+                        <input type="text" id="datepicker" value='@DateTime.Now.ToShortDateString()' class="datepicker__input">
                     </div>                  
 
                     <div class="clearfix"></div>
-                    <div class="time-select">
-                        <div class="time-select__group group--first">
-                            <div class="col-sm-4">
-                                <p class="time-select__place">Флоренция</p>
-                            </div>
-                            <ul class="col-sm-8 items-wrap">
-                                <li class="time-select__item" data-time='09:40'>09:40</li>
-                                <li class="time-select__item" data-time='13:45'>13:45</li>
-                                <li class="time-select__item active" data-time='15:45'>15:45</li>
-                                <li class="time-select__item" data-time='19:50'>19:50</li>
-                                <li class="time-select__item" data-time='21:50'>21:50</li>
-                            </ul>
-                        </div>
-                        <div class="time-select__group">
-                            <div class="col-sm-4">
-                                <p class="time-select__place">Бумер</p>
-                            </div>
-                            <ul class="col-sm-8 items-wrap">
-                                <li class="time-select__item" data-time='10:45'>10:45</li>
-                                <li class="time-select__item" data-time='16:00'>16:00</li>
-                                <li class="time-select__item" data-time='19:00'>19:00</li>
-                                <li class="time-select__item" data-time='21:15'>21:15</li>
-                                <li class="time-select__item" data-time='23:00'>23:00</li>
-                            </ul>
-                        </div>
-                        
-                    </div>
+
+                    <div class="time-select"></div>
                     
                 </div>
             </div>
@@ -152,12 +132,47 @@
 <script type="text/javascript">
     $(function () {
         $(".header-wrapper").css("position", "relative");
-    });
-    
-    $(document).ready(function() {
-        init_MoviePage();
-                init_MoviePageFull();
+
+        $.datepicker.regional['ru'] = {
+            closeText: 'Закрыть',
+            prevText: 'Пред',
+            nextText: 'След',
+            currentText: 'Сегодня',
+            monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+                'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+            monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн',
+                'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+            dayNames: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
+            dayNamesShort: ['вск', 'пнд', 'втр', 'срд', 'чтв', 'птн', 'сбт'],
+            dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+            weekHeader: 'Нед',
+            dateFormat: 'dd.mm.yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+        $.datepicker.setDefaults($.datepicker.regional['ru']);  
+
+        //load seances default
+        var dateStr = $("#datepicker").val();     
+        var url = '@Url.Action("ByDate", new { dateStr= "__newDateStr__", movieId = Model.Id })'
+        $(".time-select").load(url.replace("__newDateStr__", dateStr));
+
+
+        //event of datepicker
+        $('#datepicker').on('change', function () {
+            var dateStr = $("#datepicker").val();          
+            var url = '@Url.Action("ByDate", new { dateStr= "__newDateStr__", movieId = Model.Id })'
+            $(".time-select").load(url.replace("__newDateStr__", dateStr));
         });
+
+    });
+
+    $(document).ready(function () {
+        init_MoviePage();
+        init_MoviePageFull();
+    });
 
 
 </script>

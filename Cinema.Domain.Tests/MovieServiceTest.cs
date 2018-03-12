@@ -230,6 +230,15 @@ namespace Cinema.Domain.Tests
                 Trace.WriteLine($"{item.Id} - {item.Title} - bunner: {item.BannerUrl}");
         }
 
-      
+        [TestMethod]
+        public void ConvertDateFromStringToDateTime_Test()
+        {
+            DateTime myDate = DateTime.ParseExact("2009-05-08", "yyyy-MM-dd",
+                                       System.Globalization.CultureInfo.InvariantCulture);
+
+            Trace.WriteLine(myDate.ToLongDateString());
+        }
+
+        
     }
 }

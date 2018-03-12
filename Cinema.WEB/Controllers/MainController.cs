@@ -20,6 +20,8 @@ namespace Cinema.WEB.Controllers
             this.movieService = movieService;
             mapperOnBestMovies = new Mapper(new MapperConfiguration(cfg => cfg.CreateMap<Movie, MovieModelMainPage>()
                 .ForMember(d => d.PosterURL, otp => otp.MapFrom(src => src.Poster.Url))
+                .ForMember(d => d.TrailerUrl, opt => opt.MapFrom(s => s.Trailer.Url))
+                .ForMember(d => d.Premiere, otp => otp.MapFrom(src => DateTime.ParseExact(src.Premiere, "yyyy-MM-dd",System.Globalization.CultureInfo.InvariantCulture)))
                 .ForMember(d => d.Genres, otp => otp.MapFrom(src => src.Genres.Select(g => g.Name)))
                 .ForMember(d => d.Countries, otp => otp.MapFrom(src => src.Countries.Select(g => g.Name)))           
             ));
@@ -27,6 +29,7 @@ namespace Cinema.WEB.Controllers
             mapperForBanners = new Mapper(new MapperConfiguration(cfg => cfg.CreateMap<Movie, MovieModelMainPage>()
                 .ForMember(d => d.PosterURL, otp => otp.MapFrom(src => src.BannerUrl))
                 .ForMember(d => d.Genres, otp => otp.MapFrom(src => src.Genres.Select(g => g.Name)))
+                .ForMember(d => d.Premiere, otp => otp.MapFrom(src => DateTime.ParseExact(src.Premiere, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture)))
                 .ForMember(d => d.Countries, otp => otp.MapFrom(src => src.Countries.Select(g => g.Name)))
             ));
 

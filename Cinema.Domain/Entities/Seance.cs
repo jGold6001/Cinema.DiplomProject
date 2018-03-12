@@ -17,6 +17,17 @@ namespace Cinema.Domain.Entities
 
         [JsonProperty("times")]
         public List<TimeSeance> Times { get; set; }
+
+        [JsonProperty("film_id")]
+        public long MovieId { get; set; }
+
+        public Movie Movie { get; set; }
+
+        [JsonProperty("hall_id")]
+        public long HallId { get; set; }
+
+        public long TheaterId { get; set; }
+
     }
 
     public class TimeSeance
@@ -24,7 +35,16 @@ namespace Cinema.Domain.Entities
         [JsonProperty("id")]
         public long Id { get; set; }
 
-        //[JsonProperty("time")]
-        //public DateTime
+        [JsonProperty("time")]
+        public DateTime TimeBegin { get; set; }
+        
+        [JsonProperty("prices")]
+        public string Prices { get; set; }
+
+        [JsonProperty("3d")]
+        public bool Is3D { get; set; }
+
+        [JsonProperty("purchase_allowed")]
+        public bool PurchaseAllowed { get; set; }
     }
 }

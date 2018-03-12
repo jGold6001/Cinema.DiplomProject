@@ -1,0 +1,9 @@
+﻿
+@{
+    ViewBag.Title = "ByDate";
+}
+
+@foreach (var item in ViewBag.Theaters)
+{
+    @Html.Action("SeancesByTheaterMovieAndDate", new { theaterId = item, movieId = ViewBag.MovieId, dateStr = ViewBag.DateStr})
+}

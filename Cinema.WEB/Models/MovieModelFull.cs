@@ -9,7 +9,7 @@ namespace Cinema.WEB.Models
     {
         public long Id { get; set; }
         public string Title { get; set; }
-        public string Premiere { get; set; }
+        public DateTime Premiere { get; set; }
         public string Description { get; set; }
         public int? Year { get; set; }
         public int? Duration { get; set; }

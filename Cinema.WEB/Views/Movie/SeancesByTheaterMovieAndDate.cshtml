@@ -1,0 +1,29 @@
+﻿@model Cinema.WEB.Models.SeancesModelForTheater
+
+@{
+    ViewBag.Title = "SeancesByTheaterMovieAndDate";
+}
+
+@if (Model.Seances.Count > 0)
+{
+    <div class="time-select__group">
+        <div class="col-sm-4">
+            <p class="time-select__place">@Model.TheaterModel.Name</p>
+        </div>
+        <ul class="col-sm-8 items-wrap">
+
+            @foreach (var seance in Model.Seances)
+            {
+                foreach (var time in seance.Times)
+                {
+                    <li class="time-select__item" data-time='@time.TimeBegin.ToShortTimeString()'>@time.TimeBegin.ToShortTimeString()</li>
+                }
+            }
+
+        </ul>
+    </div>
+
+}
+
+
+

@@ -12,8 +12,7 @@
        
         <!--item-->
         <div class="movie-beta__item ">
-            <img class="img_size_for_best" alt='' src="@Model[0].PosterURL">
-            @*<span class="best-rate">@Model[0].Rating</span>*@
+            <img class="img_size_for_best" alt='' src="@Model[0].PosterURL">           
             <ul class="movie-beta__info">
                 <li><span class="best-voted">@Model[0].Title</span></li>
                 <li>
@@ -36,7 +35,7 @@
                     </p>
                 </li>
                 <li class="last-block">
-                    <a href="movie-page-left.html" class="slide__link">перейти</a>
+                    <a href="@Url.Action("MoviePage", "Movie", new { id = Model[0].Id })" class="slide__link">перейти</a>
                 </li>
             </ul>
         </div>
@@ -67,7 +66,7 @@
                     </p>
                 </li>
                 <li class="last-block">
-                    <a href="movie-page-left.html" class="slide__link">перейти</a>
+                    <a href="@Url.Action("MoviePage", "Movie", new { id = Model[1].Id })" class="slide__link">перейти</a>
                 </li>
             </ul>
         </div>
@@ -100,7 +99,7 @@
                     </p>
                 </li>
                 <li class="last-block">
-                    <a href="movie-page-left.html" class="slide__link">перейти</a>
+                    <a href="@Url.Action("MoviePage", "Movie", new { id = Model[2].Id })" class="slide__link">перейти</a>
                 </li>
             </ul>
         </div>
@@ -133,7 +132,7 @@
                     </p>
                 </li>
                 <li class="last-block">
-                    <a href="movie-page-left.html" class="slide__link">перейти</a>
+                    <a href="@Url.Action("MoviePage", "Movie", new { id = Model[3].Id })" class="slide__link">перейти</a>
                 </li>
             </ul>
         </div>
@@ -166,7 +165,7 @@
                     </p>
                 </li>
                 <li class="last-block">
-                    <a href="movie-page-left.html" class="slide__link">перейти</a>
+                    <a href="@Url.Action("MoviePage", "Movie", new { id = Model[4].Id })" class="slide__link">перейти</a>
                 </li>
             </ul>
         </div>
@@ -197,7 +196,7 @@
                     </p>
                 </li>
                 <li class="last-block">
-                    <a href="movie-page-left.html" class="slide__link">перейти</a>
+                    <a href="@Url.Action("MoviePage", "Movie", new { id = Model[5].Id })" class="slide__link">перейти</a>
                 </li>
             </ul>
         </div>
