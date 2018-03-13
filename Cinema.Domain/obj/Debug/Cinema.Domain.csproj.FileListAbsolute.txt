@@ -12,3 +12,4 @@ F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\bin\Debug\Ninject.x
 F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\obj\Debug\Cinema.Domain.csproj.CoreCompileInputs.cache
 F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\obj\Debug\Cinema.Domain.dll
 F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\obj\Debug\Cinema.Domain.pdb
+F:\ITstep\Subjects\Diplom\Cinema.DiplomProject\Cinema.Domain\obj\Debug\Cinema.Domain.csprojResolveAssemblyReference.cache

@@ -89,7 +89,7 @@
 
 
 .go_to_link {
-    color: #fe505a;
+    col_jayor: #fe505a;
     font: 16px 'aleoregular', sans-serif;
     padding-right: 20px;
     text-transform: uppercase;
@@ -108,7 +108,7 @@
 }
 
 .go_to_link:before {
-    color: #fe505a;
+    col_jayor: #fe505a;
     content: "\f054";
     font: 16px "FontAwesome";
     position: absolute;
@@ -120,12 +120,12 @@
 }
 
 .go_to_link:hover {
-    background-color: #fe505a;
-    color: #ffffff;
+    background-col_jayor: #fe505a;
+    col_jayor: #ffffff;
 }
 
 .go_to_link:hover:before {
-    color: #ffffff;
+    col_jayor: #ffffff;
 }
 
 
@@ -139,7 +139,7 @@
 
 .slide .slide__text {
     font: 20px 'Roboto', sans-serif !important;
-    color: #ffffff;
+    col_jayor: #ffffff;
     text-align: right;
     line-height: 21px;
 }
@@ -148,9 +148,6 @@
     padding-left: 5px;
 }
 
-/*.movie .movie__rate{
-    padding: 0px !important;
-}*/
 
 .trailer_btn{
     margin-top: 40px;
@@ -158,4 +155,141 @@
 
 .choose-container .datepicker{
     margin-left: 0 !important;
+}
+
+.movie_info{
+    text-align: left;
+}
+
+
+.movie__info_order h2 {
+    margin-top: 15px !important;
+}
+
+.poster_purchase{
+    text-align:center;
+}
+
+
+
+.ticket_price_jay, .common_price_jay {
+    font-weight: bold;
+}
+
+
+
+.common_price_jay {
+    color: red;
+    
+}
+
+.common_text_jay {
+    margin-left: 218px;
+}
+
+.common_jay{
+    margin-top:20px;
+}
+
+.ticket_price_jay {
+    margin-left: 410px;
+}
+
+.tickets_jay {
+    font-size: 15pt;
+} 
+
+
+@media (max-width: 1024px) {
+    .common_text_jay {
+        margin-left: 305px;
+    }
+
+    .common_jay {
+        margin-top: 20px;
+    }
+
+    .ticket_price_jay {
+        margin-left: 500px;
+    }
+
+    .tickets_jay {
+        font-size: 15pt;
+    } 
+}
+
+@media (max-width: 768px), (max-width: 991px) {
+    .common_text_jay {
+        margin-left: 218px;
+    }
+
+    .common_jay {
+        margin-top: 20px;
+    }
+
+    .ticket_price_jay {
+        margin-left: 410px;
+    }
+
+    .tickets_jay {
+        font-size: 15pt;
+    }
+}
+
+
+@media (max-width: 699px) {
+    .common_text_jay {
+        margin-left: 40px;
+    }
+
+    .common_jay {
+        margin-top: 20px;
+    }
+
+    .ticket_price_jay {
+        margin-left: 235px;
+    }
+
+    .tickets_jay {
+        font-size: 15pt;
+    }
+}
+
+@media (max-width: 521px) {
+    .common_text_jay {
+        position: absolute;
+        left: -25px;
+        top: 173px;
+    }
+
+    .common_jay {
+        margin-top: 20px;
+    }
+
+    .ticket_price_jay {
+        margin-left: 204px;
+    }
+
+    .tickets_jay {
+        font-size: 15pt;
+    }
+}
+
+
+
+
+@media (max-width: 474px) {
+    .common_text_jay {
+        position: absolute;
+        left: -25px;
+        top: 159px;
+    }
+
+    .ticket_price_jay {
+        margin-left: 100px;
+    }
+
+    .tickets_jay {
+        font-size: 12pt;
+    } 
 }

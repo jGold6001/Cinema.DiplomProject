@@ -528,16 +528,20 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BookDataModel.cs" />
     <Compile Include="Models\HallModel.cs" />
+    <Compile Include="Models\MovieBookModel.cs" />
     <Compile Include="Models\MovieModelFull.cs" />
     <Compile Include="Models\MovieModelMainPage.cs" />
     <Compile Include="Models\SeanceModel.cs" />
     <Compile Include="Models\SeancesModelForTheater.cs" />
+    <Compile Include="Models\TheaterBookModel.cs" />
     <Compile Include="Models\TheaterModel.cs" />
     <Compile Include="Models\TimeSeanceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -558,7 +562,10 @@
     <Content Include="Views\Movie\MoviePage.cshtml" />
     <Content Include="Views\Movie\SeancesByTheaterMovieAndDate.cshtml" />
     <Content Include="Views\Movie\ByDate.cshtml" />
-    <Content Include="Views\Movie\ByDateTest.cshtml" />
+    <Content Include="Views\Book\Hall.cshtml" />
+    <Content Include="Views\Book\Purchase.cshtml" />
+    <Content Include="Views\Book\Ticket.cshtml" />
+    <Content Include="Views\Movie\WithoutSeances.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -568,7 +575,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\MovieList\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cinema.Domain\Cinema.Domain.csproj">

@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Ticket";
+}
+
+<section class="container">
+    <div class="order-container">
+        <div class="order">
+            <img class="order__images" alt='' src="images/tickets.png">
+            <p class="order__title">Поздравляем<br><span class="order__descript">Покупка прошла успешно</span></p>
+        </div>
+
+
+        <div class="ticket">
+            <div class="ticket-position">
+                <div class="ticket__indecator indecator--pre"><div class="indecator-text pre--text">online ticket</div> </div>
+                <div class="ticket__inner">
+                    <div class="ticket-secondary">
+                        <span class="ticket__item">Номер Билета <strong class="ticket__number">a126bym4</strong></span>
+                        <span class="ticket__item ticket__date">25/10/2013</span>
+                        <span class="ticket__item ticket__time">17:45</span>
+                        <span class="ticket__item">Кинотеатр: <span class="ticket__cinema">Название</span></span>
+                        <span class="ticket__item">Зал: <span class="ticket__hall">Название</span></span>
+                        <span class="ticket__item ticket__price">цена: <strong class="ticket__cost">60 UAH</strong></span>
+                    </div>
+                    <div class="ticket-primery">
+                        <span class="ticket__item ticket__item--primery ticket__film">Фильм<br><strong class="ticket__movie">Название (2D)</strong></span>
+                        <span class="ticket__item ticket__item--primery">Места: 
+                        <span class="ticket__place"> 11F, 12F, 13F</span></span>
+                    </div>
+
+                </div>
+                <div class="ticket__indecator indecator--post"><div class="indecator-text post--text">online ticket</div></div>
+            </div>
+        </div>
+
+
+        @*<div class="ticket-control">
+            <a href="#" class="watchlist list--download">Download</a>
+            <a href="#" class="watchlist list--print">Print</a>
+        </div>*@
+    </div>
+</section>
+
+
+<script src="~/Scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".header-wrapper").css("position", "relative");
+    });
+</script>

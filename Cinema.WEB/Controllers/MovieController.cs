@@ -47,15 +47,6 @@ namespace Cinema.WEB.Controllers
             ));
         }
 
-        //[Route("test")]
-        //public ActionResult MoviePage()
-        //{
-        //    ViewBag.BaseUrl = Request.Url.Authority;
-        //    var movie = movieService.GetFromAPI(47974);
-        //    var movieModelFull = mapperMovieModelFull.Map<Movie, MovieModelFull>(movie);
-        //    return View(movieModelFull);
-        //}
-
         [Route("{Id}")]
         public ActionResult MoviePage(long id)
         {
@@ -67,10 +58,18 @@ namespace Cinema.WEB.Controllers
         [Route("seances_by_th_m_d/{theaterId:long}/{movieId:long}/{dateStr}")]
         public ActionResult SeancesByTheaterMovieAndDate(long theaterId, long movieId, string dateStr)
         {
+            ViewBag.TheaterId = theaterId;
             var date = DateTime.ParseExact(dateStr, "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
             var seanceData = seanceService.GetDataFromAPISeanceByMovieTheaterAndDate(theaterId, movieId, date.ToString("yyyy-MM-dd"));
             var seancesModelForTheater = mapperSeanceModelForTheater.Map<SeanceData, SeancesModelForTheater>(seanceData);
-            return PartialView(seancesModelForTheater);
+            if (seanceData.Seances.Count > 0)
+                return PartialView(seancesModelForTheater);
+            else
+            {              
+                ViewBag.TheaterName = (theaterId == 8) ? "Флоренция" : "Boomer";
+                return PartialView("WithoutSeances");
+            }
+                
         }
 
         [Route("bydate/{dateStr}/{movieId:long}")]
@@ -81,11 +80,6 @@ namespace Cinema.WEB.Controllers
             ViewBag.Theaters = new List<int>() { 8, 281 };           
             return PartialView();
         }
-
-        [Route("bydate/test")]
-        public ActionResult ByDateTest()
-        {          
-            return PartialView();
-        }
+        
     }
 }

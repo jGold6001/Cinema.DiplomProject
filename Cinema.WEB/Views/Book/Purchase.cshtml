@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "Purchase";
+}
+
+<section class="container">
+    <div class="order-container">
+        <div class="movie__info_order">
+            <div class="col-sm-4 col-md-3 movie-mobile poster_purchase">
+                <img src="~/Images/movie/movie-sample1.jpg" style="width: 60%; " />
+            </div>
+            <div class="col-sm-8 col-md-9 info_jay">
+                <h2>Название (2D)</h2>
+                <p>
+                    <b>Кинотеатр</b>
+                    <br /> Lavina Mall ( Берковецкая, 6Д) Зал №3
+                <p>
+                <p>
+                    <b>Сеанс </b>
+                    <br /> 13 Мар (Вт) 19:40
+                <p>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+   
+    <div class="col-sm-12">
+        <div class="checkout-wrapper">
+            <h2 class="page-heading">Билеты</h2>
+            <ul class="tickets_jay">
+                <li>Ряд: <b>A</b>, Место: <b>2</b><span class="ticket_price_jay" >120 UAH</span></li>
+                <li>Ряд: <b>B</b>, Место: <b>2</b><span class="ticket_price_jay" >120 UAH</span></li>
+                <li>Ряд: <b>C</b>, Место: <b>2</b><span class="ticket_price_jay" >120 UAH</span></li>
+                <li class="common_jay">Общее количество: <b  class="common_price_jay">3</b> <span class="common_text_jay">Общая сумма: <span class="common_price_jay" >360 UAH</span></span></li>
+            </ul>
+                     
+            <h2 class="page-heading">Выбрать метод оплаты</h2>
+            <div class="payment">
+                <a href="#" class="payment__item">
+                    <img alt='' src="~/Images/payment/pay1.png">
+                </a>
+                <a href="#" class="payment__item">
+                    <img alt='' src="~/Images/payment/pay2.png">
+                </a>
+                <a href="#" class="payment__item">
+                    <img alt='' src="~/Images/payment/pay3.png">
+                </a>
+                <a href="#" class="payment__item">
+                    <img alt='' src="~/Images/payment/pay4.png">
+                </a>
+                <a href="#" class="payment__item">
+                    <img alt='' src="~/Images/payment/pay5.png">
+                </a>
+                <a href="#" class="payment__item">
+                    <img alt='' src="~/Images/payment/pay6.png">
+                </a>
+                <a href="#" class="payment__item">
+                    <img alt='' src="~/Images/payment/pay7.png">
+                </a>
+            </div>
+            <h2 class="page-heading">Контактная информация</h2>
+
+            <form id='contact-info' method='post' novalidate="" class="form contact-info">
+                <div class="contact-info__field contact-info__field-mail">
+                    <input type='email' name='user-mail' placeholder='Ваш email' class="form__mail">
+                </div>
+                <div class="contact-info__field contact-info__field-tel">
+                    <input type='tel' name='user-tel' placeholder='Номер телефона' class="form__mail">
+                </div>
+            </form>
+
+        </div>
+
+        <div class="order">
+            <a href="book-final.html" class="btn btn-md btn--warning btn--wide">Купить</a>
+        </div>
+
+        <div class="clearfix"></div>
+        <form id='film-and-time' class="booking-form" method='get' action='book3-buy.html'>
+            <input type='text' name='choosen-number' class="choosen-number">
+            <input type='text' name='choosen-number--cheap' class="choosen-number--cheap">
+            <input type='text' name='choosen-number--middle' class="choosen-number--middle">
+            <input type='text' name='choosen-number--expansive' class="choosen-number--expansive">
+            <input type='text' name='choosen-cost' class="choosen-cost">
+            <input type='text' name='choosen-sits' class="choosen-sits">
+
+            <div class="booking-pagination booking-pagination--margin">
+                <a href="#" class="booking-pagination__prev">
+                    <span class="arrow__text arrow--prev">Вернуться обратно</span>
+                    <span class="arrow__info">Выбрать другие места</span>
+                </a>              
+            </div>
+        </form>
+    </div>
+</section>
+
+<script src="~/Scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".header-wrapper").css("position", "relative");
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        init_BookingTwo();
+    });
+</script>

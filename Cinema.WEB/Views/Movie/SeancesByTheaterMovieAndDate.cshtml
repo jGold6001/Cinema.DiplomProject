@@ -4,26 +4,50 @@
     ViewBag.Title = "SeancesByTheaterMovieAndDate";
 }
 
-@if (Model.Seances.Count > 0)
-{
-    <div class="time-select__group">
-        <div class="col-sm-4">
-            <p class="time-select__place">@Model.TheaterModel.Name</p>
-        </div>
-        <ul class="col-sm-8 items-wrap">
 
-            @foreach (var seance in Model.Seances)
-            {
-                foreach (var time in seance.Times)
-                {
-                    <li class="time-select__item" data-time='@time.TimeBegin.ToShortTimeString()'>@time.TimeBegin.ToShortTimeString()</li>
-                }
-            }
-
-        </ul>
+<div class="time-select__group">
+    <div class="col-sm-4">
+        <p class="time-select__place" >@Model.TheaterModel.Name</p>
     </div>
+    <ul class="col-sm-8 items-wrap">
 
-}
+        @foreach (var seance in Model.Seances)
+        {
+            foreach (var time in seance.Times)
+            {                  
+                <li class="time-select__item" data-time='@time.TimeBegin.ToShortTimeString()' data-id="@time.Id" data-seance="@seance.Id" data-hall="@seance.HallId" data-theater="@Model.TheaterModel.Id">@time.TimeBegin.ToShortTimeString()</li>
+            }
+        }
+
+    </ul>
+</div>
 
 
+<script src="~/Scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    $(function () {
+        $('.time-select__item').on('click', function (e) {
+            
+            var _id = $(event.target).data('id');
+            var _hallId = $(event.target).data('hall');
+            var _theaterId = $(event.target).data('theater');
+            var _seanceId = $(event.target).data('seance');
+
+            var url = '@Url.Action("Hall", "Book", new { cinemaId = "_cinema_", hallId="_hall_" , seanceId="_seance_", dateSeance = Model.Seances[0].Date, timeSeanceId ="_id_", movieId= Model.MovieModel.Id, })';
+
+            var urlSeance = url.replace("_seance_", _seanceId);
+            var urlCinema = urlSeance.replace("_cinema_", _theaterId);
+            var urlId = urlCinema.replace("_id_", _id);
+            var urlHall = urlId.replace("_hall_", _hallId);
+            var urlReady = urlHall;
+           
+            window.location.href = urlReady;
+        })
+    })
+
+</script>
+
+
+@*cinema/{cinemaId}/hall/{hallId}/time/{timeSeanceId}/movie/{movieId}*@
 
