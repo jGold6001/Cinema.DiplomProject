@@ -71,8 +71,6 @@ namespace Cinema.Domain.Services
         {
             var movie = JsonFromURL<Movie>.ConvertToObject($"{host}/film/{id}{keyAPI}");
 
-           
-
             //get and add poster
             var postrsIds = JsonFromURL<PostersByMovie>.ConvertToObject($"{host}/film/{id}/posters{keyAPI}");
             var posterUrl = $"{host}/film/poster/{postrsIds.Ids[0].Value}{keyAPI}&width=380&height=600&ratio=1";          

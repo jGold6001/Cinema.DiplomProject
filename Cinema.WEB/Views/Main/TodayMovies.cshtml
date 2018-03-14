@@ -56,7 +56,7 @@
         </div>
         <div class="movie__info">
             <a href='@Url.Action("MoviePage", "Movie", new { id = Model[1].Id })' class="movie__title">@Model[1].Title (@Model[1].Year)  </a>
-            <p class="movie__time">@Model[1].Duration мин</p>
+            <p class="movie__time">@Model[3].Duration мин</p>
             <p class="movie__option">
                 @foreach (var genre in Model[1].Genres)
                 {

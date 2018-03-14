@@ -314,7 +314,8 @@ function init_Home() {
                         $(this).parent().find('.active-dropdown').css("z-index", '-1');
                     });
 
-                    $('body').click( function (e){
+                    $('body').click(function (e) {
+                        console.log("t");
                       console.log(e.target);
                     })
 
@@ -558,6 +559,7 @@ function init_BookingTwo () {
                     cheapTicket = $('.choosen-number--cheap'),
                     middleTicket = $('.choosen-number--middle'),
                     expansiveTicket = $('.choosen-number--expansive'),
+                    vipTicket = $('.choosen-number--vip')
                     sits = $('.choosen-sits');
 
     //3. Choose sits (and count price for them)
@@ -568,11 +570,16 @@ function init_BookingTwo () {
                 var cheap = 0;
                 var middle = 0;
                 var expansive = 0;
+                var vip = 0; 
 
                 $('.sits__place').click(function (e) {
                     e.preventDefault();
                     var place = $(this).attr('data-place');
+
+                    var ticketTariff = $(this).attr('data-tariff');
                     var ticketPrice = $(this).attr('data-price');
+
+                    console.log("tariff: " + ticketTariff + " price: " + ticketPrice);
 
                     if(! $(e.target).hasClass('sits-state--your')){
 
@@ -581,23 +588,28 @@ function init_BookingTwo () {
 
                             $('.checked-place').prepend('<span class="choosen-place '+place+'">'+ place +'</span>');
 
-                            switch(ticketPrice)
+                            switch (ticketTariff)
                                 {
-                                case '10':
-                                  sum += 10;
+                                case 'cheap':
+                                  sum += ticketPrice;
                                   cheap += 1;
                                   break;
-                                case '20':
-                                  sum += 20;
+                                case 'middle':
+                                  sum += ticketPrice;
                                   middle += 1;
                                   break;
-                                case '30':
-                                  sum += 30;
+                                case 'expensive':
+                                  sum += ticketPrice;
                                   expansive += 1;
                                   break;
+
+                                case 'vip':
+                                    sum += ticketPrice;
+                                    vip += 1;
+                                    break;
                             }
 
-                            $('.checked-result').text('$'+sum);
+                            $('.checked-result').text(sum + 'UAH');
                         }
                     }
 
@@ -606,23 +618,27 @@ function init_BookingTwo () {
                         
                         $('.'+place+'').remove();
 
-                        switch(ticketPrice)
-                                {
-                                case '10':
-                                  sum -= 10;
-                                  cheap -= 1;
-                                  break;
-                                case '20':
-                                  sum -= 20;
-                                  middle -= 1;
-                                  break;
-                                case '30':
-                                  sum -= 30;
-                                  expansive -= 1;
-                                  break;
-                            }
+                        switch (ticketTariff) {
+                            case 'cheap':
+                                sum -= ticketPrice;
+                                cheap -= 1;
+                                break;
+                            case 'middle':
+                                sum -= ticketPrice;
+                                middle -= 1;
+                                break;
+                            case 'expensive':
+                                sum -= ticketPrice;
+                                expansive -= 1;
+                                break;
 
-                        $('.checked-result').text('$'+sum)
+                            case 'vip':
+                                sum -= ticketPrice;
+                                vip -= 1;
+                                break;
+                        }
+
+                        $('.checked-result').text(sum + 'UAH')
                     }
 
                     //data element init

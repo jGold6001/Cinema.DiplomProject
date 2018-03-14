@@ -10,7 +10,7 @@ namespace Cinema.WEB.Models
         public TheaterModel TheaterModel { get; set; }
         public MovieModelMainPage MovieModel { get; set; }
         public List<HallModel> HallModels { get; set; }
-        public List<SeanceModel> Seances { get; set; }
-     
+        public List<SeanceModel> Seances { get; set; }   
+       
     }
 }

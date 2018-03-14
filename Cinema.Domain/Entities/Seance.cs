@@ -46,5 +46,7 @@ namespace Cinema.Domain.Entities
 
         [JsonProperty("purchase_allowed")]
         public bool PurchaseAllowed { get; set; }
+       
+
     }
 }

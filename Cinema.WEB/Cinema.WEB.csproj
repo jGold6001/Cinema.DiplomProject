@@ -539,6 +539,7 @@
     <Compile Include="Models\MovieBookModel.cs" />
     <Compile Include="Models\MovieModelFull.cs" />
     <Compile Include="Models\MovieModelMainPage.cs" />
+    <Compile Include="Models\PriceModel.cs" />
     <Compile Include="Models\SeanceModel.cs" />
     <Compile Include="Models\SeancesModelForTheater.cs" />
     <Compile Include="Models\TheaterBookModel.cs" />

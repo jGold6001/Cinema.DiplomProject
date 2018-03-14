@@ -18,7 +18,7 @@ namespace Cinema.WEB.Controllers
         MovieService movieService;
         TheaterService theaterService;
 
-        IMapper mapperMovieModel, mapperSeanceModel, mapperSeanceDataModel, mapperTheaterModel, mapperTimeSeanceModel;
+        IMapper mapperMovieModel, mapperSeanceModel, mapperSeanceDataModel, mapperTheaterModel, mapperTimeSeanceModel, mapperPriceModel;
 
         public BookController(SeanceService seanceService, MovieService movieService, TheaterService theaterService)
         {
@@ -44,8 +44,12 @@ namespace Cinema.WEB.Controllers
             ));
 
             mapperTimeSeanceModel = new Mapper(new MapperConfiguration(c => c.CreateMap<TimeSeance, TimeSeanceModel>()));
+            mapperPriceModel = new Mapper(new MapperConfiguration(c => c.CreateMap<Price, PriceModel>()
+                .ForMember(d => d.Tariff, o => o.MapFrom(s => SetTariff(s.Type)))
+            ));
         }
 
+        
         // GET: Book
         [Route("cinema/{cinemaId}/hall/{hallId}/seance/{seanceId}/date/{dateSeance}/time/{timeSeanceId}/movie/{movieId}")]
         public ActionResult Hall(long cinemaId, long hallId,long seanceId, string dateSeance,long timeSeanceId, long movieId)
@@ -59,7 +63,9 @@ namespace Cinema.WEB.Controllers
 
             var hallName = seanceData.Halls.Find(h => h.Id == seanceModel.HallId).Name;
             var technology = (timeSeance.Is3D == true) ? "3D" : "2D";
-            var bookData = new BookDataModel(timeSeanceId, hallName, date, movieModel, timeSeance, theaterModel, technology);
+            var pricesModel = mapperPriceModel.Map<List<Price>, List<PriceModel>>( PriceFormer.Prices(timeSeance.Prices));
+            
+            var bookData = new BookDataModel(timeSeanceId, hallName, date, movieModel, timeSeance, theaterModel, technology, pricesModel);
 
             return View(bookData);
         }
@@ -75,6 +81,19 @@ namespace Cinema.WEB.Controllers
         {
             return View();
         }
-      
+
+        private string SetTariff(int type)
+        {
+            switch (type)
+            {
+                case 1: return "cheap";
+                case 2: return "middle";
+                case 3: return "expensive";
+                case 4: return "vip";
+                default: return null;
+            }
+        }
+
+
     }
 }

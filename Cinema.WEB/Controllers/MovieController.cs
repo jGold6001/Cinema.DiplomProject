@@ -62,7 +62,9 @@ namespace Cinema.WEB.Controllers
             var date = DateTime.ParseExact(dateStr, "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
             var seanceData = seanceService.GetDataFromAPISeanceByMovieTheaterAndDate(theaterId, movieId, date.ToString("yyyy-MM-dd"));
             var seancesModelForTheater = mapperSeanceModelForTheater.Map<SeanceData, SeancesModelForTheater>(seanceData);
-            if (seanceData.Seances.Count > 0)
+
+            
+            if (seancesModelForTheater.Seances.Count > 0)
                 return PartialView(seancesModelForTheater);
             else
             {              

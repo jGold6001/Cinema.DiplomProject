@@ -12,5 +12,6 @@ namespace Cinema.WEB.Models
         public string Prices { get; set; }  
         public bool Is3D { get; set; }
         public bool PurchaseAllowed { get; set; }
+      
     }
 }

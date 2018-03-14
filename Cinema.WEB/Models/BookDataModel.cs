@@ -14,13 +14,14 @@ namespace Cinema.WEB.Models
         public MovieBookModel MovieBookModel { get; set; }
         public TimeSeanceModel TimeSeanceModel { get; set; }
         public TheaterBookModel TheaterBookModel { get; set; }
+        public List<PriceModel> Prices { get; set; }
 
         public BookDataModel()
         {
 
         }
 
-        public BookDataModel(long id, string hallName, DateTime dateSeance, MovieBookModel movieBookModel, TimeSeanceModel timeSeanceModel, TheaterBookModel theaterBookModel, string technology)
+        public BookDataModel(long id, string hallName, DateTime dateSeance, MovieBookModel movieBookModel, TimeSeanceModel timeSeanceModel, TheaterBookModel theaterBookModel, string technology, List<PriceModel> prices)
         {
             this.Id = id;
             this.HallName = hallName;
@@ -29,6 +30,7 @@ namespace Cinema.WEB.Models
             this.TimeSeanceModel = timeSeanceModel;
             this.TheaterBookModel = theaterBookModel;
             this.Technology = technology;
+            this.Prices = prices;
         }
     }
 }

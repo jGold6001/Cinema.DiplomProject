@@ -12,6 +12,7 @@ namespace Cinema.WEB.Models
         public List<TimeSeanceModel> Times { get; set; }
         public long MovieId { get; set; }
         public long HallId { get; set; }
+        public long SeanceId { get; set; }
         public TheaterModel TheaterModel { get; set; }
     }
 }
