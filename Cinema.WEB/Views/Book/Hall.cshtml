@@ -8,6 +8,9 @@
     .sits-price--vip:before {
         background-color: #00acb48f;
     }
+    .sits .sits__checked{
+        width: 60px;
+    }
 
 </style>
 
@@ -59,7 +62,7 @@
                 </div>
 
                 <div class="col-sm-12 col-lg-10 col-lg-offset-1">
-                    <div class="sits-area hidden-xs">
+                    <div class="sits-area">
                         <div class="sits-anchor">Экран</div>
                         <div class="sits">
                             <aside class="sits__line">
@@ -97,186 +100,208 @@
                             </div>
 
                             <div class="sits__row">
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='B1' data-price='@Model.Prices[0].Money'>B1</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='B2' data-price='@Model.Prices[0].Money'>B2</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='B3' data-price='@Model.Prices[0].Money'>B3</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='B4' data-price='@Model.Prices[0].Money'>B4</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='B5' data-price='@Model.Prices[0].Money'>B5</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='B6' data-price='@Model.Prices[0].Money'>B6</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='B7' data-price='@Model.Prices[0].Money'>B7</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='B8' data-price='@Model.Prices[0].Money'>B8</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='B9' data-price='@Model.Prices[0].Money'>B9</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='B10' data-price='@Model.Prices[0].Money'>B10</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='B11' data-price='@Model.Prices[0].Money'>B11</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='B12' data-price='@Model.Prices[0].Money'>B12</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='B13' data-price='@Model.Prices[0].Money'>B13</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='B14' data-price='@Model.Prices[0].Money'>B14</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='B15' data-price='@Model.Prices[0].Money'>B15</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='B16' data-price='@Model.Prices[0].Money'>B16</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='B17' data-price='@Model.Prices[0].Money'>B17</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='B18' data-price='@Model.Prices[0].Money'>B18</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='B1' data-price='@Model.Prices[0].Money'>B1</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='B2' data-price='@Model.Prices[0].Money'>B2</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='B3' data-price='@Model.Prices[0].Money'>B3</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='B4' data-price='@Model.Prices[0].Money'>B4</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='B5' data-price='@Model.Prices[0].Money'>B5</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='B6' data-price='@Model.Prices[0].Money'>B6</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='B7' data-price='@Model.Prices[0].Money'>B7</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff sits-state--not" data-tariff="@Model.Prices[0].Tariff" data-place='B8' data-price='@Model.Prices[0].Money'>B8</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff sits-state--not" data-tariff="@Model.Prices[0].Tariff" data-place='B9' data-price='@Model.Prices[0].Money'>B9</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='B10' data-price='@Model.Prices[0].Money'>B10</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='B11' data-price='@Model.Prices[0].Money'>B11</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='B12' data-price='@Model.Prices[0].Money'>B12</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='B13' data-price='@Model.Prices[0].Money'>B13</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='B14' data-price='@Model.Prices[0].Money'>B14</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='B15' data-price='@Model.Prices[0].Money'>B15</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='B16' data-price='@Model.Prices[0].Money'>B16</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='B17' data-price='@Model.Prices[0].Money'>B17</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='B18' data-price='@Model.Prices[0].Money'>B18</span>
                             </div>
 
                             <div class="sits__row">
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='C1' data-price='@Model.Prices[0].Money'>C1</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='C2' data-price='@Model.Prices[0].Money'>C2</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='C3' data-price='@Model.Prices[0].Money'>C3</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='C4' data-price='@Model.Prices[0].Money'>C4</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='C5' data-price='@Model.Prices[0].Money'>C5</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='C6' data-price='@Model.Prices[0].Money'>C6</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='C7' data-price='@Model.Prices[0].Money'>C7</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='C8' data-price='@Model.Prices[0].Money'>C8</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='C9' data-price='@Model.Prices[0].Money'>C9</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='C10' data-price='@Model.Prices[0].Money'>C10</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='C11' data-price='@Model.Prices[0].Money'>C11</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='C12' data-price='@Model.Prices[0].Money'>C12</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='C13' data-price='@Model.Prices[0].Money'>C13</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='C14' data-price='@Model.Prices[0].Money'>C14</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='C15' data-price='@Model.Prices[0].Money'>C15</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='C16' data-price='@Model.Prices[0].Money'>C16</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='C17' data-price='@Model.Prices[0].Money'>C17</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='C18' data-price='@Model.Prices[0].Money'>C18</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='C1' data-price='@Model.Prices[0].Money'>C1</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='C2' data-price='@Model.Prices[0].Money'>C2</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='C3' data-price='@Model.Prices[0].Money'>C3</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='C4' data-price='@Model.Prices[0].Money'>C4</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='C5' data-price='@Model.Prices[0].Money'>C5</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='C6' data-price='@Model.Prices[0].Money'>C6</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='C7' data-price='@Model.Prices[0].Money'>C7</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='C8' data-price='@Model.Prices[0].Money'>C8</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='C9' data-price='@Model.Prices[0].Money'>C9</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='C10' data-price='@Model.Prices[0].Money'>C10</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='C11' data-price='@Model.Prices[0].Money'>C11</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='C12' data-price='@Model.Prices[0].Money'>C12</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='C13' data-price='@Model.Prices[0].Money'>C13</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='C14' data-price='@Model.Prices[0].Money'>C14</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='C15' data-price='@Model.Prices[0].Money'>C15</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='C16' data-price='@Model.Prices[0].Money'>C16</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='C17' data-price='@Model.Prices[0].Money'>C17</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='C18' data-price='@Model.Prices[0].Money'>C18</span>
                             </div>
 
                             <div class="sits__row">
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='D1' data-price='@Model.Prices[0].Money'>D1</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='D2' data-price='@Model.Prices[0].Money'>D2</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='D3' data-price='@Model.Prices[0].Money'>D3</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='D4' data-price='@Model.Prices[0].Money'>D4</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='D5' data-price='@Model.Prices[0].Money'>D5</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='D6' data-price='@Model.Prices[0].Money'>D6</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff sits-state--not" data-place='D7' data-price='@Model.Prices[0].Money'>D7</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff sits-state--not" data-place='D8' data-price='@Model.Prices[0].Money'>D8</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='D9' data-price='@Model.Prices[0].Money'>D9</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='D10' data-price='@Model.Prices[0].Money'>D10</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='D11' data-price='@Model.Prices[0].Money'>D11</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='D12' data-price='@Model.Prices[0].Money'>D12</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='D13' data-price='@Model.Prices[0].Money'>D13</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='D14' data-price='@Model.Prices[0].Money'>D14</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='D15' data-price='@Model.Prices[0].Money'>D15</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='D16' data-price='@Model.Prices[0].Money'>D16</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='D17' data-price='@Model.Prices[0].Money'>D17</span>
-                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-place='D18' data-price='@Model.Prices[0].Money'>D18</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='D1' data-price='@Model.Prices[0].Money'>D1</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='D2' data-price='@Model.Prices[0].Money'>D2</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='D3' data-price='@Model.Prices[0].Money'>D3</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='D4' data-price='@Model.Prices[0].Money'>D4</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='D5' data-price='@Model.Prices[0].Money'>D5</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='D6' data-price='@Model.Prices[0].Money'>D6</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='D7' data-price='@Model.Prices[0].Money'>D7</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='D8' data-price='@Model.Prices[0].Money'>D8</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='D9' data-price='@Model.Prices[0].Money'>D9</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='D10' data-price='@Model.Prices[0].Money'>D10</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='D11' data-price='@Model.Prices[0].Money'>D11</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='D12' data-price='@Model.Prices[0].Money'>D12</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='D13' data-price='@Model.Prices[0].Money'>D13</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='D14' data-price='@Model.Prices[0].Money'>D14</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='D15' data-price='@Model.Prices[0].Money'>D15</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='D16' data-price='@Model.Prices[0].Money'>D16</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='D17' data-price='@Model.Prices[0].Money'>D17</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='D18' data-price='@Model.Prices[0].Money'>D18</span>
+                            </div>
+
+                            @{ 
+                                if(Model.Prices.Count > 1)
+                                {
+                                    Model.Prices[0] = Model.Prices[1];                                   
+                                }
+                            }
+
+                            <div class="sits__row">
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='E1' data-price='@Model.Prices[0].Money'>E1</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='E2' data-price='@Model.Prices[0].Money'>E2</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='E3' data-price='@Model.Prices[0].Money'>E3</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='E4' data-price='@Model.Prices[0].Money'>E4</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='E5' data-price='@Model.Prices[0].Money'>E5</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='E6' data-price='@Model.Prices[0].Money'>E6</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='E7' data-price='@Model.Prices[0].Money'>E7</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='E8' data-price='@Model.Prices[0].Money'>E8</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='E9' data-price='@Model.Prices[0].Money'>E9</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='E10' data-price='@Model.Prices[0].Money'>E10</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='E11' data-price='@Model.Prices[0].Money'>E11</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='E12' data-price='@Model.Prices[0].Money'>E12</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='E13' data-price='@Model.Prices[0].Money'>E13</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='E14' data-price='@Model.Prices[0].Money'>E14</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='E15' data-price='@Model.Prices[0].Money'>E15</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='E16' data-price='@Model.Prices[0].Money'>E16</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='E17' data-price='@Model.Prices[0].Money'>E17</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='E18' data-price='@Model.Prices[0].Money'>E18</span>
+                            </div>
+                            
+                            <div class="sits__row">
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='F1' data-price='@Model.Prices[0].Money'>F1</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='F2' data-price='@Model.Prices[0].Money'>F2</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='F3' data-price='@Model.Prices[0].Money'>F3</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='F4' data-price='@Model.Prices[0].Money'>F4</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='F5' data-price='@Model.Prices[0].Money'>F5</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='F6' data-price='@Model.Prices[0].Money'>F6</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='F7' data-price='@Model.Prices[0].Money'>F7</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='F8' data-price='@Model.Prices[0].Money'>F8</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='F9' data-price='@Model.Prices[0].Money'>F9</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='F10' data-price='@Model.Prices[0].Money'>F10</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='F11' data-price='@Model.Prices[0].Money'>F11</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='F12' data-price='@Model.Prices[0].Money'>F12</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='F13' data-price='@Model.Prices[0].Money'>F13</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='F14' data-price='@Model.Prices[0].Money'>F14</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='F15' data-price='@Model.Prices[0].Money'>F15</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='F16' data-price='@Model.Prices[0].Money'>F16</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='F17' data-price='@Model.Prices[0].Money'>F17</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='F18' data-price='@Model.Prices[0].Money'>F18</span>
                             </div>
 
                             <div class="sits__row">
-                                <span class="sits__place sits-price--middle" data-place='E1' data-price='20'>E1</span>
-                                <span class="sits__place sits-price--middle" data-place='E2' data-price='20'>E2</span>
-                                <span class="sits__place sits-price--middle" data-place='E3' data-price='20'>E3</span>
-                                <span class="sits__place sits-price--middle" data-place='E4' data-price='20'>E4</span>
-                                <span class="sits__place sits-price--middle" data-place='E5' data-price='20'>E5</span>
-                                <span class="sits__place sits-price--middle" data-place='E6' data-price='20'>E6</span>
-                                <span class="sits__place sits-price--middle" data-place='E7' data-price='20'>E7</span>
-                                <span class="sits__place sits-price--middle" data-place='E8' data-price='20'>E8</span>
-                                <span class="sits__place sits-price--middle" data-place='E9' data-price='20'>E9</span>
-                                <span class="sits__place sits-price--middle" data-place='E10' data-price='20'>E10</span>
-                                <span class="sits__place sits-price--middle" data-place='E11' data-price='20'>E11</span>
-                                <span class="sits__place sits-price--middle" data-place='E12' data-price='20'>E12</span>
-                                <span class="sits__place sits-price--middle" data-place='E13' data-price='20'>E13</span>
-                                <span class="sits__place sits-price--middle" data-place='E14' data-price='20'>E14</span>
-                                <span class="sits__place sits-price--middle" data-place='E15' data-price='20'>E15</span>
-                                <span class="sits__place sits-price--middle" data-place='E16' data-price='20'>E16</span>
-                                <span class="sits__place sits-price--middle" data-place='E17' data-price='20'>E17</span>
-                                <span class="sits__place sits-price--middle" data-place='E18' data-price='20'>E18</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='G1' data-price='@Model.Prices[0].Money'>G1</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='G2' data-price='@Model.Prices[0].Money'>G2</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='G3' data-price='@Model.Prices[0].Money'>G3</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='G4' data-price='@Model.Prices[0].Money'>G4</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='G5' data-price='@Model.Prices[0].Money'>G5</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='G6' data-price='@Model.Prices[0].Money'>G6</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='G7' data-price='@Model.Prices[0].Money'>G7</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='G8' data-price='@Model.Prices[0].Money'>G8</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='G9' data-price='@Model.Prices[0].Money'>G9</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='G10' data-price='@Model.Prices[0].Money'>G10</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='G11' data-price='@Model.Prices[0].Money'>G11</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='G12' data-price='@Model.Prices[0].Money'>G12</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='G13' data-price='@Model.Prices[0].Money'>G13</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='G14' data-price='@Model.Prices[0].Money'>G14</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='G15' data-price='@Model.Prices[0].Money'>G15</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='G16' data-price='@Model.Prices[0].Money'>G16</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='G17' data-price='@Model.Prices[0].Money'>G17</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='G18' data-price='@Model.Prices[0].Money'>G18</span>
                             </div>
 
-                            <div class="sits__row">
-                                <span class="sits__place sits-price--middle" data-place='F1' data-price='20'>F1</span>
-                                <span class="sits__place sits-price--middle" data-place='F2' data-price='20'>F2</span>
-                                <span class="sits__place sits-price--middle" data-place='F3' data-price='20'>F3</span>
-                                <span class="sits__place sits-price--middle" data-place='F4' data-price='20'>F4</span>
-                                <span class="sits__place sits-price--middle" data-place='F5' data-price='20'>F5</span>
-                                <span class="sits__place sits-price--middle" data-place='F6' data-price='20'>F6</span>
-                                <span class="sits__place sits-price--middle" data-place='F7' data-price='20'>F7</span>
-                                <span class="sits__place sits-price--middle" data-place='F8' data-price='20'>F8</span>
-                                <span class="sits__place sits-price--middle" data-place='F9' data-price='20'>F9</span>
-                                <span class="sits__place sits-price--middle" data-place='F10' data-price='20'>F10</span>
-                                <span class="sits__place sits-price--middle" data-place='F11' data-price='20'>F11</span>
-                                <span class="sits__place sits-price--middle" data-place='F12' data-price='20'>F12</span>
-                                <span class="sits__place sits-price--middle" data-place='F13' data-price='20'>F13</span>
-                                <span class="sits__place sits-price--middle" data-place='F14' data-price='20'>F14</span>
-                                <span class="sits__place sits-price--middle" data-place='F15' data-price='20'>F15</span>
-                                <span class="sits__place sits-price--middle" data-place='F16' data-price='20'>F16</span>
-                                <span class="sits__place sits-price--middle" data-place='F17' data-price='20'>F17</span>
-                                <span class="sits__place sits-price--middle" data-place='F18' data-price='20'>F18</span>
-                            </div>
+                            @{
+                                if (Model.Prices.Count > 2)
+                                {
+                                    Model.Prices[0] = Model.Prices[2];
+                                }
+                            }
 
                             <div class="sits__row">
-                                <span class="sits__place sits-price--middle" data-place='G1' data-price='20'>G1</span>
-                                <span class="sits__place sits-price--middle" data-place='G2' data-price='20'>G2</span>
-                                <span class="sits__place sits-price--middle" data-place='G3' data-price='20'>G3</span>
-                                <span class="sits__place sits-price--middle" data-place='G4' data-price='20'>G4</span>
-                                <span class="sits__place sits-price--middle" data-place='G5' data-price='20'>G5</span>
-                                <span class="sits__place sits-price--middle" data-place='G6' data-price='20'>G6</span>
-                                <span class="sits__place sits-price--middle" data-place='G7' data-price='20'>G7</span>
-                                <span class="sits__place sits-price--middle" data-place='G8' data-price='20'>G8</span>
-                                <span class="sits__place sits-price--middle" data-place='G9' data-price='20'>G9</span>
-                                <span class="sits__place sits-price--middle" data-place='G10' data-price='20'>G10</span>
-                                <span class="sits__place sits-price--middle" data-place='G11' data-price='20'>G11</span>
-                                <span class="sits__place sits-price--middle" data-place='G12' data-price='20'>G12</span>
-                                <span class="sits__place sits-price--middle" data-place='G13' data-price='20'>G13</span>
-                                <span class="sits__place sits-price--middle" data-place='G14' data-price='20'>G14</span>
-                                <span class="sits__place sits-price--middle" data-place='G15' data-price='20'>G15</span>
-                                <span class="sits__place sits-price--middle" data-place='G16' data-price='20'>G16</span>
-                                <span class="sits__place sits-price--middle" data-place='G17' data-price='20'>G17</span>
-                                <span class="sits__place sits-price--middle" data-place='G18' data-price='20'>G18</span>
-                            </div>
-
-                            <div class="sits__row">
-                                <span class="sits__place sits-price--middle" data-place='I3' data-price='20'>I3</span>
-                                <span class="sits__place sits-price--middle" data-place='I4' data-price='20'>I4</span>
-                                <span class="sits__place sits-price--middle" data-place='I5' data-price='20'>I5</span>
-                                <span class="sits__place sits-price--middle" data-place='I6' data-price='20'>I6</span>
-                                <span class="sits__place sits-price--middle" data-place='I7' data-price='20'>I7</span>
-                                <span class="sits__place sits-price--middle" data-place='I8' data-price='20'>I8</span>
-                                <span class="sits__place sits-price--middle" data-place='I9' data-price='20'>I9</span>
-                                <span class="sits__place sits-price--middle" data-place='I10' data-price='20'>I10</span>
-                                <span class="sits__place sits-price--middle" data-place='I11' data-price='20'>I11</span>
-                                <span class="sits__place sits-price--middle" data-place='I12' data-price='20'>I12</span>
-                                <span class="sits__place sits-price--middle" data-place='I13' data-price='20'>I13</span>
-                                <span class="sits__place sits-price--middle" data-place='I14' data-price='20'>I14</span>
-                                <span class="sits__place sits-price--middle" data-place='I15' data-price='20'>I15</span>
-                                <span class="sits__place sits-price--middle" data-place='I16' data-price='20'>I16</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='I3' data-price='@Model.Prices[0].Money'>I3</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='I4' data-price='@Model.Prices[0].Money'>I4</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='I5' data-price='@Model.Prices[0].Money'>I5</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='I6' data-price='@Model.Prices[0].Money'>I6</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='I7' data-price='@Model.Prices[0].Money'>I7</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='I8' data-price='@Model.Prices[0].Money'>I8</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='I9' data-price='@Model.Prices[0].Money'>I9</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='I10' data-price='@Model.Prices[0].Money'>I10</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='I11' data-price='@Model.Prices[0].Money'>I11</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='I12' data-price='@Model.Prices[0].Money'>I12</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='I13' data-price='@Model.Prices[0].Money'>I13</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='I14' data-price='@Model.Prices[0].Money'>I14</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='I15' data-price='@Model.Prices[0].Money'>I15</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='I16' data-price='@Model.Prices[0].Money'>I16</span>
                             </div>
 
                             <div class="sits__row additional-margin">
-                                <span class="sits__place sits-price--expensive" data-place='J5' data-price='30'>J5</span>
-                                <span class="sits__place sits-price--expensive" data-place='J6' data-price='30'>J6</span>
-                                <span class="sits__place sits-price--expensive" data-place='J7' data-price='30'>J7</span>
-                                <span class="sits__place sits-price--expensive" data-place='J8' data-price='30'>J8</span>
-                                <span class="sits__place sits-price--expensive" data-place='J9' data-price='30'>J9</span>
-                                <span class="sits__place sits-price--expensive" data-place='J10' data-price='30'>J10</span>
-                                <span class="sits__place sits-price--expensive" data-place='J11' data-price='30'>J11</span>
-                                <span class="sits__place sits-price--expensive" data-place='J12' data-price='30'>J12</span>
-                                <span class="sits__place sits-price--expensive" data-place='J13' data-price='30'>J13</span>
-                                <span class="sits__place sits-price--expensive" data-place='J14' data-price='30'>J14</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='J5' data-price='@Model.Prices[0].Money'>J5</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='J6' data-price='@Model.Prices[0].Money'>J6</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='J7' data-price='@Model.Prices[0].Money'>J7</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='J8' data-price='@Model.Prices[0].Money'>J8</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='J9' data-price='@Model.Prices[0].Money'>J9</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='J10' data-price='@Model.Prices[0].Money'>J10</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='J11' data-price='@Model.Prices[0].Money'>J11</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='J12' data-price='@Model.Prices[0].Money'>J12</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='J13' data-price='@Model.Prices[0].Money'>J13</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='J14' data-price='@Model.Prices[0].Money'>J14</span>
                             </div>
                             <div class="sits__row">
-                                <span class="sits__place sits-price--expensive" data-place='K5' data-price='30'>K5</span>
-                                <span class="sits__place sits-price--expensive" data-place='K6' data-price='30'>K6</span>
-                                <span class="sits__place sits-price--expensive" data-place='K7' data-price='30'>K7</span>
-                                <span class="sits__place sits-price--expensive" data-place='K8' data-price='30'>K8</span>
-                                <span class="sits__place sits-price--expensive" data-place='K9' data-price='30'>K9</span>
-                                <span class="sits__place sits-price--expensive" data-place='K10' data-price='30'>K10</span>
-                                <span class="sits__place sits-price--expensive" data-place='K11' data-price='30'>K11</span>
-                                <span class="sits__place sits-price--expensive" data-place='K12' data-price='30'>K12</span>
-                                <span class="sits__place sits-price--expensive" data-place='K13' data-price='30'>K13</span>
-                                <span class="sits__place sits-price--expensive" data-place='K14' data-price='30'>K14</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='K5' data-price='@Model.Prices[0].Money'>K5</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='K6' data-price='@Model.Prices[0].Money'>K6</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='K7' data-price='@Model.Prices[0].Money'>K7</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='K8' data-price='@Model.Prices[0].Money'>K8</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='K9' data-price='@Model.Prices[0].Money'>K9</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='K10' data-price='@Model.Prices[0].Money'>K10</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='K11' data-price='@Model.Prices[0].Money'>K11</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='K12' data-price='@Model.Prices[0].Money'>K12</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='K13' data-price='@Model.Prices[0].Money'>K13</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='K14' data-price='@Model.Prices[0].Money'>K14</span>
                             </div>
+
+                            @{
+                                if (Model.Prices.Count > 3)
+                                {
+                                    Model.Prices[0] = Model.Prices[3];
+                                }
+                            }
+
                             <div class="sits__row">
-                                <span class="sits__place sits-price--vip" data-place='L6' data-price='30'>L6</span>
-                                <span class="sits__place sits-price--vip" data-place='L7' data-price='30'>L7</span>
-                                <span class="sits__place sits-price--vip" data-place='L8' data-price='30'>L8</span>
-                                <span class="sits__place sits-price--vip" data-place='L9' data-price='30'>L9</span>
-                                <span class="sits__place sits-price--vip" data-place='L10' data-price='30'>L10</span>
-                                <span class="sits__place sits-price--vip" data-place='L11' data-price='30'>L11</span>
-                                <span class="sits__place sits-price--vip" data-place='L12' data-price='30'>L12</span>
-                                <span class="sits__place sits-price--vip" data-place='L13' data-price='30'>L13</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='L6' data-price='@Model.Prices[0].Money'>L6</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='L7' data-price='@Model.Prices[0].Money'>L7</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='L8' data-price='@Model.Prices[0].Money'>L8</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='L9' data-price='@Model.Prices[0].Money'>L9</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='L10' data-price='@Model.Prices[0].Money'>L10</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='L11' data-price='@Model.Prices[0].Money'>L11</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='L12' data-price='@Model.Prices[0].Money'>L12</span>
+                                <span class="sits__place sits-price--@Model.Prices[0].Tariff" data-tariff="@Model.Prices[0].Tariff" data-place='L13' data-price='@Model.Prices[0].Money'>L13</span>
                             </div>
 
 
                             <aside class="sits__checked">
-                                <div class="checked-place">
+                                <div class="checked-place" id="jay_seats">
 
                                 </div>
                                 <div class="checked-result">
@@ -307,60 +332,21 @@
                     </div>
                 </div>
 
-                <div class="col-sm-12 visible-xs">
-                    <div class="sits-area--mobile">
-                        <div class="sits-area--mobile-wrap">
-                            <div class="sits-select">
-                                <select name="sorting_item" class="sits__sort sit-row" tabindex="0">
-                                    <option value="1" selected='selected'>A</option>
-                                    <option value="2">B</option>
-                                    <option value="3">C</option>
-                                    <option value="4">D</option>
-                                    <option value="5">E</option>
-                                    <option value="6">F</option>
-                                    <option value="7">G</option>
-                                    <option value="8">I</option>
-                                    <option value="9">J</option>
-                                    <option value="10">K</option>
-                                    <option value="11">L</option>
-                                </select>
-
-                                <select name="sorting_item" class="sits__sort sit-number" tabindex="1">
-                                    <option value="1" selected='selected'>1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                    <option value="16">16</option>
-                                    <option value="17">17</option>
-                                    <option value="18">18</option>
-                                </select>
-                                <a href="#" class="btn btn-md btn--warning toogle-sits">Choose sit</a>
-                            </div>
-                        </div>
-                        <a href="#" class="watchlist add-sits-line">Add new sit</a>
-                        <aside class="sits__checked">
-                            <div class="checked-place">
-                                <span class="choosen-place"></span>
-                            </div>
-                            <div class="checked-result">
-                                0 UAH
-                            </div>
-                        </aside>
-                        <img alt="" src="~/Images/components/sits_mobile.png">
-                    </div>
-                </div>
-
+            <div class="seance_info" 
+                 data-movieName="@Model.MovieBookModel.Title" 
+                 data-movieId="@Model.MovieBookModel.Id" 
+                 data-movieUrl="@Model.MovieBookModel.PosterUrl"
+                 data-hall="@Model.HallName"
+                 data-cinema="@Model.TheaterBookModel.Name"
+                 data-cinemaAdress="@Model.TheaterBookModel.Address"
+                 data-technology="@Model.Technology"
+                 data-seanceDate="@Model.DateSeance.ToShortDateString()"
+                 data-seanceTime="@Model.TimeSeanceModel.TimeBegin.ToShortTimeString()"
+                 data-cinemaId ="@Model.TheaterBookModel.Id"
+                 data-timeSeanceId="@Model.TimeSeanceModel.Id"
+                 
+            ></div>
+                
             </div>
         </section>
     </div>
@@ -375,11 +361,11 @@
         <input type='text' name='choosen-sits' class="choosen-sits">
 
         <div class="booking-pagination booking-pagination--margin">
-            <a href="#" class="booking-pagination__prev">
+            <a href='@Url.Action("MoviePage", "Movie", new { id = Model.MovieBookModel.Id })' class="booking-pagination__prev">
                 <span class="arrow__text arrow--prev">Вернуться обратно</span>
                 <span class="arrow__info">Выбрать другой сеанс</span>
             </a>
-            <a href="#" class="booking-pagination__next">
+            <a href='@Url.Action("Purchase", "Book")' class="booking-pagination__next">
                 <span class="arrow__text arrow--next">Следующий шаг</span>
                 <span class="arrow__info">Оформить покупку</span>
             </a>
@@ -392,13 +378,231 @@
 <script src="~/Scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function () {
+
+        var placeArray = new Array();
+
+
         $(".header-wrapper").css("position", "relative");
+        init_BookingJay();
+        function init_BookingJay() {
+            "use strict";
+
+            //1. Buttons for choose order method
+            //order factor
+            $('.order__control-btn').click(function (e) {
+                e.preventDefault();
+
+                $('.order__control-btn').removeClass('active');
+                $(this).addClass('active');
+            })
+
+            //2. Init vars for order data
+            // var for booking;
+            var numberTicket = $('.choosen-number'),
+                sumTicket = $('.choosen-cost'),
+                cheapTicket = $('.choosen-number--cheap'),
+                middleTicket = $('.choosen-number--middle'),
+                expansiveTicket = $('.choosen-number--expansive'),
+                vipTicket = $('.choosen-number--vip'),
+                sits = $('.choosen-sits');
+
+            //3. Choose sits (and count price for them)
+            //users choose sits
+
+            //data elements init
+            var sum = 0;
+            var cheap = 0;
+            var middle = 0;
+            var expansive = 0;
+            var vip = 0;
+
+            $('.sits__place').click(function (e) {
+                e.preventDefault();
+                var place = $(this).attr('data-place');
+                var ticketPrice = $(this).attr('data-price');
+
+                var ticketTariff = $(this).attr('data-tariff');
+
+                var ticketPriceNum = Number(ticketPrice);
+
+
+                if (!$(e.target).hasClass('sits-state--your')) {
+
+                    if (!$(this).hasClass('sits-state--not')) {
+                        $(this).addClass('sits-state--your');
+
+                        $('.checked-place').prepend('<span class="choosen-place ' + place + '" data-vale="' + place + '">' + place + '</span>');
+
+                        switch (ticketTariff) {
+                            case 'cheap':
+                                sum += ticketPriceNum;
+                                cheap += 1;
+                                break;
+                            case 'middle':
+                                sum += ticketPriceNum;
+                                middle += 1;
+                                break;
+                            case 'expensive':
+                                sum += ticketPriceNum;
+                                expansive += 1;
+                                break;
+
+                            case 'vip':
+                                sum += ticketPriceNum;
+                                vip += 1;
+                                break;
+                        }
+
+                        placeArray.push(place);
+                        $('.checked-result').text(sum + "UAH")
+                    }
+                }
+
+                else {
+                    $(this).removeClass('sits-state--your');
+
+                    $('.' + place + '').remove();
+
+                    switch (ticketTariff) {
+                        case 'cheap':
+                            sum -= ticketPriceNum;
+                            cheap -= 1;
+                            break;
+                        case 'middle':
+                            sum -= ticketPriceNum;
+                            middle -= 1;
+                            break;
+                        case 'expensive':
+                            sum -= ticketPriceNum;
+                            expansive -= 1;
+                            break;
+
+                        case 'vip':
+                            sum -= ticketPriceNum;
+                            vip -= 1;
+                            break;
+                    }
+
+                    placeArray.splice(placeArray.indexOf(place), 1);
+                    $('.checked-result').text(sum + "UAH")
+                }
+
+                //data element init
+                var number = $('.checked-place').children().length;
+
+                //data element set
+                numberTicket.val(number);
+                sumTicket.val(sum);
+                cheapTicket.val(cheap);
+                middleTicket.val(middle);
+                expansiveTicket.val(expansive);
+                vipTicket.val(vip);
+
+                //data element init
+                var chooseSits = '';
+                $('.choosen-place').each(function () {
+                    chooseSits += ', ' + $(this).text();
+                });
+
+                //data element set
+                sits.val(chooseSits.substr(2));
+            });
+
+            //--- Step for data  ---//
+            //Get data from pvevius page
+            var url = decodeURIComponent(document.URL);
+            var prevDate = url.substr(url.indexOf('?') + 1);
+
+            //Serialize, add new data and send to next page
+            $('.booking-form').submit(function (e) {
+                e.preventDefault();
+                var bookData = $(this).serialize();
+
+                var fullData = prevDate + '&' + bookData
+                var action,
+                    control = $('.order__control-btn.active').text();
+
+                if (control == "Purchase") { action = 'book3-buy.html'; }
+                else if (control == "Reserve") { action = 'book3-reserve.html'; }
+
+
+                $.get(action, fullData, function (data) { });
+            });
+
+            $('.top-scroll').parent().find('.top-scroll').remove();
+
+
+
+            $(".booking-pagination__next").click(function () {
+
+                var tickets = new Array();
+                placeArray.forEach(function (elem) {
+                    var ticket = {
+                        place: elem,
+                        price: $('[data-place=' + elem + ']').attr("data-price"),
+                        timeSeanceID: $('.seance_info').attr('data-timeSeanceId')
+                    }
+                    tickets.push(ticket);
+                });
+
+                var movieBookModel = {
+                    title: $('.seance_info').attr('data-movieName'),
+                    id: $('.seance_info').attr('data-movieId'),
+                    posterUrl: $('.seance_info').attr('data-movieUrl')
+                }
+
+                var theaterBookModel = {
+                    name: $('.seance_info').attr('data-cinema'),
+                    address: $('.seance_info').attr('data-cinemaAdress'),
+                    id: $('.seance_info').attr('data-cinemaId')
+                }
+
+                var indexLast = Number($('.seance_info').attr('data-lastElementId')) + 1;
+
+
+                var purchase = {
+                    id: indexLast,
+                    tickets: tickets,
+                    movieBookModel: movieBookModel,
+                    hall: $('.seance_info').attr('data-hall'),
+                    theaterBookModel: theaterBookModel,
+                    tecnology: $('.seance_info').attr('data-technology'),
+                    seanceDate: $('.seance_info').attr('data-seanceDate'),
+                    seanceTime: $('.seance_info').attr('data-seanceTime'),
+                };
+
+                console.log(purchase);
+
+                @*$.ajax({
+                    url: '@Url.Action("SaveInDb", "Book")',
+                    method: "POST",
+                    data: JSON.stringify(purchase),
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data, textStatus, jqXHR) {
+                        console.log("data: " + data);
+                        console.log("textStatus: " + textStatus);
+                        console.log("jqXHR: " + jqXHR.responseText);
+                        },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log("jqXHR: " + jqXHR.responseText);
+                        console.log("textStatus: " + textStatus);
+                        console.log("errorThrown: " + errorThrown);
+                    }
+                });*@
+            });
+
+            setTimeout(function () {
+                var url = '@Url.Action("NextStep", "Ticket", new { purchaseId = "_purchase_" })';
+                window.location.href = url.replace("_purchase_", purchase.id);
+            }, 1000);
+        }
+
     });
 </script>
 
-<script type="text/javascript">
+@*<script type="text/javascript">
     $(document).ready(function() {
         init_BookingTwo();
     });
-</script>
+</script>*@
 

@@ -314,10 +314,12 @@ function init_Home() {
                         $(this).parent().find('.active-dropdown').css("z-index", '-1');
                     });
 
-                    $('body').click(function (e) {
-                        console.log("t");
-                      console.log(e.target);
-                    })
+                    //$('body').click(function (e) {
+                    //    //console.log(e.target);
+                    //    var ticketTariff = $(e).data("tariff");
+                    //    var ticketPrice = $(this).attr('data-price');
+                    //    console.log("tariff: " + ticketTariff + " price: " + ticketPrice);
+                    //})
 
     //4. Rating scrore init
     //Rating star
@@ -580,6 +582,7 @@ function init_BookingTwo () {
                     var ticketPrice = $(this).attr('data-price');
 
                     console.log("tariff: " + ticketTariff + " price: " + ticketPrice);
+                    alert("tariff: " + ticketTariff + " price: " + ticketPrice);
 
                     if(! $(e.target).hasClass('sits-state--your')){
 
@@ -649,6 +652,7 @@ function init_BookingTwo () {
                     sumTicket.val(sum);
                     cheapTicket.val(cheap);
                     middleTicket.val(middle);
+                    vipTicket.val(vip);
                     expansiveTicket.val(expansive );
 
 

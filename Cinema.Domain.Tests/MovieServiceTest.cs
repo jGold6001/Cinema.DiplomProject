@@ -51,7 +51,7 @@ namespace Cinema.Domain.Tests
             Trace.WriteLine("--------------------------------Florence-------------------------------------");
             var moviesFl = movieService.GetAllFromAPIByTheater(8);
             foreach (var item in moviesFl)
-                Trace.WriteLine(item.Title);
+                Trace.WriteLine($"name: {item.Title} premerie: {item.Premiere}" );
 
             Trace.WriteLine("\n");
 
@@ -59,7 +59,7 @@ namespace Cinema.Domain.Tests
             Trace.WriteLine("----------------------------------Boomer---------------------------------------");
             var moviesBoomer = movieService.GetAllFromAPIByTheater(281);
             foreach (var item in moviesBoomer)
-                Trace.WriteLine(item.Title);
+                Trace.WriteLine($"name: {item.Title} premerie: {item.Premiere}");
 
         }
 
@@ -78,11 +78,9 @@ namespace Cinema.Domain.Tests
 
             foreach (var item in movies)
             {
-                Trace.WriteLine($"{item.Id} - {item.Title} - IMDB: {item.Rating}");
+                Trace.WriteLine($"{item.Id} - {item.Title} - premerie: {item.Premiere}");
             }
 
-            Trace.WriteLine($"last item: {movies.Last().Title}");
-            Trace.WriteLine($"last genre item of last movie: {movies.Last().Genres.Last().Name}");
         }
 
         [TestMethod]
@@ -125,6 +123,73 @@ namespace Cinema.Domain.Tests
             unitOfWork.Save();
         }
 
+        //public void TraceMovie(Movie movie)
+        //{
+        //    Trace.WriteLine($"Name: {movie.Title}");
+        //    Trace.WriteLine("");
+        //    Trace.WriteLine($"premiere: {movie.Premiere}");
+        //    Trace.WriteLine("");
+        //    Trace.WriteLine($"description: {movie.Description}");
+        //    Trace.WriteLine("");
+        //    Trace.WriteLine($"year: {movie.Year}");
+        //    Trace.WriteLine("");
+        //    Trace.WriteLine($"duration: {movie.Duration}");
+        //    Trace.WriteLine("");
+        //    Trace.WriteLine($"age_limit: {movie.AgeLimit}");
+
+        //    Trace.WriteLine("");
+        //    Trace.WriteLine($"posters:");
+        //    Trace.WriteLine($"{movie.Poster.Url}");
+
+        //    Trace.WriteLine("");
+        //    Trace.WriteLine($"bunnerUrl:");
+        //    Trace.Write($"{movie.Poster.Url}");
+
+        //    Trace.WriteLine("");
+        //    Trace.WriteLine($"trailer_url: {movie.Trailer.Url}");
+
+        //    //images
+        //    Trace.WriteLine($"images: ");
+        //    Trace.WriteLine("\n");
+        //    foreach (var item in movie.Images)
+        //        Trace.WriteLine($"img_{item.Id}: {item.Url}");
+
+        //    //rating
+        //    Trace.WriteLine($"rating: {movie.Rating}");
+
+        //    //votes
+        //    Trace.WriteLine($"votes: {movie.Votes}");
+
+        //    //directors
+        //    Trace.WriteLine("\n");
+        //    Trace.WriteLine($"directors: ");
+        //    var directors = movie.Persons.FindAll(p => p.ProfessionId == 1);
+        //    foreach (var item in directors)
+        //        Trace.WriteLine($"{item.FirstName} {item.LastName}");
+
+        //    //actors
+        //    Trace.WriteLine("\n");
+        //    Trace.WriteLine($"actors: ");
+        //    var actors = movie.Persons.FindAll(p => p.ProfessionId == 2);
+        //    foreach (var item in actors)
+        //        Trace.WriteLine($"{item.FirstName} {item.LastName}");
+
+        //    //countries
+        //    Trace.WriteLine("\n");
+        //    Trace.WriteLine("countries: ");            
+        //    foreach (var item in movie.Countries)
+        //        Trace.Write($"{item.Name} | ");
+
+        //    //genres
+        //    Trace.WriteLine("\n");
+        //    Trace.WriteLine("\n");
+        //    Trace.WriteLine("genres: ");
+        //    foreach (var item in movie.Genres)
+        //        Trace.Write($"{item.Name} | ");
+
+
+        //}
+
         public void TraceMovie(Movie movie)
         {
             Trace.WriteLine($"Name: {movie.Title}");
@@ -141,21 +206,21 @@ namespace Cinema.Domain.Tests
 
             Trace.WriteLine("");
             Trace.WriteLine($"posters:");
-            Trace.WriteLine($"{movie.Poster.Url}");
+            Trace.WriteLine($"{movie.PosterUrl}");
 
             Trace.WriteLine("");
             Trace.WriteLine($"bunnerUrl:");
-            Trace.Write($"{movie.Poster.Url}");
+            Trace.Write($"{movie.PosterUrl}");
 
             Trace.WriteLine("");
-            Trace.WriteLine($"trailer_url: {movie.Trailer.Url}");
+            Trace.WriteLine($"trailer_url: {movie.TrailerUrl}");
 
             //images
             Trace.WriteLine($"images: ");
             Trace.WriteLine("\n");
             foreach (var item in movie.Images)
                 Trace.WriteLine($"img_{item.Id}: {item.Url}");
-            
+
             //rating
             Trace.WriteLine($"rating: {movie.Rating}");
 
@@ -164,30 +229,23 @@ namespace Cinema.Domain.Tests
 
             //directors
             Trace.WriteLine("\n");
-            Trace.WriteLine($"directors: ");
-            var directors = movie.Persons.FindAll(p => p.ProfessionId == 1);
-            foreach (var item in directors)
-                Trace.WriteLine($"{item.FirstName} {item.LastName}");
+            Trace.WriteLine($"director: {movie.Director}");
+            
 
             //actors
             Trace.WriteLine("\n");
-            Trace.WriteLine($"actors: ");
-            var actors = movie.Persons.FindAll(p => p.ProfessionId == 2);
-            foreach (var item in actors)
-                Trace.WriteLine($"{item.FirstName} {item.LastName}");
+            Trace.WriteLine($"actors: {movie.Actors}");
+           
 
             //countries
             Trace.WriteLine("\n");
-            Trace.WriteLine("countries: ");            
-            foreach (var item in movie.Countries)
-                Trace.Write($"{item.Name} | ");
+            Trace.WriteLine($"countries: {movie.Country}");
+          
 
             //genres
             Trace.WriteLine("\n");
-            Trace.WriteLine("\n");
-            Trace.WriteLine("genres: ");
-            foreach (var item in movie.Genres)
-                Trace.Write($"{item.Name} | ");
+            Trace.WriteLine($"genres: {movie.Genre}");
+         
 
 
         }

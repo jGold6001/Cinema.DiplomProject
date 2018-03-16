@@ -11,15 +11,19 @@
     </div>
     <ul class="col-sm-8 items-wrap">
 
-        @foreach (var seance in Model.Seances)
+        @*@foreach (var seance in Model.Seances)
         {
             foreach (var time in seance.Times)
             {                  
                 <li class="time-select__item" data-time='@time.TimeBegin.ToShortTimeString()' data-id="@time.Id" data-seance="@seance.Id" data-hall="@seance.HallId" data-theater="@Model.TheaterModel.Id">@time.TimeBegin.ToShortTimeString()</li>
             }
+        }*@
+
+        @foreach (var time in Model.TimeSeances)
+        {
+            <li class="time-select__item" data-time='@time.TimeBegin.ToShortTimeString()' data-id="@time.Id" data-seance="@time.SeanceId" data-hall="@time.HallId" data-theater="@Model.TheaterModel.Id">@time.TimeBegin.ToShortTimeString()</li>
         }
 
-       
     </ul>
 </div>
 

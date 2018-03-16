@@ -13,19 +13,21 @@ namespace Cinema.Domain.Repositories
     {
         private DbContext db;
 
-        private TestRepository testRepository;
-
+       
+        private ImageRepository imageRepository;
+        private MovieRepository movieRepository;  
+        private TheaterRepository theaterRepository;
+        private BookRepository bookRepository;
+        private TicketRepository ticketRepository;
         private CountryRepository countryRepository;
         private GenreRepository genreRepository;
-        private ImageRepository imageRepository;
-        private MovieRepository movieRepository;
+      
         private PersonRepository personRepository;
         private PosterRepository posterRepository;
-        private TheaterRepository theaterRepository;
         private TrailerRepository trailerRepository;
         private ProfessionRepository professionRepository;
         private BannerRepository bannerRepository;
-        
+
         public EFUnitOfWork(string connectionString)
         {
             db = new CotsContext(connectionString);
@@ -41,15 +43,7 @@ namespace Cinema.Domain.Repositories
             }
         }
 
-        public Repository<Test> Testes
-        {
-            get
-            {
-                if (testRepository == null)
-                    testRepository = new TestRepository(db);
-                return testRepository;
-            }
-        }
+        
 
         public Repository<Person> Persons
         {
@@ -71,25 +65,9 @@ namespace Cinema.Domain.Repositories
             }
         }
 
-        public Repository<Movie> Movies
-        {
-            get
-            {
-                if (movieRepository == null)
-                    movieRepository = new MovieRepository(db);
-                return movieRepository;
-            }
-        }
+        
 
-        public Repository<Image> Images
-        {
-            get
-            {
-                if (imageRepository == null)
-                    imageRepository = new ImageRepository(db);
-                return imageRepository;
-            }
-        }
+       
 
         public Repository<Country> Countries
         {
@@ -111,15 +89,7 @@ namespace Cinema.Domain.Repositories
             }
         }
 
-        public Repository<Theater> Theaters
-        {
-            get
-            {
-                if (theaterRepository == null)
-                    theaterRepository = new TheaterRepository(db);
-                return theaterRepository;
-            }
-        }
+       
 
         public Repository<Trailer> Trailers
         {
@@ -130,7 +100,7 @@ namespace Cinema.Domain.Repositories
                 return trailerRepository;
             }
         }
-    
+
         public Repository<Profession> Professions
         {
             get
@@ -138,6 +108,62 @@ namespace Cinema.Domain.Repositories
                 if (professionRepository == null)
                     professionRepository = new ProfessionRepository(db);
                 return professionRepository;
+            }
+        }
+
+      
+
+        public Repository<TicketModel> Tickets
+        {
+            get
+            {
+                if (ticketRepository == null)
+                    ticketRepository = new TicketRepository(db);
+                return ticketRepository;
+            }
+        }
+        
+        
+
+        public Repository<MovieDb> Movies
+        {
+            get
+            {
+                if (movieRepository == null)
+                    movieRepository = new MovieRepository(db);
+                return movieRepository;
+            }
+        }
+
+        public Repository<Image> Images
+        {
+            get
+            {
+                if (imageRepository == null)
+                    imageRepository = new ImageRepository(db);
+                return imageRepository;
+            }
+        }
+
+        
+        public Repository<Theater> Theaters
+        {
+            get
+            {
+                if (theaterRepository == null)
+                    theaterRepository = new TheaterRepository(db);
+                return theaterRepository;
+            }
+        }
+
+        
+        public Repository<Purchase> Purchases
+        {
+            get
+            {
+                if (bookRepository == null)
+                    bookRepository = new BookRepository(db);
+                return bookRepository;
             }
         }
 
@@ -163,6 +189,17 @@ namespace Cinema.Domain.Repositories
         public void Save()
         {
             db.SaveChanges();
+        }
+
+        private TestRepository testRepository;
+        public Repository<Test> Testes
+        {
+            get
+            {
+                if (testRepository == null)
+                    testRepository = new TestRepository(db);
+                return testRepository;
+            }
         }
     }
 }

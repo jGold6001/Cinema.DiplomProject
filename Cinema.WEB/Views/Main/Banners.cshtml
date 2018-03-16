@@ -16,12 +16,12 @@
 
             @foreach (var item in Model)
             {
-                <li data-transition="fade" class="slide" data-title='Красный воробей'>
+                <li data-transition="fade" class="slide" data-title='@item.Title'>
 
                     <!-- SLIDE'S MAIN BACKGROUND IMAGE -->
                     @*<img class="rev-slidebg" alt='' src="~/Images/slides/banner-1518607607.jpg">*@
                    
-                    <img class="rev-slidebg" alt='' src="@item.PosterURL">
+                    <img class="rev-slidebg" alt='' src="@item.BannerUrl">
                     <div class="tp-caption slide__name margin-slider"
                          data-x="20"
                          data-y="80"
@@ -62,7 +62,7 @@
                             "to":"opacity:0;",
                             "ease":"Power3.easeInOut"
                             }]'>                      
-                        @item.Countries[0], @item.Premiere.ToLongDateString()  ,  @item.Duration мин, @item.AgeLimit+
+                        @item.Country; @item.Premiere.ToLongDateString();  @item.Duration мин.; @item.AgeLimit+
                     </div>
                     <div class="tp-caption slide__date margin-slider"
                          data-x="20"
@@ -81,17 +81,7 @@
                             "to":"opacity:0;",
                             "ease":"Power3.easeInOut"
                             }]'>
-                        @foreach (var genre in item.Genres)
-                        {
-                            if (genre == Model[0].Genres.Last() || Model[0].Genres.Count == 1)
-                            {
-                                <span>@genre</span>
-                            }
-                            else
-                            {
-                                <span>@genre,</span>
-                            }
-                        }
+                       @item.Genre
                     </div>
 
                     <div class="tp-caption margin-slider"

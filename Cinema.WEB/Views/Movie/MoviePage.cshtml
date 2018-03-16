@@ -23,50 +23,20 @@
                         <p class="movie__time">169 min</p>
                         <p class="movie__option">
                             <strong>Страна: </strong>
-                            @foreach (var country in Model.Countries)
-                            {
-                                if (country == Model.Countries.Last() || Model.Countries.Count == 1)
-                                {
-                                    <span>@country</span>
-                                }
-                                else
-                                {
-                                    <span>@country,</span>
-                                }
-                            }
+                            @Model.Country
                         </p>
                         <p class="movie__option"><strong>Год: </strong><span>@Model.Year</span></p>
                         <p class="movie__option">
                             <strong>Жанр: </strong>
-                            @foreach (var genre in Model.Genres)
-                            {
-                                if (genre == Model.Genres.Last() || Model.Genres.Count == 1)
-                                {
-                                    <span>@genre</span>
-                                }
-                                else
-                                {
-                                    <span>@genre,</span>
-                                }
-                            }
+                            @Model.Genre
                         </p>
                         <p class="movie__option"><strong>Премьера: </strong>@Model.Premiere.ToLongDateString()</p>
                         <p class="movie__option"><strong>Режисер: </strong>@Model.Director</p>
                         <p class="movie__option">
                             <strong>Актеры: </strong>
-                            @foreach (var actor in Model.Actors)
-                            {
-                                if (actor == Model.Actors.Last() || Model.Actors.Count == 1)
-                                {
-                                    <span>@actor</span>
-                                }
-                                else
-                                {
-                                    <span>@actor,</span>
-                                }
-                            }
+                            @Model.Actors
                         </p>
-                        <p class="movie__option"><strong>Возрастная категория: </strong>@Model.AgeLimit</p>
+                        <p class="movie__option"><strong>Возрастная категория: </strong>@Model.AgeLimit+</p>
 
                         <div class="trailer_btn">
                             <a href="@Model.TrailerUrl" target="_blank" class="btn btn-md btn--default btn--wide slider--btn" >

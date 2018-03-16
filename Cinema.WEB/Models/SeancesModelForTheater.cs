@@ -11,6 +11,7 @@ namespace Cinema.WEB.Models
         public MovieModelMainPage MovieModel { get; set; }
         public List<HallModel> HallModels { get; set; }
         public List<SeanceModel> Seances { get; set; }   
+        public List<TimeSeanceModel> TimeSeances { get; set; }
        
     }
 }

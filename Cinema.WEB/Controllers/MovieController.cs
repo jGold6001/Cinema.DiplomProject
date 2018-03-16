@@ -23,15 +23,9 @@ namespace Cinema.WEB.Controllers
             this.movieService = movieService;
             this.seanceService = seanceService;
 
-            mapperMovieModelFull = new Mapper(new MapperConfiguration(cfg => cfg.CreateMap<Movie, MovieModelFull>()
-                .ForMember(d => d.PosterURL, otp => otp.MapFrom(src => src.Poster.Url))
-                .ForMember(d => d.Premiere, otp => otp.MapFrom(src => DateTime.ParseExact(src.Premiere, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture)))
-                .ForMember(d => d.TrailerUrl, opt => opt.MapFrom(src => src.Trailer.Url))
-                .ForMember(d => d.Genres, otp => otp.MapFrom(src => src.Genres.Select(g => g.Name)))
-                .ForMember(d => d.Countries, otp => otp.MapFrom(src => src.Countries.Select(g => g.Name)))
-                .ForMember(d => d.ImagesUrls, opt => opt.MapFrom(src => src.Images.Select(i => i.Url)))
-                .ForMember(d => d.Director, opt => opt.MapFrom(src => src.Persons.Where(p => p.ProfessionId == 1).Select(p => $"{p.FirstName} {p.LastName}").FirstOrDefault()))
-                .ForMember(d => d.Actors, opt => opt.MapFrom(src => src.Persons.Where(p => p.ProfessionId == 2).Select(p => $"{p.FirstName} {p.LastName}")))
+            mapperMovieModelFull = new Mapper(new MapperConfiguration(cfg => cfg.CreateMap<MovieDb, MovieModelFull>()               
+                .ForMember(d => d.Premiere, otp => otp.MapFrom(src => DateTime.ParseExact(src.Premiere, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture)))              
+                .ForMember(d => d.ImagesUrls, opt => opt.MapFrom(src => src.Images.Select(i => i.Url)))               
             ));
             
 
@@ -50,8 +44,8 @@ namespace Cinema.WEB.Controllers
         [Route("{Id}")]
         public ActionResult MoviePage(long id)
         {
-            var movie = movieService.GetFromAPI(id);
-            var movieModelFull = mapperMovieModelFull.Map<Movie, MovieModelFull>(movie);
+            var movie = movieService.GetOne(id);
+            var movieModelFull = mapperMovieModelFull.Map<MovieDb, MovieModelFull>(movie);
             return View(movieModelFull);
         }
 
@@ -62,7 +56,8 @@ namespace Cinema.WEB.Controllers
             var date = DateTime.ParseExact(dateStr, "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
             var seanceData = seanceService.GetDataFromAPISeanceByMovieTheaterAndDate(theaterId, movieId, date.ToString("yyyy-MM-dd"));
             var seancesModelForTheater = mapperSeanceModelForTheater.Map<SeanceData, SeancesModelForTheater>(seanceData);
-
+            var seances = seancesModelForTheater.Seances;
+            seancesModelForTheater.TimeSeances = GetListSeances(seances);
             
             if (seancesModelForTheater.Seances.Count > 0)
                 return PartialView(seancesModelForTheater);
@@ -82,6 +77,36 @@ namespace Cinema.WEB.Controllers
             ViewBag.Theaters = new List<int>() { 8, 281 };           
             return PartialView();
         }
-        
+
+        public List<TimeSeanceModel> SeancesByTheaterMovieAndDateTs(long theaterId, long movieId, string dateStr)
+        {
+            ViewBag.TheaterId = theaterId;
+            var date = DateTime.ParseExact(dateStr, "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            var seanceData = seanceService.GetDataFromAPISeanceByMovieTheaterAndDate(theaterId, movieId, date.ToString("yyyy-MM-dd"));
+            var seancesModelForTheater = mapperSeanceModelForTheater.Map<SeanceData, SeancesModelForTheater>(seanceData);
+
+            var seances = seancesModelForTheater.Seances;
+
+
+            return GetListSeances(seances);
+           
+        }
+
+
+        public List<TimeSeanceModel> GetListSeances(List<SeanceModel> seances)
+        {
+            var timeSeances = new List<TimeSeanceModel>();
+            foreach (var seance in seances)
+            {
+                foreach (var time in seance.Times)
+                {
+                    time.HallId = seance.HallId;
+                    time.SeanceId = seance.Id;
+                    timeSeances.Add(time);
+                }
+            }
+
+            return timeSeances.OrderBy(t => t.TimeBegin).ToList();
+        }
     }
 }

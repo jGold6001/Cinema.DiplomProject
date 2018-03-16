@@ -14,6 +14,7 @@ namespace Cinema.WEB.Utils
             Bind<MovieService>().To<MovieService>();
             Bind<TheaterService>().To<TheaterService>();
             Bind<SeanceService>().To<SeanceService>();
+            Bind<BookService>().To<BookService>();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Cinema.Domain.Business;
+﻿using AutoMapper;
+using Cinema.Domain.Business;
 using Cinema.Domain.Entities;
 using Cinema.Domain.Repositories;
 using System;
@@ -14,39 +15,32 @@ namespace Cinema.Domain.Services
         EFUnitOfWork unitOfWork = new EFUnitOfWork("CotsContext");
         string keyAPI = "?apiKey=pol1kh111";
         string host = "http://kino-teatr.ua:8081/services/api";
-
+        IMapper mapper;
 
         public MovieService()
         {
 
         }
 
+        
+
         public void AddOrUpdateMovie(Movie movie)
         {
-            unitOfWork.Posters.AddOrUpdate(movie.Poster);
-            unitOfWork.Trailers.AddOrUpdate(movie.Trailer);
-
-            foreach (var item in movie.Persons)
-            {
-                if (unitOfWork.Persons.Get(item.Id) == null)
-                    unitOfWork.Persons.AddOrUpdate(item);
-                else
-                    unitOfWork.Persons.Attach(item);
-            }
-
-            foreach (var item in movie.Countries)
-                unitOfWork.Countries.Attach(item);
-
-
-            foreach (var item in movie.Genres)
-                 unitOfWork.Genres.Attach(item);
-
+            mapper = new Mapper(new MapperConfiguration(c => c.CreateMap<Movie, MovieDb>()));
+            
+  
             foreach (var item in movie.Images)
                 unitOfWork.Images.AddOrUpdate(item);
 
-            unitOfWork.Movies.AddOrUpdate(movie);
+            unitOfWork.Movies.AddOrUpdate(mapper.Map<Movie, MovieDb>(movie));
 
             unitOfWork.Save();
+        }
+
+
+        public MovieDb GetOne(long id)
+        {
+            return unitOfWork.Movies.Get(id);
         }
 
 
@@ -67,24 +61,26 @@ namespace Cinema.Domain.Services
         }
 
 
+        
+
+
         public Movie GetFromAPI(long id)
         {
             var movie = JsonFromURL<Movie>.ConvertToObject($"{host}/film/{id}{keyAPI}");
 
             //get and add poster
             var postrsIds = JsonFromURL<PostersByMovie>.ConvertToObject($"{host}/film/{id}/posters{keyAPI}");
-            var posterUrl = $"{host}/film/poster/{postrsIds.Ids[0].Value}{keyAPI}&width=380&height=600&ratio=1";          
-            var poster = new Poster(id, posterUrl);
-            movie.Poster = poster;
+            var posterUrl = $"{host}/film/poster/{postrsIds.Ids[0].Value}{keyAPI}&width=380&height=600&ratio=1";
+            movie.PosterUrl = posterUrl;
 
             //banner
-            if(unitOfWork.Banners.Get(id) != null)
-                movie.BannerUrl = unitOfWork.Banners.Get(id).Url;
+            //if (unitOfWork.Banners.Get(id) != null)
+            //    movie.BannerUrl = unitOfWork.Banners.Get(id).Url;
 
             //get and add trailer
             var trailers = JsonFromURL<TrailersData>.ConvertToObject($"{host}/film/{id}/trailers{keyAPI}&size=1");
             var trailer = trailers.trailers.FirstOrDefault();
-            movie.Trailer = trailer;
+            movie.TrailerUrl = trailer.Url;
 
             //get and add images
             var imagesData = JsonFromURL<ImageData>.ConvertToObject($"{host}/film/{id}/images{keyAPI}");
@@ -93,15 +89,72 @@ namespace Cinema.Domain.Services
 
             //get and add persons
             var personsByMovie = JsonFromURL<PersonesByMovie>.ConvertToObject($"{host}/film/{id}/persons{keyAPI}&size=max&detalization=FULL");
-            var persons = new List<Person>();          
-            movie.Persons = GetPersons(id, personsByMovie, persons);
+            var persons = GetPersons(id, personsByMovie);
+            try
+            {
+                var director = persons.Find(p => p.ProfessionId == 1);
+                movie.Director = $"{director.FirstName} {director.LastName}";
+            }
+            catch(Exception)
+            {
+                
+            }         
+            
+           
 
-            var editDescription = movie.Description;
+            StringBuilder actors = CreateActors(persons);
+            movie.Actors = actors.ToString();
 
+            StringBuilder counties = CreateCountries(movie);
+            movie.Country = counties.ToString();
+
+            StringBuilder genres = CreateGenres(movie);
+            movie.Genre = genres.ToString();
 
             return movie;
         }
 
+        private static StringBuilder CreateGenres(Movie movie)
+        {
+            StringBuilder genres = new StringBuilder();
+            foreach (var item in movie.Genres)
+            {
+                genres.Append($"{item.Name}");
+                if (item.Id != movie.Genres.Last().Id)
+                    genres.Append(", ");
+            }
+
+            return genres;
+        }
+
+        private static StringBuilder CreateCountries(Movie movie)
+        {
+            StringBuilder counties = new StringBuilder();
+            foreach (var item in movie.Countries)
+            {
+                counties.Append($"{item.Name}");
+                if (item.Id != movie.Countries.Last().Id)
+                    counties.Append(", ");
+            }
+
+            return counties;
+        }
+
+        private static StringBuilder CreateActors(List<Person> persons)
+        {
+            StringBuilder actors = new StringBuilder();
+            foreach (var item in persons)
+            {
+                if (item.ProfessionId == 2)
+                {
+                    actors.Append($"{item.FirstName} {item.LastName}");
+                    if (item.Id != persons.Last().Id)
+                        actors.Append(", ");
+                }
+            }
+
+            return actors;
+        }
 
         public List<Movie> GetAllFromAPIByTheater(long id)
         {
@@ -117,32 +170,16 @@ namespace Cinema.Domain.Services
             return movies;
         }
 
-        public List<Movie> GetAllBestFromApi()
+        public List<MovieDb> GetAllBestFromApi()
         {
-            var florenceMovies = GetAllFromAPIByTheater(8);
-            var boomerMovies = GetAllFromAPIByTheater(281);
-
-            var merged = new List<Movie>(florenceMovies);
-            merged.AddRange(boomerMovies.Where(m2 =>
-                            florenceMovies.All(m1 => m1.Id != m2.Id)));
-
-            var movies = new List<Movie>(merged.OrderBy(m => m.Premiere).Reverse().Take(6));
-
+            var movies = unitOfWork.Movies.GetAll().OrderBy(m => m.Premiere).Reverse().Take(6).ToList();           
             return movies;
         }
 
 
-        public List<Movie> GetAllTodayFromApi()
+        public List<MovieDb> GetAllTodayFromApi()
         {
-            var florenceMovies = GetAllFromAPIByTheater(8);
-            var boomerMovies = GetAllFromAPIByTheater(281);
-
-            var merged = new List<Movie>(florenceMovies);
-            merged.AddRange(boomerMovies.Where(m2 =>
-                            florenceMovies.All(m1 => m1.Id != m2.Id)));
-
-            var movies = new List<Movie>(merged.OrderBy(m => m.Rating).Reverse().Take(8));
-
+            var movies = unitOfWork.Movies.GetAll().Take(8).ToList();
             return movies;
         }
 
@@ -160,21 +197,15 @@ namespace Cinema.Domain.Services
             return movies;
         }
 
-        public List<Movie> GetAllWithBanners()
+        public List<MovieDb> GetAllWithBanners()
         {
-            var florenceMovies = GetAllFromAPIByTheater(8);
-            var boomerMovies = GetAllFromAPIByTheater(281);
-
-            var merged = new List<Movie>(florenceMovies);
-            merged.AddRange(boomerMovies.Where(m2 =>
-                            florenceMovies.All(m1 => m1.Id != m2.Id)));
-
-            var movies = merged.FindAll(m => m.BannerUrl !=null);
-            return movies;
+            var movies = unitOfWork.Movies.GetAll();
+            return movies.Where(m => m.BannerUrl != null).ToList();
         }
 
-        private List<Person> GetPersons(long id, PersonesByMovie personsByMovie, List<Person> persons)
+        private List<Person> GetPersons(long id, PersonesByMovie personsByMovie)
         {
+            var persons = new List<Person>();
             foreach (var item in personsByMovie.PersonModels)
             {
                 var person = ConvertToPerson(item, id);

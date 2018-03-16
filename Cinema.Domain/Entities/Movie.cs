@@ -39,10 +39,18 @@ namespace Cinema.Domain.Entities
         [JsonProperty("tmdb_votes")]
         public long? Votes { get; set; }
         public string BannerUrl { get; set; }
+        public string PosterUrl { get; set; }
+        public string TrailerUrl { get; set; }
+        public string Actors { get; set; }
+        public string Director { get; set; }
 
-        public Poster Poster { get; set; }      
-        public Trailer Trailer { get; set; }       
-        public List<Person> Persons { get; set; }
+        public string Genre { get; set; }
+        public string Country { get; set; }
+        //public Poster Poster { get; set; }  
+
+        //public Trailer Trailer { get; set; } 
+        //public string TrailerId { get; set; }
+        //public List<Person> Persons { get; set; }
         public List<Image> Images { get; set; }
 
         [JsonProperty("countries")]
@@ -53,7 +61,7 @@ namespace Cinema.Domain.Entities
 
         public Movie()
         {
-            Persons = new List<Person>();
+            //Persons = new List<Person>();
             Images = new List<Image>();
             Countries = new List<Country>();
             Genres = new List<Genre>();

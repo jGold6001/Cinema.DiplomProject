@@ -8,7 +8,7 @@ using System.Data.Entity;
 
 namespace Cinema.Domain.Repositories
 {
-    public class MovieRepository : Repository<Movie>
+    public class MovieRepository : Repository<MovieDb>
     {
         public MovieRepository(DbContext context) : base(context)
         {

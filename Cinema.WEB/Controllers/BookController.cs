@@ -17,18 +17,24 @@ namespace Cinema.WEB.Controllers
         SeanceService seanceService;
         MovieService movieService;
         TheaterService theaterService;
+        BookService bookService;
 
-        IMapper mapperMovieModel, mapperSeanceModel, mapperSeanceDataModel, mapperTheaterModel, mapperTimeSeanceModel, mapperPriceModel;
+        IMapper mapperMovieModel, mapperSeanceModel, 
+            mapperSeanceDataModel,
+            mapperTheaterModel, 
+            mapperTimeSeanceModel, 
+            mapperPriceModel,
+            mapperPurcahse,
+            mapperPurchaseModel;
 
-        public BookController(SeanceService seanceService, MovieService movieService, TheaterService theaterService)
+        public BookController(SeanceService seanceService, MovieService movieService, TheaterService theaterService, BookService bookService)
         {
             this.seanceService = seanceService;
             this.movieService = movieService;
             this.theaterService = theaterService;
+            this.bookService = bookService;
 
-            mapperMovieModel = new Mapper(new MapperConfiguration(c => c.CreateMap<Movie, MovieBookModel>()
-                .ForMember(d => d.PosterUrl, otp => otp.MapFrom(src => src.Poster.Url))
-            ));
+            mapperMovieModel = new Mapper(new MapperConfiguration(c => c.CreateMap<Movie, MovieBookModel>()));
 
             mapperTheaterModel = new Mapper(new MapperConfiguration(c => c.CreateMap<Theater, TheaterBookModel>()));
 
@@ -47,6 +53,10 @@ namespace Cinema.WEB.Controllers
             mapperPriceModel = new Mapper(new MapperConfiguration(c => c.CreateMap<Price, PriceModel>()
                 .ForMember(d => d.Tariff, o => o.MapFrom(s => SetTariff(s.Type)))
             ));
+
+            mapperPurcahse = new Mapper(new MapperConfiguration(c => c.CreateMap<PurchaseModel, Purchase>()));
+
+            mapperPurchaseModel = new Mapper(new MapperConfiguration(c => c.CreateMap<Purchase, PurchaseModel>()));
         }
 
         
@@ -67,18 +77,30 @@ namespace Cinema.WEB.Controllers
             
             var bookData = new BookDataModel(timeSeanceId, hallName, date, movieModel, timeSeance, theaterModel, technology, pricesModel);
 
+            //ViewBag.LastElId = bookService.GetLastElId();
+
             return View(bookData);
+        }
+
+        [HttpPost]
+        public void SaveInDb(PurchaseModel purchaseModel)
+        {
+            var purchase = mapperPurcahse.Map<PurchaseModel, Purchase>(purchaseModel);
+            bookService.AddOrUpdatePurchase(purchase);
+
         }
 
         [Route("purchase")]
         public ActionResult Purchase()
         {
-            return View();
+            var movie = movieService.GetOne(49108);          
+            return View(movie);
         }
 
         [Route("ticket")]
         public ActionResult Ticket()
         {
+            
             return View();
         }
 

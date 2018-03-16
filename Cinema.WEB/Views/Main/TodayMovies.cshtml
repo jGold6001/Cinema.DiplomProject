@@ -19,20 +19,7 @@
             <a href='@Url.Action("MoviePage", "Movie", new { id = Model[0].Id })' class="movie__title">@Model[0].Title (@Model[0].Year)  </a>
             <p class="movie__time">@Model[0].Duration мин</p>
             <p class="movie__option">
-                @foreach (var genre in Model[0].Genres)
-                {
-
-                    if (genre == Model[0].Genres.Last() || Model[0].Genres.Count == 1)
-                    {
-                        <span>@genre</span>
-                    }
-                    else
-                    {
-                        <span>@genre,</span> 
-                    }
-
-                }
-               
+                @Model[0].Genre
             </p>
             <div class="box">
                 <div>
@@ -56,21 +43,9 @@
         </div>
         <div class="movie__info">
             <a href='@Url.Action("MoviePage", "Movie", new { id = Model[1].Id })' class="movie__title">@Model[1].Title (@Model[1].Year)  </a>
-            <p class="movie__time">@Model[3].Duration мин</p>
+            <p class="movie__time">@Model[1].Duration мин</p>
             <p class="movie__option">
-                @foreach (var genre in Model[1].Genres)
-                {
-
-                    if (genre == Model[1].Genres.Last() || Model[1].Genres.Count == 1)
-                    {
-                        <span>@genre</span>
-                    }
-                    else
-                    {
-                        <span>@genre,</span>
-                    }
-
-                }
+                @Model[1].Genre
                
             </p>
             <div class="box">
@@ -99,20 +74,7 @@
             <a href='@Url.Action("MoviePage", "Movie", new { id = Model[2].Id })' class="movie__title">@Model[2].Title (@Model[2].Year)  </a>
             <p class="movie__time">@Model[2].Duration мин</p>
             <p class="movie__option">
-                @foreach (var genre in Model[2].Genres)
-                {
-
-                    if (genre == Model[2].Genres.Last() || Model[2].Genres.Count == 1)
-                    {
-                        <span>@genre</span>
-                    }
-                    else
-                    {
-                        <span>@genre,</span>
-                    }
-
-                }
-
+                @Model[2].Genre
             </p>
             <div class="box">
                 <div>
@@ -138,20 +100,7 @@
             <a href='@Url.Action("MoviePage", "Movie", new { id = Model[3].Id })' class="movie__title">@Model[3].Title (@Model[3].Year)  </a>
             <p class="movie__time">@Model[3].Duration мин</p>
             <p class="movie__option">
-                @foreach (var genre in Model[3].Genres)
-                {
-
-                    if (genre == Model[3].Genres.Last() || Model[3].Genres.Count == 1)
-                    {
-                        <span>@genre</span>
-                    }
-                    else
-                    {
-                        <span>@genre,</span>
-                    }
-
-                }
-
+                @Model[3].Genre
             </p>
             <div class="box">
                 <div>
@@ -177,20 +126,7 @@
             <a href='@Url.Action("MoviePage", "Movie", new { id = Model[4].Id })' class="movie__title">@Model[4].Title (@Model[4].Year)  </a>
             <p class="movie__time">@Model[4].Duration мин</p>
             <p class="movie__option">
-                @foreach (var genre in Model[4].Genres)
-                {
-
-                    if (genre == Model[4].Genres.Last() || Model[4].Genres.Count == 1)
-                    {
-                        <span>@genre</span>
-                    }
-                    else
-                    {
-                        <span>@genre,</span>
-                    }
-
-                }
-
+                @Model[4].Genre
             </p>
             <div class="box">
                 <div>
@@ -216,20 +152,7 @@
             <a href='@Url.Action("MoviePage", "Movie", new { id = Model[5].Id })' class="movie__title">@Model[5].Title (@Model[5].Year)  </a>
             <p class="movie__time">@Model[5].Duration мин</p>
             <p class="movie__option">
-                @foreach (var genre in Model[5].Genres)
-                {
-
-                    if (genre == Model[5].Genres.Last() || Model[5].Genres.Count == 1)
-                    {
-                        <span>@genre</span>
-                    }
-                    else
-                    {
-                        <span>@genre,</span>
-                    }
-
-                }
-
+                @Model[5].Genre
             </p>
             <div class="box">
                 <div>
@@ -257,20 +180,7 @@
             <a href='@Url.Action("MoviePage", "Movie", new { id = Model[6].Id })' class="movie__title">@Model[6].Title (@Model[6].Year)  </a>
             <p class="movie__time">@Model[6].Duration мин</p>
             <p class="movie__option">
-                @foreach (var genre in Model[6].Genres)
-                {
-
-                    if (genre == Model[6].Genres.Last() || Model[6].Genres.Count == 1)
-                    {
-                        <span>@genre</span>
-                    }
-                    else
-                    {
-                        <span>@genre,</span>
-                    }
-
-                }
-
+                @Model[6].Genre
             </p>
             <div class="box">
                 <div>
@@ -296,20 +206,7 @@
             <a href='@Url.Action("MoviePage", "Movie", new { id = Model[7].Id })' class="movie__title">@Model[7].Title (@Model[7].Year)  </a>
             <p class="movie__time">@Model[7].Duration мин</p>
             <p class="movie__option">
-                @foreach (var genre in Model[7].Genres)
-                {
-
-                    if (genre == Model[7].Genres.Last() || Model[7].Genres.Count == 1)
-                    {
-                        <span>@genre</span>
-                    }
-                    else
-                    {
-                        <span>@genre,</span>
-                    }
-
-                }
-
+                @Model[7].Genre
             </p>
             <div class="box">
                 <div>

@@ -56,6 +56,11 @@ namespace Cinema.Domain.Business
                     nums.Remove(nums.Last());
                     return nums;
 
+                case "55-65":
+                    nums.AddRange(new List<int>() { 60 });
+                    nums.Sort();
+                    return nums;
+
                 default: return null;
             }
         }

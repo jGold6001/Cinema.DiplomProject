@@ -11,7 +11,7 @@ namespace Cinema.Domain.Entities
         public long Id { get; set; }
         public string Url { get; set; }
         public long MovieId { get; set; }
-        public Movie Movie { get; set;}
+        public MovieDb Movie { get; set;}
 
         public Image()
         {

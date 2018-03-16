@@ -18,20 +18,7 @@
                 <li>
                     <p class="movie__time">@Model[0].Duration мин</p>
                     <p>
-
-                        @foreach (var genre in Model[0].Genres)
-                        {
-
-                            if (genre == Model[0].Genres.Last() || Model[0].Genres.Count == 1)
-                            {
-                                <span>@genre</span>
-                            }
-                            else
-                            {
-                                <span>@genre,</span>
-                            }
-                                
-                        }
+                       @Model[0].Genre
                     </p>
                 </li>
                 <li class="last-block">
@@ -49,20 +36,7 @@
                 <li>
                     <p class="movie__time">@Model[1].Duration мин</p>
                     <p>
-
-                        @foreach (var genre in Model[1].Genres)
-                        {
-
-                            if (genre == Model[1].Genres.Last() || Model[1].Genres.Count == 1)
-                            {
-                                <span>@genre</span>
-                            }
-                            else
-                            {
-                                <span>@genre,</span>
-                            }
-
-                        }
+                        @Model[1].Genre
                     </p>
                 </li>
                 <li class="last-block">
@@ -82,20 +56,7 @@
                 <li>
                     <p class="movie__time">@Model[2].Duration мин</p>
                     <p>
-
-                        @foreach (var genre in Model[2].Genres)
-                        {
-
-                            if (genre == Model[2].Genres.Last() || Model[2].Genres.Count == 1)
-                            {
-                                <span>@genre</span>
-                            }
-                            else
-                            {
-                                <span>@genre,</span>
-                            }
-
-                        }
+                        @Model[2].Genre
                     </p>
                 </li>
                 <li class="last-block">
@@ -115,20 +76,7 @@
                 <li>
                     <p class="movie__time">@Model[3].Duration мин</p>
                     <p>
-
-                        @foreach (var genre in Model[3].Genres)
-                        {
-
-                            if (genre == Model[3].Genres.Last() || Model[3].Genres.Count == 1)
-                            {
-                                <span>@genre</span>
-                            }
-                            else
-                            {
-                                <span>@genre,</span>
-                            }
-
-                        }
+                        @Model[3].Genre
                     </p>
                 </li>
                 <li class="last-block">
@@ -148,20 +96,7 @@
                 <li>
                     <p class="movie__time">@Model[4].Duration мин</p>
                     <p>
-
-                        @foreach (var genre in Model[4].Genres)
-                        {
-
-                            if (genre == Model[4].Genres.Last() || Model[4].Genres.Count == 1)
-                            {
-                                <span>@genre</span>
-                            }
-                            else
-                            {
-                                <span>@genre,</span>
-                            }
-
-                        }
+                        @Model[4].Genre
                     </p>
                 </li>
                 <li class="last-block">
@@ -179,20 +114,7 @@
                 <li>
                     <p class="movie__time">@Model[5].Duration мин</p>
                     <p>
-
-                        @foreach (var genre in Model[5].Genres)
-                        {
-
-                            if (genre == Model[5].Genres.Last() || Model[5].Genres.Count == 1)
-                            {
-                                <span>@genre</span>
-                            }
-                            else
-                            {
-                                <span>@genre,</span>
-                            }
-
-                        }
+                        @Model[5].Genre
                     </p>
                 </li>
                 <li class="last-block">

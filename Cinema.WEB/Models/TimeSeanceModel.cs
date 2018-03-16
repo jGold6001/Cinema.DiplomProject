@@ -12,6 +12,9 @@ namespace Cinema.WEB.Models
         public string Prices { get; set; }  
         public bool Is3D { get; set; }
         public bool PurchaseAllowed { get; set; }
+
+        public long SeanceId { get; set; }
+        public long HallId { get; set; }
       
     }
 }

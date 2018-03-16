@@ -17,11 +17,11 @@ namespace Cinema.WEB.Models
         public double? Rating { get; set; }
         public long? Votes { get; set; }
         public string PosterURL { get; set; }
-        public List<string> Countries { get; set; }
-        public List<string> Genres { get; set; }
+        public string Country { get; set; }
+        public string Genre { get; set; }
         public List<string> ImagesUrls { get; set; }
         public string TrailerUrl { get; set; }
-        public List<string> Actors { get; set; }
+        public string Actors { get; set; }
         public string Director { get; set; }
     }
 }
